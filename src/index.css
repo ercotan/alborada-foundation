@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-gold-50: #fffdf5;
+  --color-gold-100: #fff9e6;
+  --color-gold-200: #ffeed3;
+  --color-gold-300: #ffe1b3;
+  --color-gold-400: #ffd38a;
+  --color-gold-500: #d4af37; /* Metallic gold */
+  --color-gold-600: #b8972e;
+  --color-gold-700: #91741e;
+  --color-gold-800: #6b5314;
+  --color-gold-900: #423207;
+
+  --color-navy-50: #f4f6fb;
+  --color-navy-100: #e8ecf6;
+  --color-navy-200: #ccd5ec;
+  --color-navy-300: #a1b2dc;
+  --color-navy-400: #708bc8;
+  --color-navy-500: #4a66b0;
+  --color-navy-600: #394e92;
+  --color-navy-700: #2c3a70;
+  --color-navy-800: #020408;
+  --color-navy-950: #050A1A; /* Premium Midnight Navy background from Natural Tones */
+}
+
+/* Custom styles for luxury glassmorphism and ambient glow */
+.glass-panel {
+  background: rgba(5, 10, 26, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.glass-panel-subtle {
+  background: rgba(5, 10, 26, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.letter-spacing-xl {
+  letter-spacing: 0.8em;
+  text-indent: 0.8em;
+}
+
+.letter-spacing-xxl {
+  letter-spacing: 1.2em;
+  text-indent: 1.2em;
+}
+
+.gold-glow {
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.gold-glow-subtle {
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.15);
+}
+
+.gold-border-glow:hover {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+/* Hide scrollbar for clean cinematic feel */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050A1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.4);
+}
+
+/* Cinematic fade animations */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
