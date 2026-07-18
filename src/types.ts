@@ -2,6 +2,8 @@
  * Types and interfaces for the Alborada Cinematic Experience
  */
 
+import type { LucideIcon } from "lucide-react";
+
 export type AppView = "cinema" | "homepage";
 
 export interface CinematicState {
@@ -49,4 +51,70 @@ export interface Initiative {
   description: string;
   location: string;
   stats: string;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Homepage content                                                            */
+/* -------------------------------------------------------------------------- */
+
+/** One of the six pillars of the Alborada education model. */
+export interface ModelPillar {
+  id: string;
+  title: string;
+  icon: LucideIcon;
+  text: string;
+  points: string[];
+}
+
+/** A selectable area of the campus master plan. */
+export interface CampusNode {
+  id: string;
+  title: string;
+  icon: LucideIcon;
+  text: string;
+}
+
+/** Icon + title + copy card, reused across several sections. */
+export interface IconFeature {
+  icon: LucideIcon;
+  title: string;
+  text: string;
+}
+
+/** Large figure with a caption (impact grid). */
+export interface ImpactStat {
+  value: string;
+  label: string;
+  text: string;
+}
+
+/** Compact figure + caption pair (vision grid). */
+export interface StatHighlight {
+  value: string;
+  label: string;
+}
+
+/** A dated milestone on the roadmap. */
+export interface TimelineMilestone {
+  year: string;
+  title: string;
+  text: string;
+}
+
+/** Plain title + copy card (guidance topics). */
+export interface TopicCard {
+  title: string;
+  text: string;
+}
+
+/** Entry of the header / footer in-page navigation. */
+export interface NavLink {
+  targetId: string;
+  label: string;
+}
+
+/** Option of the contact form's interest selector. */
+export interface ContactInterest {
+  value: string;
+  label: string;
 }

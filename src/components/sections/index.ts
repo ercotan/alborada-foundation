@@ -1,0 +1,14 @@
+export { HeroSection } from "./HeroSection";
+export { MissionSection } from "./MissionSection";
+export { VisionSection } from "./VisionSection";
+export { ModelSection } from "./ModelSection";
+export { CohortSection } from "./CohortSection";
+export { CampusSection } from "./CampusSection";
+export { HeraSection } from "./HeraSection";
+export { SustainabilitySection } from "./SustainabilitySection";
+export { ImpactSection } from "./ImpactSection";
+export { TimelineSection } from "./TimelineSection";
+export { TransparencySection } from "./TransparencySection";
+export { AlliancesSection } from "./AlliancesSection";
+export { ContactSection } from "./ContactSection";
+export { OrientationSection } from "./OrientationSection";
