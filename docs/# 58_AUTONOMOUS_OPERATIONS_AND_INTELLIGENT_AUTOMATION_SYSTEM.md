@@ -29,7 +29,11 @@ Automatizar los procesos institucionales mediante tecnologías inteligentes que 
 
 # VISIÓN
 
-Convertir a la Fundación Alborada en una organización donde la mayoría de los procesos administrativos, tecnológicos, científicos y operativos funcionen de forma autónoma bajo una supervisión humana estratégica.
+Convertir a la Fundación Alborada en una organización donde la mayoría de los procesos administrativos, tecnológicos, científicos y operativos se ejecuten de forma autónoma bajo supervisión humana estratégica.
+
+La autonomía institucional se limita exclusivamente a la ejecución de procesos previamente definidos y autorizados.
+
+Toda decisión institucional permanecerá bajo responsabilidad y autoridad humana.
 
 ---
 
@@ -38,6 +42,8 @@ Convertir a la Fundación Alborada en una organización donde la mayoría de los
 La automatización no reemplaza el propósito humano.
 
 Lo libera.
+
+La automatización puede ejecutar procesos de manera autónoma, pero ninguna decisión institucional podrá ser tomada sin autoridad y supervisión humana.
 
 Cada proceso automatizado representa más tiempo para pensar, aprender, enseñar y transformar vidas.
 
