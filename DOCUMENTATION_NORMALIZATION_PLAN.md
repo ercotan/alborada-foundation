@@ -23,15 +23,17 @@ Three findings define the problem.
 
 **Second — the normative layer contradicts itself and is circular.** Three documents (`1000`, `1003`, `1010`) assign three incompatible meanings to the same series numbers. Five different names are used for the supreme governing body, and four mutually incompatible organisational charts exist. Within the 1000-series there are **three genuine dependency loops** that cannot be resolved in any linear order as written, because two documents each define the same taxonomy and disagree.
 
-**Third — roughly a quarter of the corpus is duplicated.** Twelve clusters contain documents of **identical scope** — `25`/`47`/`60` are effectively one document written three times; `26` and `49` carry literally identical H1 titles; `44` and `77` are a word-order permutation of each other. Approximately **28 documents can be eliminated by merge** without losing a single idea.
+**Third — twelve clusters share scope at the level of title and subject.** `26` and `49` carry literally identical H1 titles; `44` and `77` are a word-order permutation of each other; `25`/`47`/`60` all open on knowledge as the most valuable asset.
+
+> ⚠️ **This finding was originally stated as "roughly a quarter of the corpus is duplicated" and used to justify eliminating ~28 documents by merge. A line-level content audit performed at Stage 4 disproved that conclusion** — see §12. Real content overlap across the clusters measured **0–14 %, mean 6 %**. Shared titles did not indicate shared content. The finding survives as *thematic dispersion*; the elimination estimate does not.
 
 Underlying all three: the corpus contains **no definitional register whatsoever**. There are zero occurrences of *"se entiende por"*, *"se define como"*, *"definimos"*, or *"entendemos por"*. `# 1002` mandates a *glosario institucional* and a define-on-first-use rule; neither exists. HERA is described in 21 mutually inconsistent ways across the corpus — as a person, an intelligence, an ecosystem, a tool, an asset, an engine, a memory, and an operating system.
 
 **Why this matters now.** HERA's institutional accuracy is bounded by documentary discipline. Ingesting this corpus today would produce a system that answers confidently from unapproved drafts, cannot distinguish current doctrine from superseded, and inherits every contradiction as though it were settled fact. Asked *"who approves a constitutional document?"* it would have four defensible answers. Asked *"what is HERA?"* it would have twenty-one.
 
-**The core recommendation is about sequence, not content.** The instinct is to fix the filenames first — they are the most visible defect. That instinct is expensive: renaming before the numbering scheme is settled means renaming twice, and renaming before merging means renaming ~28 files that will cease to exist. The order proposed in §16 eliminates an estimated **40–45 % of the total work** relative to the intuitive order.
+**The core recommendation is about sequence, not content.** The instinct is to fix the filenames first — they are the most visible defect. That instinct is expensive: renaming before the numbering scheme is settled means renaming twice. The order proposed in §16 exists to avoid that rework.
 
-**Estimated reduction:** 112 documents → **~84** after merges, with content loss of zero.
+**There is no target corpus size.** Normalization succeeds by making the corpus coherent, navigable and owned — not smaller. Any metric expressed as a document count reduction has been removed from this plan by ruling.
 
 ---
 
@@ -389,11 +391,13 @@ Meanwhile all 101 documents in `00`–`100` have **no parent at all** under `# 1
 
 ---
 
-## 8. Duplicate Subjects
+## 8. Overlapping Subjects
 
-Twelve clusters of **identical scope**. These are not merely overlapping — several share opening sentences or titles.
+Twelve clusters share subject at the level of **title and opening framing**. Several share opening sentences or titles verbatim.
 
-| # | Documents | Evidence | Recommended survivor |
+> ⚠️ **The final column records the original merge recommendation and is superseded.** It is retained as the historical record of what was proposed and on what basis. The line-level content audit at Stage 4 (§12) measured real overlap at **0–14 %, mean 6 %**, and the merge strategy was withdrawn by ruling. These clusters are now treated as **domain-architecture inputs** — documents to be differentiated and cross-referenced, not consolidated.
+
+| # | Documents | Evidence | ⚠️ Original merge recommendation — superseded |
 |---|---|---|---|
 | **D1** | `25`, `47`, `60` | *"One document written three times."* All open on knowledge as the most valuable asset; `25`↔`47` share 31 lines | Merge into one |
 | **D2** | `26`, `49` | **Identical H1 titles** — both `SISTEMA DE INVESTIGACIÓN, DESARROLLO E INNOVACIÓN (I+D+i)`; 46 shared lines | `49` (broader) |
@@ -417,7 +421,7 @@ Requiring differentiation rather than merger:
 - **HERA — eleven documents**, with `08`↔`16` (Architecture vs Technical Architecture) and `28`↔`57`↔`58` substantially overlapping.
 - **1000-series** — `# 1000` is SUBSTANTIAL against **six of its ten siblings**, the highest-overlap node in the corpus.
 
-**Estimated eliminable documents: ~28** (12 clusters, several three-way), reducing 112 → **~84**.
+These clusters, together with the twelve above, define the **domain boundaries** that Stage 4 must draw. High shared-line counts identify where two documents say the same thing in the same words — which is a cross-referencing and ownership problem, not necessarily a redundancy one.
 
 ---
 
@@ -475,9 +479,49 @@ Requiring differentiation rather than merger:
 
 ---
 
-## 12. Required Merges
+## 12. Stage 4 — Domain Architecture and Cross-Reference Normalization
 
-Executed **before** renaming, so that ~28 documents are never renamed at all.
+**Status:** Approved and in progress · **Supersedes:** the merge strategy recorded in §12.2
+
+### 12.1 What Stage 4 is
+
+Stage 4 establishes **domain boundaries and explicit relationships** across the corpus. It does not consolidate documents.
+
+Its objectives are:
+
+1. **Domain ownership** — each subject domain has a defined boundary and a document that owns it.
+2. **Cross-reference normalization** — documents that depend on one another say so explicitly, by code, per `# 1008`.
+3. **Differentiation** — where two documents overlap in subject, the boundary between them is made explicit in both, rather than one absorbing the other.
+4. **Relationship typing** — detected relationships are classified per `# 1008`'s taxonomy.
+
+**There is no target corpus size, and corpus size is not a success metric.** A corpus of 114 well-bounded, mutually referencing documents is a better outcome than 84 merged ones whose provenance is lost.
+
+### 12.2 ⚠️ Superseded — the merge strategy
+
+**Withdrawn by ruling.** Preserved as the historical record of what was proposed, why, and what disproved it.
+
+**What was proposed.** Fifteen merges (M-01 … M-15) eliminating ~28 documents, reducing the corpus from 112 to ~84.
+
+**What it was based on.** Title similarity, shared opening sentences, and shared-line counts. Clusters were described as *"one document written three times"* and *"identical scope"* on that basis.
+
+**What disproved it.** Before executing M-05, a line-level content audit was run across the clusters. Measured real content overlap was **0–14 %, mean 6 %**:
+
+| Cluster | Basis for merge | Measured content overlap |
+|---|---|---|
+| `44` ↔ `77` | Titles are a word-order permutation | **12 %** |
+| `02` ↔ `88` | Both cultural doctrine | **0 %** |
+| All twelve clusters | Title/scope similarity | **0–14 %, mean 6 %** |
+
+Documents with near-identical titles were found to contain substantially different doctrine. **Title similarity had been treated as evidence of content duplication; it was not.** Executing the merges would have destroyed distinct doctrine under the belief it was redundant.
+
+**Ruling.** The merge plan was suspended before M-05 and replaced with the Domain Architecture approach in §12.1. Document count reduction was removed as an objective.
+
+**What carries forward.** The cluster analysis (§8) remains valid as a map of *thematic dispersion* — it identifies where domain boundaries need to be drawn. Only the conclusion that those clusters should collapse was withdrawn.
+
+**M-08 and M-09 are not revived by this.** Those merge constitutional instruments (`00`+`67`, `66`+`84`) and remain a **constitutional question for the Consejo Superior de Gobierno**, outside the technical workflow, whatever Stage 4's methodology is.
+
+<details>
+<summary>Original merge table — M-01 … M-15 (superseded, retained for the record)</summary>
 
 | ID | Merge | Into | Effort |
 |---|---|---|---|
@@ -497,7 +541,31 @@ Executed **before** renaming, so that ~28 documents are never renamed at all.
 | M-14 | Rationalise `38`/`39`/`70`/`79` | Two documents: risk, and continuity/DR | High |
 | M-15 | Rationalise `92`/`93`/`96` | One or two after M-01 | High |
 
-**M-08 and M-09 merge constitutional instruments and must not proceed on engineering judgement.**
+*None of the above is to be executed. M-01 … M-04 were never started; M-05 was halted before execution.*
+
+</details>
+
+### 12.3 Stage 4 progress
+
+**Completed.**
+
+| Item | Outcome |
+|---|---|
+| Five relationship-taxonomy pilots | Ran on the 1000-series, the HERA cluster, the constitutional cluster, and two F4 samples — one thematic, one dispersed |
+| Dispersed-sample control | The thematic sample suggested competing definitions; the dispersed sample found none. Confirmed that thematically-adjacent selection produces false positives |
+| Mention-vs-dependency standard | Deterministic classification rules, validated at 100 % precision on explicit references |
+| `# 1012` | The standard persisted as an auditing instrument, explicitly non-normative (commit `eab9cec`) |
+
+**Remaining.**
+
+| Item | Status |
+|---|---|
+| Documentary families model (F1–F4) | Designed, **not approved**. Requires ruling before consolidation |
+| Domain boundary definitions | Not started — depends on the families model |
+| Cross-reference population across the full corpus | Not started. `# 1012` validates explicit references but does not discover latent ones |
+| Latent dependency discovery | **Out of scope** for `# 1012` by declaration. Requires a separate semantic instrument (§15.1) |
+
+**Known limitation carried into Stage 5.** `# 1012` achieves full precision but partial coverage. It verifies relationships already declared; it does not find missing ones. The corpus's central defect — 114 nodes and almost no edges — is therefore **not** solved by `# 1012` alone.
 
 ---
 
@@ -523,9 +591,9 @@ Executed **before** renaming, so that ~28 documents are never renamed at all.
 
 | Scope | Count |
 |---|---|
-| Strip `"# "` prefix | 112 → ~84 after merges |
-| Apply `[CÓDIGO]_[TIPO]_[ÁREA]_[NOMBRE]` | ~84 |
-| Convert to 4-digit zero-padded codes | ~84 |
+| Strip `"# "` prefix | 114 — the full corpus |
+| Apply `[CÓDIGO]_[TIPO]_[ÁREA]_[NOMBRE]` | 114 |
+| Convert to 4-digit zero-padded codes | 114 |
 | Fix `# 21_..._MASTERP` → `MASTERPLAN` | 1 |
 | Resolve 0000 capacity (101 docs, 100 slots) | Structural |
 
@@ -537,16 +605,49 @@ Recommended execution: a single scripted pass with before/after checksums provin
 
 ## 15. Required New Documents
 
-Only four are needed to unblock normalization. **None should be written before the rulings in Stage 1.**
+Four are needed to unblock normalization. **None should be written before the rulings in Stage 1.** A fifth (**N-05**) is deferred to Stage 5 and blocks nothing.
 
 | ID | Document | Purpose | Depends on |
 |---|---|---|---|
-| **N-01** | **Nivel 1 constitutional root** (Serie 0000) | Ends the orphanhood of the entire 1000-series by supplying the authority it claims to derive | Numbering ruling; M-08/M-09 |
+| **N-01** | **Nivel 1 constitutional root** (Serie 0000) | Ends the orphanhood of the entire 1000-series by supplying the authority it claims to derive | Numbering ruling; Consejo ruling on the constitutional instruments (`00`/`67`, `66`/`84`) |
 | **N-02** | **Glosario Institucional** | Mandated by `# 1002:172`. Fixes canonical terms: beneficiary term, institutional self-reference, HERA definition, the human-oversight formula, and the ~10 undefined structural terms | Terminology rulings |
 | **N-03** | **Mapa Documental / Índice Maestro** | Mandated by `# 1008`. The single index `# 1003` requires: *"No existirán carpetas independientes sin relación con el sistema central"* | Final codes (Stage 5) |
 | **N-04** | **Matriz de Dependencias** | Mandated by `# 1008`. Machine-readable relationship graph | N-03 |
+| **N-05** | **Registry of non-normative governance artifacts** | Makes auditing and methodology documents discoverable without placing them inside the normative corpus | **Deferred to Stage 5** — see §15.1 |
 
-**N-02 is the highest-value single document in this plan.** It resolves terminology conflicts at the source rather than document by document, and it is the artifact HERA most needs.
+**N-02 is the highest-value single document in this plan.** It resolves terminology conflicts at the source rather than document by document, and it is the artifact HERA most needs. *(N-02 was delivered as `# 1011_GLOSARIO_INSTITUCIONAL`, commit `3e119b9`.)*
+
+---
+
+### 15.1 Deferred architectural decision — non-normative governance registry
+
+**Status:** Deferred by ruling · **Resolve during:** Stage 5 · **Blocks:** nothing
+
+**Origin.** `# 1012_ESTANDAR_DE_AUDITORIA_DE_REFERENCIAS` (commit `eab9cec`) declares itself an auditing instrument and not an institutional norm. The `ARQUITECTURA NORMATIVA` index in `# 1000` enumerates `# 1001` through `# 1011`. `# 1012` was deliberately left out of it.
+
+**Ruling.** Do **not** add `# 1012` to the normative index in `# 1000`. Placing a document inside a section titled *Normative Architecture* would contradict the nature that document declares about itself. `# 1000` is not to be modified for this purpose before Stage 5.
+
+**Decision to design at Stage 5.** A separate registry for non-normative governance artifacts, covering at least:
+
+- auditing standards;
+- validation methodologies;
+- quality assurance standards;
+- migration procedures;
+- tooling documentation.
+
+**Objective.** Keep the normative corpus strictly normative while keeping supporting governance documents discoverable.
+
+**Principle to preserve.** The separation between institutional doctrine and governance methodology is intentional. Any design that resolves discoverability by widening the normative index — rather than by creating a parallel one — fails this constraint regardless of how convenient it is.
+
+**Open questions for Stage 5.**
+
+1. Does the registry receive its own series, or a reserved band inside an existing one? Depends on the Stage 1 numbering ruling.
+2. Does `# 1000` gain a pointer to the registry, and if so worded so that pointing does not imply normative absorption?
+3. Is the registry itself normative? A registry that mandates its own use would be; one that only records would not.
+4. Does N-03 (Mapa Documental) subsume this, or index it as a peer?
+5. Which existing documents besides `# 1012` belong in it? Requires a classification pass, not an assumption.
+
+**Interim state.** `# 1012` has outbound relationships to `# 1003`, `# 1005`, `# 1008` and `# 1011`, and no inbound reference. It is therefore not an orphan under the four-condition test in `# 1008:330-342`, but it has no parent document until this decision is resolved.
 
 ---
 
@@ -559,7 +660,7 @@ graph TD
     S1["STAGE 1 — RULINGS<br/>no files touched"]
     S2["STAGE 2 — BREAK THE LOOPS<br/>S-01 … S-04"]
     S3["STAGE 3 — TERMINOLOGY<br/>N-02 glossary"]
-    S4["STAGE 4 — MERGE<br/>M-01 … M-15 · 112 → ~84"]
+    S4["STAGE 4 — DOMAIN ARCHITECTURE<br/>boundaries · cross-references"]
     S5["STAGE 5 — RENAME<br/>once, with final codes"]
     S6["STAGE 6 — METADATA<br/>~45 fields, final codes"]
     S7["STAGE 7 — RELATIONSHIPS<br/>N-03, N-04, populate graph"]
@@ -579,14 +680,14 @@ graph TD
 |---|---|---|
 | **Rulings before everything** | Numbering, governance, and terminology are institutional decisions. Any file work done first is done against a scheme that may change | Total rework of all subsequent stages |
 | **Break loops before merging** | `1003`/`1004`/`1005` cannot be edited coherently while circular. Merging content into a circular normative frame propagates the defect | Repeated edits to the normative core |
-| **Glossary before merging** | Merges require deciding which of two phrasings survives. Without canonical terms, every merge re-litigates terminology individually | ~15 separate terminology debates |
-| **Merge before renaming** | ~28 documents disappear in merges. Renaming them first is pure waste, and codes must be reassigned afterwards anyway | **~28 renames + a full re-coding pass** |
-| **Rename before metadata** | Metadata block includes `Código documental` and `Nombre del archivo`. Writing metadata before final names means writing it twice | **~84 metadata edits** |
+| **Glossary before domain architecture** | Drawing a boundary between two documents requires canonical terms for what each owns. Without them, every boundary re-litigates terminology individually | ~15 separate terminology debates |
+| **Domain architecture before renaming** | Codes encode `[ÁREA]`. Assigning them before domain boundaries exist means assigning them against boundaries that may move | A full re-coding pass |
+| **Rename before metadata** | Metadata block includes `Código documental` and `Nombre del archivo`. Writing metadata before final names means writing it twice | **114 metadata edits** |
 | **Metadata before relationships** | Relationships are stored *in* the metadata block (`# 1005` RELACIONES) | Full relationship re-entry |
 | **Relationships before approval** | `# 1007` validation checks metadata completeness, which includes relationships | A second approval cycle |
 | **Approval before ingestion** | Ingesting unapproved drafts gives HERA no way to distinguish doctrine from draft | Re-ingestion + trust damage |
 
-**Estimated saving versus the intuitive "rename first" order: 40–45 % of total effort.**
+**The saving versus the intuitive "rename first" order is substantial but no longer quantified.** The original 40–45 % estimate assumed ~28 documents would disappear before renaming. With the merge strategy withdrawn, the saving now comes from assigning codes once against settled domain boundaries rather than twice.
 
 ### Stage detail
 
@@ -595,11 +696,11 @@ graph TD
 | **1 — Rulings** | Numbering authority · governing-body name · approval authority · org chart · beneficiary term · HERA definition · oversight formula | **None** | Ernesto + Consejo |
 | **2 — Break loops** | S-01 … S-04, S-07 | 5 (`1000`, `1003`, `1004`, `1005`, `1008`) | Loops resolved; series linearizable |
 | **3 — Terminology** | N-02 glossary; apply canonical terms | 1 new | Glossary approved |
-| **4 — Merge** | M-01 … M-15 | ~40 | 112 → ~84, zero content loss verified |
-| **5 — Rename** | All renames + `# 21` title fix + 0000 allocation | ~84 | Checksums prove content untouched |
-| **6 — Metadata** | ~45 fields per document; states assigned | ~84 | `# 1005` compliance |
-| **7 — Relationships** | Populate RELACIONES; N-03, N-04 | ~84 + 2 new | Graph connected |
-| **8 — Approval** | `# 1007` 13-stage workflow | ~84 | Documents acquire validity |
+| **4 — Domain architecture** | Domain boundaries · cross-reference normalization · relationship typing per `# 1008` (§12) | TBD by boundary count | Every domain has one owner; declared references validate under `# 1012`. **No document-count target** |
+| **5 — Rename** | All renames + `# 21` title fix + 0000 allocation + **N-05 non-normative registry design (§15.1)** | 114 | Checksums prove content untouched; N-05 designed without widening the normative index |
+| **6 — Metadata** | ~45 fields per document; states assigned | 114 | `# 1005` compliance |
+| **7 — Relationships** | Populate RELACIONES; N-03, N-04 | 114 + 2 new | Graph connected |
+| **8 — Approval** | `# 1007` 13-stage workflow | 114 | Documents acquire validity |
 | **9 — Ingestion** | HERA knowledge base | — | Only VIGENTE documents |
 
 ---
@@ -608,13 +709,13 @@ graph TD
 
 | ID | Risk | Impact | Likelihood | Mitigation |
 |---|---|---|---|---|
-| **RK-01** | **Content loss during merges.** Three-way merges (M-01, M-03, M-04) risk silently dropping unique passages | **Critical** — irreversible loss of doctrine | Medium | Commit before each merge. Diff-based verification that every non-boilerplate line in the sources appears in the survivor or is explicitly recorded as removed |
+| **RK-01** | **Structural work executed on unverified similarity.** **This risk materialized.** The merge plan reached the point of execution on title-similarity evidence; a content audit run before M-05 measured real overlap at 0–14 % and the plan was withdrawn (§12.2) | **Critical** — would have destroyed distinct doctrine believed redundant | **Occurred once** | No structural action on any cluster without line-level content verification first. Similarity of title, scope or opening framing is a hypothesis, never evidence |
 | **RK-02** | **Renaming before the numbering ruling** | High — full rename repeated | **High** if the intuitive order is followed | Stage gate: no rename before Stage 1 closes |
-| **RK-03** | **Constitutional merges (M-08, M-09) executed on engineering judgement** | **Critical** — alters founding instruments | Medium | Escalate to Consejo. Engineering must not decide |
+| **RK-03** | **Constitutional instruments (`00`/`67`, `66`/`84`) restructured on engineering judgement** | **Critical** — alters founding instruments | Medium | Consejo Superior de Gobierno ruling required. Outside the technical workflow regardless of methodology. Engineering must not decide |
 | **RK-04** | **Rulings never arrive**, leaving the plan stalled indefinitely | High — corpus stays unusable | **High** — these have been open since first identification | Time-box Stage 1. If unresolved, adopt `# 1003` provisionally (2-to-1 majority) **and record it as provisional** |
 | **RK-05** | **Terminology normalization flattens meaningful distinction.** Some `niñas`/`estudiantes` alternation may be intentional (age, context) | Medium | Medium | Glossary defines *when* each term applies rather than forcing one |
 | **RK-06** | **HERA ingests the corpus before Stage 8** | High — confident answers from unapproved, contradictory drafts | Medium | Hard gate: ingestion permitted only for VIGENTE documents |
-| **RK-07** | **Merge reduces perceived corpus size**, read as loss of work | Low technically, high politically | Medium | Report merges as consolidation with line-level provenance |
+| **RK-07** | **Stage 4 judged by corpus size.** Domain architecture produces no visible reduction, and may be read as having achieved nothing | Medium — pressure to revive the withdrawn merge plan | Medium | Success criteria are boundary coverage and edge density, never document count. §12.2 records why the count metric was removed |
 | **RK-08** | **The 165 promised SOPs are authored before the structure is fixed** | **Critical** — 165 documents built on a broken scheme | Medium | Freeze SOP authoring until Stage 5 completes |
 | **RK-09** | **Work performed on the uncommitted corpus** | High — no recovery point | **Currently active** | Commit before Stage 2 |
 | **RK-10** | **Residual `DOCUMENTATION/` duplication persists**, causing edits to the wrong copy | Medium | Medium | Resolve canonical location before Stage 2 |
@@ -642,8 +743,8 @@ gantt
     Break 1000-series loops           :s1, after d1, 2
     Glossary                          :s2, after d3, 2
 
-    section Consolidation
-    Merges 112 to 84                  :m1, after s2, 4
+    section Domain architecture
+    Boundaries and cross-references   :m1, after s2, 4
     Rename with final codes           :m2, after m1, 2
     Metadata population               :m3, after m2, 3
 
@@ -661,8 +762,8 @@ gantt
 | **1** | Institutional rulings | Numbering, governance, terminology settled |
 | **2** | Stage 1 | 1000-series acyclic and single-owned |
 | **3** | Stage 1 | Canonical vocabulary exists |
-| **4** | Stage 3 | ~84 documents, zero content lost |
-| **5** | Stage 4 | Conformant filenames, assigned once |
+| **4** | Stage 3 | Domain boundaries owned; declared cross-references valid |
+| **5** | Stage 4 | Conformant filenames, assigned once; N-05 registry designed |
 | **6** | Stage 5 | `# 1005` metadata complete |
 | **7** | Stage 6 | Knowledge graph populated |
 | **8** | Stage 7 | Documents hold institutional validity |
@@ -671,7 +772,7 @@ gantt
 ### The three gates that matter
 
 1. **No file is renamed before the numbering ruling.** Violating this repeats the entire rename pass.
-2. **No document is merged before the glossary exists.** Violating this re-litigates terminology fifteen times.
+2. **No structural action on a cluster without line-level content verification.** This gate replaces the original *"no merge before the glossary"*. The merge plan was withdrawn precisely because structural work was about to proceed on title similarity — see RK-01 and §12.2. Similarity of title or scope is a hypothesis; only measured content is evidence.
 3. **HERA ingests nothing before Stage 8.** Violating this builds institutional memory on unapproved, self-contradictory drafts — and an AI that confidently cites a superseded draft is worse than one that says nothing.
 
 ---
