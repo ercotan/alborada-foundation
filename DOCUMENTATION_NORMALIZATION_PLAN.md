@@ -25,7 +25,7 @@ Three findings define the problem.
 
 **Third — twelve clusters share scope at the level of title and subject.** `26` and `49` carry literally identical H1 titles; `44` and `77` are a word-order permutation of each other; `25`/`47`/`60` all open on knowledge as the most valuable asset.
 
-> ⚠️ **This finding was originally stated as "roughly a quarter of the corpus is duplicated" and used to justify eliminating ~28 documents by merge. A line-level content audit performed at Stage 4 disproved that conclusion** — see §12. Real content overlap across the clusters measured **0–14 %, mean 6 %**. Shared titles did not indicate shared content. The finding survives as *thematic dispersion*; the elimination estimate does not.
+> ⚠️ **This finding was originally stated as "roughly a quarter of the corpus is duplicated" and used to justify eliminating ~28 documents by merge. A line-level content audit performed at Stage 4 disproved that conclusion** — see §12. Real content overlap across the clusters measured **0.0–14.8 %, mean 6.0 %**. Shared titles did not indicate shared content. The finding survives as *thematic dispersion*; the elimination estimate does not.
 
 Underlying all three: the corpus contains **no definitional register whatsoever**. There are zero occurrences of *"se entiende por"*, *"se define como"*, *"definimos"*, or *"entendemos por"*. `# 1002` mandates a *glosario institucional* and a define-on-first-use rule; neither exists. HERA is described in 21 mutually inconsistent ways across the corpus — as a person, an intelligence, an ecosystem, a tool, an asset, an engine, a memory, and an operating system.
 
@@ -395,7 +395,7 @@ Meanwhile all 101 documents in `00`–`100` have **no parent at all** under `# 1
 
 Twelve clusters share subject at the level of **title and opening framing**. Several share opening sentences or titles verbatim.
 
-> ⚠️ **The final column records the original merge recommendation and is superseded.** It is retained as the historical record of what was proposed and on what basis. The line-level content audit at Stage 4 (§12) measured real overlap at **0–14 %, mean 6 %**, and the merge strategy was withdrawn by ruling. These clusters are now treated as **domain-architecture inputs** — documents to be differentiated and cross-referenced, not consolidated.
+> ⚠️ **The final column records the original merge recommendation and is superseded.** It is retained as the historical record of what was proposed and on what basis. The line-level content audit at Stage 4 (§12) measured real overlap at **0.0–14.8 %, mean 6.0 %**, and the merge strategy was withdrawn by ruling. These clusters are now treated as **domain-architecture inputs** — documents to be differentiated and cross-referenced, not consolidated.
 
 | # | Documents | Evidence | ⚠️ Original merge recommendation — superseded |
 |---|---|---|---|
@@ -504,13 +504,17 @@ Its objectives are:
 
 **What it was based on.** Title similarity, shared opening sentences, and shared-line counts. Clusters were described as *"one document written three times"* and *"identical scope"* on that basis.
 
-**What disproved it.** Before executing M-05, a line-level content audit was run across the clusters. Measured real content overlap was **0–14 %, mean 6 %**:
+**What disproved it.** Before executing M-05, a line-level content audit was run across the clusters. Measured real content overlap was **0.0–14.8 %, mean 6.0 %** across 17 pairs:
 
 | Cluster | Basis for merge | Measured content overlap |
 |---|---|---|
-| `44` ↔ `77` | Titles are a word-order permutation | **12 %** |
-| `02` ↔ `88` | Both cultural doctrine | **0 %** |
-| All twelve clusters | Title/scope similarity | **0–14 %, mean 6 %** |
+| `26` ↔ `49` | **Identical H1 titles** | **8.3 %** |
+| `44` ↔ `77` | Titles are a word-order permutation | **8.3 %** |
+| `02` ↔ `88` | Both cultural doctrine | **0.0 %** — lowest |
+| `46` ↔ `75` | Shared opening framing | **14.8 %** — highest |
+| All twelve clusters (17 pairs) | Title/scope similarity | **0.0–14.8 %, mean 6.0 %** |
+
+> **Numeric correction, 19 July 2026.** The `44`↔`77` figure was originally recorded as 12 % and the range as *0–14 %, mean 6 %*. Re-measurement during ADR-0001 preparation established the verified values above: `44`↔`77` is **8.3 %**, and the range maximum is **14.8 %** (`46`↔`75`), not 14 %. **No conclusion changes.** The measured overlap remains far below the level that would justify merging, and the ruling that withdrew the merge strategy stands unaltered. Full per-pair results and the reproducible method are in `decisions/ADR-0001_STAGE_4_DIRECTION_CHANGE.md` §2.1.
 
 Documents with near-identical titles were found to contain substantially different doctrine. **Title similarity had been treated as evidence of content duplication; it was not.** Executing the merges would have destroyed distinct doctrine under the belief it was redundant.
 
@@ -709,7 +713,7 @@ graph TD
 
 | ID | Risk | Impact | Likelihood | Mitigation |
 |---|---|---|---|---|
-| **RK-01** | **Structural work executed on unverified similarity.** **This risk materialized.** The merge plan reached the point of execution on title-similarity evidence; a content audit run before M-05 measured real overlap at 0–14 % and the plan was withdrawn (§12.2) | **Critical** — would have destroyed distinct doctrine believed redundant | **Occurred once** | No structural action on any cluster without line-level content verification first. Similarity of title, scope or opening framing is a hypothesis, never evidence |
+| **RK-01** | **Structural work executed on unverified similarity.** **This risk materialized.** The merge plan reached the point of execution on title-similarity evidence; a content audit run before M-05 measured real overlap at 0.0–14.8 % (mean 6.0 %) and the plan was withdrawn (§12.2) | **Critical** — would have destroyed distinct doctrine believed redundant | **Occurred once** | No structural action on any cluster without line-level content verification first. Similarity of title, scope or opening framing is a hypothesis, never evidence |
 | **RK-02** | **Renaming before the numbering ruling** | High — full rename repeated | **High** if the intuitive order is followed | Stage gate: no rename before Stage 1 closes |
 | **RK-03** | **Constitutional instruments (`00`/`67`, `66`/`84`) restructured on engineering judgement** | **Critical** — alters founding instruments | Medium | Consejo Superior de Gobierno ruling required. Outside the technical workflow regardless of methodology. Engineering must not decide |
 | **RK-04** | **Rulings never arrive**, leaving the plan stalled indefinitely | High — corpus stays unusable | **High** — these have been open since first identification | Time-box Stage 1. If unresolved, adopt `# 1003` provisionally (2-to-1 majority) **and record it as provisional** |
@@ -799,6 +803,17 @@ Produced from a complete read of the corpus using two independent analysis passe
 | Documents holding institutional validity | 0 |
 
 **Files modified in producing this plan: none.** No document renamed, moved, deleted, or altered. No commit, no push.
+
+---
+
+## Document history
+
+| Date | Change | Conclusions affected |
+|---|---|---|
+| — | Initial plan. Corpus read in full; merge strategy proposed (M-01 … M-15, 112 → ~84) | — |
+| 19 Jul 2026 | **Stage 4 replaced.** Merge strategy withdrawn on content-audit evidence; §12 rewritten as Domain Architecture; all document-count metrics removed; merge record preserved as superseded in §12.2. Rationale recorded in `decisions/ADR-0001_STAGE_4_DIRECTION_CHANGE.md` | Architectural — deliberate |
+| 19 Jul 2026 | **N-05 recorded** (§15.1) — deferred Stage 5 decision on a registry for non-normative governance artifacts | None — defers a decision |
+| 19 Jul 2026 | **Numeric correction.** `44`↔`77` overlap corrected 12 % → **8.3 %**; range corrected *0–14 %, mean 6 %* → **0.0–14.8 %, mean 6.0 %** (17 pairs). Arose from re-measurement during ADR-0001 preparation, when figures carried from working notes were verified before entering a permanent record. **No conclusion changes** — the values remain far below any level that would justify merging | **None** |
 
 ---
 
