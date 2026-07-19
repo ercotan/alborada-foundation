@@ -1,5 +1,6 @@
 {
-  "name": "react-example",
+  "name": "alborada-foundation",
+  "description": "Building the next generation of human development, education, artificial intelligence, and institutional excellence.",
   "private": true,
   "version": "0.0.0",
   "type": "module",

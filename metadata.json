@@ -1,6 +1,6 @@
 {
-  "name": "Alborada",
-  "description": "An ultra-premium cinematic opening sequence for the homepage of the world-class educational foundation Alborada, symbolizing the light of knowledge rising over a silent ocean.",
+  "name": "Alborada Foundation",
+  "description": "Building the next generation of human development, education, artificial intelligence, and institutional excellence.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
