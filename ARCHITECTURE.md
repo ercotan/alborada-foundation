@@ -2121,15 +2121,33 @@ This is the mechanism by which `PROJECT_CONSTITUTION.md`'s prohibition on silent
 
 ### 25.2 Location and naming
 
-**OPEN DECISION — REQUIRES ERNESTO'S APPROVAL**
-ADR location and naming. Two coherent options:
+**RESOLVED — 19 July 2026, by the N-05 ruling.** See `engineering/INDEX.md`.
 
-| Option | Form | Trade-off |
+ADRs live under `engineering/`, outside the institutional corpus, and use typed identifiers:
+
+| Prefix | Type |
+|---|---|
+| `ADR-####` | Architecture decision record |
+| `STD-####` | Engineering standard, methodology, auditing standard |
+| `REF-####` | Approved engineering reference model |
+
+**None of these identifiers belongs to the `# 1003` institutional coding system.** Bare numbers are never used for engineering artifacts: in this repository a bare number always denotes a `# 1003` document code.
+
+The institutional corpus never points to the engineering layer. References run `engineering/` → `docs/` only, which makes circular authority structurally impossible. Repository-level discoverability is provided by `README.md` and by `engineering/INDEX.md`, never by the normative index of `# 1000`.
+
+<details>
+<summary>Superseded alternatives — retained for traceability, no longer open or recommended</summary>
+
+Two options were previously recorded as an open decision:
+
+| Option | Form | Why superseded |
 |---|---|---|
-| **A — Repository** | `docs/adr/ADR-0001-short-title.md` | Close to the code, versioned with it, low friction. Sits outside the institutional documentary system |
-| **B — Institutional series** | Conforms to `docs/# 1004` naming, e.g. `2001_STD_INF_DECISION_PERSISTENCIA` | Full institutional standing, metadata, approval workflow. Heavier process; requires the Serie contradiction resolved first |
+| **A — Repository** | `docs/adr/ADR-0001-short-title.md` | Places ADRs **inside** the institutional corpus. Rejected by N-05: a non-normative artifact must not sit in `docs/` |
+| **B — Institutional series** | `# 1004`-conformant, e.g. `2001_STD_INF_DECISION_PERSISTENCIA` | Gives engineering artifacts `# 1003` codes, contaminating the institutional coding system |
 
-Recommendation: **Option A initially**, migrating to B once the documentary system is operational — but this is Ernesto's call, not an engineering one.
+Neither is available. The approved architecture places engineering artifacts outside `docs/` with identifiers that cannot collide with institutional codes.
+
+</details>
 
 ### 25.3 Template
 

@@ -494,7 +494,7 @@ Its objectives are:
 3. **Differentiation** — where two documents overlap in subject, the boundary between them is made explicit in both, rather than one absorbing the other.
 4. **Relationship typing** — detected relationships are classified per `# 1008`'s taxonomy.
 
-**There is no target corpus size, and corpus size is not a success metric.** A corpus of 114 well-bounded, mutually referencing documents is a better outcome than 84 merged ones whose provenance is lost.
+**There is no target corpus size, and corpus size is not a success metric.** A corpus of 113 well-bounded, mutually referencing documents is a better outcome than 84 merged ones whose provenance is lost.
 
 ### 12.2 ⚠️ Superseded — the merge strategy
 
@@ -514,7 +514,7 @@ Its objectives are:
 | `46` ↔ `75` | Shared opening framing | **14.8 %** — highest |
 | All twelve clusters (17 pairs) | Title/scope similarity | **0.0–14.8 %, mean 6.0 %** |
 
-> **Numeric correction, 19 July 2026.** The `44`↔`77` figure was originally recorded as 12 % and the range as *0–14 %, mean 6 %*. Re-measurement during ADR-0001 preparation established the verified values above: `44`↔`77` is **8.3 %**, and the range maximum is **14.8 %** (`46`↔`75`), not 14 %. **No conclusion changes.** The measured overlap remains far below the level that would justify merging, and the ruling that withdrew the merge strategy stands unaltered. Full per-pair results and the reproducible method are in `decisions/ADR-0001_STAGE_4_DIRECTION_CHANGE.md` §2.1.
+> **Numeric correction, 19 July 2026.** The `44`↔`77` figure was originally recorded as 12 % and the range as *0–14 %, mean 6 %*. Re-measurement during ADR-0001 preparation established the verified values above: `44`↔`77` is **8.3 %**, and the range maximum is **14.8 %** (`46`↔`75`), not 14 %. **No conclusion changes.** The measured overlap remains far below the level that would justify merging, and the ruling that withdrew the merge strategy stands unaltered. Full per-pair results and the reproducible method are in `engineering/ADR-0001_STAGE_4_DIRECTION_CHANGE.md` §2.1.
 
 Documents with near-identical titles were found to contain substantially different doctrine. **Title similarity had been treated as evidence of content duplication; it was not.** Executing the merges would have destroyed distinct doctrine under the belief it was redundant.
 
@@ -558,7 +558,7 @@ Documents with near-identical titles were found to contain substantially differe
 | Five relationship-taxonomy pilots | Ran on the 1000-series, the HERA cluster, the constitutional cluster, and two F4 samples — one thematic, one dispersed |
 | Dispersed-sample control | The thematic sample suggested competing definitions; the dispersed sample found none. Confirmed that thematically-adjacent selection produces false positives |
 | Mention-vs-dependency standard | Deterministic classification rules, validated at 100 % precision on explicit references |
-| `# 1012` | The standard persisted as an auditing instrument, explicitly non-normative (commit `eab9cec`) |
+| `STD-0001` | The standard persisted as an auditing instrument, explicitly non-normative (commit `eab9cec`) |
 
 **Remaining.**
 
@@ -566,10 +566,10 @@ Documents with near-identical titles were found to contain substantially differe
 |---|---|
 | Documentary families model (F1–F4) | Designed, **not approved**. Requires ruling before consolidation |
 | Domain boundary definitions | Not started — depends on the families model |
-| Cross-reference population across the full corpus | Not started. `# 1012` validates explicit references but does not discover latent ones |
-| Latent dependency discovery | **Out of scope** for `# 1012` by declaration. Requires a separate semantic instrument (§15.1) |
+| Cross-reference population across the full corpus | Not started. `STD-0001` validates explicit references but does not discover latent ones |
+| Latent dependency discovery | **Out of scope** for `STD-0001` by declaration. Requires a separate semantic instrument (§15.1) |
 
-**Known limitation carried into Stage 5.** `# 1012` achieves full precision but partial coverage. It verifies relationships already declared; it does not find missing ones. The corpus's central defect — 114 nodes and almost no edges — is therefore **not** solved by `# 1012` alone.
+**Known limitation carried into Stage 5.** `STD-0001` achieves full precision but partial coverage. It verifies relationships already declared; it does not find missing ones. The corpus's central defect — 113 nodes and almost no edges — is therefore **not** solved by `STD-0001` alone.
 
 ---
 
@@ -595,9 +595,9 @@ Documents with near-identical titles were found to contain substantially differe
 
 | Scope | Count |
 |---|---|
-| Strip `"# "` prefix | 114 — the full corpus |
-| Apply `[CÓDIGO]_[TIPO]_[ÁREA]_[NOMBRE]` | 114 |
-| Convert to 4-digit zero-padded codes | 114 |
+| Strip `"# "` prefix | 113 — the full corpus |
+| Apply `[CÓDIGO]_[TIPO]_[ÁREA]_[NOMBRE]` | 113 |
+| Convert to 4-digit zero-padded codes | 113 |
 | Fix `# 21_..._MASTERP` → `MASTERPLAN` | 1 |
 | Resolve 0000 capacity (101 docs, 100 slots) | Structural |
 
@@ -609,7 +609,7 @@ Recommended execution: a single scripted pass with before/after checksums provin
 
 ## 15. Required New Documents
 
-Four are needed to unblock normalization. **None should be written before the rulings in Stage 1.** A fifth (**N-05**) is deferred to Stage 5 and blocks nothing.
+Four are needed to unblock normalization. **None should be written before the rulings in Stage 1.** A fifth (**N-05**) was resolved at Stage 5 — see §15.1.
 
 | ID | Document | Purpose | Depends on |
 |---|---|---|---|
@@ -617,41 +617,39 @@ Four are needed to unblock normalization. **None should be written before the ru
 | **N-02** | **Glosario Institucional** | Mandated by `# 1002:172`. Fixes canonical terms: beneficiary term, institutional self-reference, HERA definition, the human-oversight formula, and the ~10 undefined structural terms | Terminology rulings |
 | **N-03** | **Mapa Documental / Índice Maestro** | Mandated by `# 1008`. The single index `# 1003` requires: *"No existirán carpetas independientes sin relación con el sistema central"* | Final codes (Stage 5) |
 | **N-04** | **Matriz de Dependencias** | Mandated by `# 1008`. Machine-readable relationship graph | N-03 |
-| **N-05** | **Registry of non-normative governance artifacts** | Makes auditing and methodology documents discoverable without placing them inside the normative corpus | **Deferred to Stage 5** — see §15.1 |
+| **N-05** | **Engineering artifact registry** | Delivered as `engineering/INDEX.md`. Keeps auditing and methodology documents discoverable without placing them inside the normative corpus | **Resolved** 19 Jul 2026 — see §15.1 |
 
 **N-02 is the highest-value single document in this plan.** It resolves terminology conflicts at the source rather than document by document, and it is the artifact HERA most needs. *(N-02 was delivered as `# 1011_GLOSARIO_INSTITUCIONAL`, commit `3e119b9`.)*
 
 ---
 
-### 15.1 Deferred architectural decision — non-normative governance registry
+### 15.1 N-05 — non-normative engineering registry · RESOLVED
 
-**Status:** Deferred by ruling · **Resolve during:** Stage 5 · **Blocks:** nothing
+**Status:** **Resolved** 19 July 2026 · **Implemented:** commits `e94aa58` (migration) and this one
 
-**Origin.** `# 1012_ESTANDAR_DE_AUDITORIA_DE_REFERENCIAS` (commit `eab9cec`) declares itself an auditing instrument and not an institutional norm. The `ARQUITECTURA NORMATIVA` index in `# 1000` enumerates `# 1001` through `# 1011`. `# 1012` was deliberately left out of it.
+**Origin.** `STD-0001` declared itself an auditing instrument and not an institutional norm, yet held a corpus code and sat inside `docs/`. The `ARQUITECTURA NORMATIVA` index in `# 1000` enumerates `# 1001` through `# 1011`; `STD-0001` was deliberately left out of it and consequently had no parent document.
 
-**Ruling.** Do **not** add `# 1012` to the normative index in `# 1000`. Placing a document inside a section titled *Normative Architecture* would contradict the nature that document declares about itself. `# 1000` is not to be modified for this purpose before Stage 5.
+**Approved architecture.**
 
-**Decision to design at Stage 5.** A separate registry for non-normative governance artifacts, covering at least:
+| Decision | Resolution |
+|---|---|
+| Location | `engineering/`, outside the institutional corpus. Renamed from `decisions/` |
+| Identifiers | `ADR-####` records · `STD-####` standards · `REF-####` reference models. **None belongs to the `# 1003` coding system** |
+| Numbering | Typed prefixes, never bare numbers — a bare number in this repository always denotes a `# 1003` code |
+| `# 1000` | **Remains completely unaware.** No pointer, no mention |
+| Discoverability | `README.md` at repository level, plus `engineering/INDEX.md`. Never the normative index |
+| Ownership | Architecture authority — Layer 2, `PROJECT_CONSTITUTION.md` — owns registry, admission, updates and retirement |
+| References | Strictly unidirectional: `engineering/` → `docs/`, never the reverse |
 
-- auditing standards;
-- validation methodologies;
-- quality assurance standards;
-- migration procedures;
-- tooling documentation.
+**Migration performed.** `# 1012` → `engineering/STD-0001_REFERENCE_AUDITING_STANDARD.md`; ADR-0001 and the Documentary Families Model moved to `engineering/` as `ADR-0001` and `REF-0001`. **`docs/` now holds `# 1000` through `# 1011`, contiguous and purely normative — 113 documents.**
 
-**Objective.** Keep the normative corpus strictly normative while keeping supporting governance documents discoverable.
+**Principle preserved.** The separation between institutional doctrine and governance methodology is intentional. Any design that resolves discoverability by widening the normative index — rather than by creating a parallel one — fails this constraint regardless of how convenient it is.
 
-**Principle to preserve.** The separation between institutional doctrine and governance methodology is intentional. Any design that resolves discoverability by widening the normative index — rather than by creating a parallel one — fails this constraint regardless of how convenient it is.
+**Why `# 1000` gained no pointer.** The minimal-linkage option was evaluated and rejected on degradation rather than purity: a line inside a section titled `ARQUITECTURA NORMATIVA` is read as part of the normative architecture by every subsequent reader, and becomes an entry in it without anyone deciding so. The constraint is easier to hold at zero than at one.
 
-**Open questions for Stage 5.**
+**Future implementation task — packaging manifest.** Two distribution profiles are defined in `engineering/INDEX.md`: **Institutional Corpus** (`docs/` only) and **Governed Corpus Package** (`docs/` plus the engineering instruments required for auditing, validation or ingestion). A manifest declaring which artifacts accompany a governed export is a **future implementation task**, not an open classification question. The manifest lives in `engineering/` and never in the institutional corpus. **Portability is solved by packaging, never by classification** — no engineering artifact returns to `docs/` to become portable.
 
-1. Does the registry receive its own series, or a reserved band inside an existing one? Depends on the Stage 1 numbering ruling.
-2. Does `# 1000` gain a pointer to the registry, and if so worded so that pointing does not imply normative absorption?
-3. Is the registry itself normative? A registry that mandates its own use would be; one that only records would not.
-4. Does N-03 (Mapa Documental) subsume this, or index it as a peer?
-5. Which existing documents besides `# 1012` belong in it? Requires a classification pass, not an assumption.
-
-**Interim state.** `# 1012` has outbound relationships to `# 1003`, `# 1005`, `# 1008` and `# 1011`, and no inbound reference. It is therefore not an orphan under the four-condition test in `# 1008:330-342`, but it has no parent document until this decision is resolved.
+**Remaining open item.** O-8 — the procedural detail of admission to the registry. Authority is settled; the trámite is not.
 
 ---
 
@@ -686,7 +684,7 @@ graph TD
 | **Break loops before merging** | `1003`/`1004`/`1005` cannot be edited coherently while circular. Merging content into a circular normative frame propagates the defect | Repeated edits to the normative core |
 | **Glossary before domain architecture** | Drawing a boundary between two documents requires canonical terms for what each owns. Without them, every boundary re-litigates terminology individually | ~15 separate terminology debates |
 | **Domain architecture before renaming** | Codes encode `[ÁREA]`. Assigning them before domain boundaries exist means assigning them against boundaries that may move | A full re-coding pass |
-| **Rename before metadata** | Metadata block includes `Código documental` and `Nombre del archivo`. Writing metadata before final names means writing it twice | **114 metadata edits** |
+| **Rename before metadata** | Metadata block includes `Código documental` and `Nombre del archivo`. Writing metadata before final names means writing it twice | **113 metadata edits** |
 | **Metadata before relationships** | Relationships are stored *in* the metadata block (`# 1005` RELACIONES) | Full relationship re-entry |
 | **Relationships before approval** | `# 1007` validation checks metadata completeness, which includes relationships | A second approval cycle |
 | **Approval before ingestion** | Ingesting unapproved drafts gives HERA no way to distinguish doctrine from draft | Re-ingestion + trust damage |
@@ -700,11 +698,11 @@ graph TD
 | **1 — Rulings** | Numbering authority · governing-body name · approval authority · org chart · beneficiary term · HERA definition · oversight formula | **None** | Ernesto + Consejo |
 | **2 — Break loops** | S-01 … S-04, S-07 | 5 (`1000`, `1003`, `1004`, `1005`, `1008`) | Loops resolved; series linearizable |
 | **3 — Terminology** | N-02 glossary; apply canonical terms | 1 new | Glossary approved |
-| **4 — Domain architecture** | Domain boundaries · cross-reference normalization · relationship typing per `# 1008` (§12) | TBD by boundary count | Every domain has one owner; declared references validate under `# 1012`. **No document-count target** |
-| **5 — Rename** | All renames + `# 21` title fix + 0000 allocation + **N-05 non-normative registry design (§15.1)** | 114 | Checksums prove content untouched; N-05 designed without widening the normative index |
-| **6 — Metadata** | ~45 fields per document; states assigned | 114 | `# 1005` compliance |
-| **7 — Relationships** | Populate RELACIONES; N-03, N-04 | 114 + 2 new | Graph connected |
-| **8 — Approval** | `# 1007` 13-stage workflow | 114 | Documents acquire validity |
+| **4 — Domain architecture** | Domain boundaries · cross-reference normalization · relationship typing per `# 1008` (§12) | TBD by boundary count | Every domain has one owner; declared references validate under `STD-0001`. **No document-count target** |
+| **5 — Rename** | All renames + `# 21` title fix + 0000 allocation. *(N-05 resolved ahead of the renaming — §15.1)* | 113 | Checksums prove content untouched |
+| **6 — Metadata** | ~45 fields per document; states assigned | 113 | `# 1005` compliance |
+| **7 — Relationships** | Populate RELACIONES; N-03, N-04 | 113 + 2 new | Graph connected |
+| **8 — Approval** | `# 1007` 13-stage workflow | 113 | Documents acquire validity |
 | **9 — Ingestion** | HERA knowledge base | — | Only VIGENTE documents |
 
 ---
@@ -767,7 +765,7 @@ gantt
 | **2** | Stage 1 | 1000-series acyclic and single-owned |
 | **3** | Stage 1 | Canonical vocabulary exists |
 | **4** | Stage 3 | Domain boundaries owned; declared cross-references valid |
-| **5** | Stage 4 | Conformant filenames, assigned once; N-05 registry designed |
+| **5** | Stage 4 | Conformant filenames, assigned once. N-05 registry delivered ahead of the renaming |
 | **6** | Stage 5 | `# 1005` metadata complete |
 | **7** | Stage 6 | Knowledge graph populated |
 | **8** | Stage 7 | Documents hold institutional validity |
@@ -811,8 +809,9 @@ Produced from a complete read of the corpus using two independent analysis passe
 | Date | Change | Conclusions affected |
 |---|---|---|
 | — | Initial plan. Corpus read in full; merge strategy proposed (M-01 … M-15, 112 → ~84) | — |
-| 19 Jul 2026 | **Stage 4 replaced.** Merge strategy withdrawn on content-audit evidence; §12 rewritten as Domain Architecture; all document-count metrics removed; merge record preserved as superseded in §12.2. Rationale recorded in `decisions/ADR-0001_STAGE_4_DIRECTION_CHANGE.md` | Architectural — deliberate |
+| 19 Jul 2026 | **Stage 4 replaced.** Merge strategy withdrawn on content-audit evidence; §12 rewritten as Domain Architecture; all document-count metrics removed; merge record preserved as superseded in §12.2. Rationale recorded in `engineering/ADR-0001_STAGE_4_DIRECTION_CHANGE.md` | Architectural — deliberate |
 | 19 Jul 2026 | **N-05 recorded** (§15.1) — deferred Stage 5 decision on a registry for non-normative governance artifacts | None — defers a decision |
+| 19 Jul 2026 | **N-05 resolved.** Engineering registry established at `engineering/`; `# 1012` migrated out of the corpus as `STD-0001`; ADR-0001 and the families model renamed `ADR-0001`/`REF-0001`; `ARCHITECTURE.md` §25.2 open decision resolved; `README.md` indexes the engineering layer. Corpus counts 114 → **113**; `docs/` is now `# 1000`–`# 1011`, contiguous and purely normative. Packaging manifest recorded as a future implementation task. Commits `e94aa58` + this one | **Structural — deliberate.** No analytical conclusion affected |
 | 19 Jul 2026 | **Numeric correction.** `44`↔`77` overlap corrected 12 % → **8.3 %**; range corrected *0–14 %, mean 6 %* → **0.0–14.8 %, mean 6.0 %** (17 pairs). Arose from re-measurement during ADR-0001 preparation, when figures carried from working notes were verified before entering a permanent record. **No conclusion changes** — the values remain far below any level that would justify merging | **None** |
 
 ---
