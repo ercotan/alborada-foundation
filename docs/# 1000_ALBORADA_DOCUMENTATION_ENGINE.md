@@ -55,121 +55,66 @@ El ADE permitirá:
 
 ---
 
-# ARQUITECTURA GENERAL
+# ARQUITECTURA NORMATIVA
 
-Toda la documentación institucional se organizará por familias.
+El Motor Documental no define normas. Las coordina.
 
----
+Cada materia normativa pertenece a un único documento.
 
-## SERIE 0000
-
-Constitución Institucional
-
-(100 documentos ya desarrollados)
+Este documento no la repite.
 
 ---
 
-## SERIE 1000
+Plantilla maestra de SOP.
 
-Manuales Operativos (SOP)
+1001_MASTER_SOP_TEMPLATE.
 
-Cómo se hace cada proceso.
+Estándar de redacción.
 
----
+1002_SOP_WRITING_STANDARD.
 
-## SERIE 2000
+Clasificación, series y niveles.
 
-Academia Alborada
+1003_DOCUMENT_CLASSIFICATION_SYSTEM.
 
-Todo el sistema educativo.
+Nomenclatura e identificación.
 
----
+1004_DOCUMENT_NAMING_AND_IDENTIFICATION_STANDARD.
 
-## SERIE 3000
+Metadatos.
 
-HERA
+1005_DOCUMENT_METADATA_STANDARD.
 
-Arquitectura completa de la inteligencia artificial.
+Control de versiones y estados.
 
----
+1006_DOCUMENT_VERSION_CONTROL_SYSTEM.
 
-## SERIE 4000
+Aprobación y publicación.
 
-Gobierno Institucional
+1007_DOCUMENT_APPROVAL_AND_PUBLICATION_WORKFLOW.
 
-Consejos.
+Relaciones y trazabilidad.
 
-Direcciones.
+1008_DOCUMENT_RELATIONSHIP_AND_TRACEABILITY_SYSTEM.
 
-Organigrama.
+Generación asistida.
 
-Comités.
+1009_AI_AUTOMATIC_DOCUMENT_GENERATION_SYSTEM.
 
----
+Catálogo maestro de SOP.
 
-## SERIE 5000
-
-Economía
-
-Finanzas.
-
-Inversiones.
-
-Producción.
-
-Patrimonio.
+1010_MASTER_SOP_CATALOG.
 
 ---
 
-## SERIE 6000
+La jerarquía de series y niveles se define en
+1003_DOCUMENT_CLASSIFICATION_SYSTEM.
 
-Infraestructura
+Este documento no establece una taxonomía propia.
 
-Edificios.
+Ningún documento estático.
 
-Laboratorios.
-
-Granjas.
-
-Arquitectura.
-
----
-
-## SERIE 7000
-
-Seguridad
-
-Física.
-
-Digital.
-
-Legal.
-
-Biológica.
-
----
-
-## SERIE 8000
-
-Investigación
-
-Protocolos científicos.
-
-Laboratorios.
-
-Publicaciones.
-
----
-
-## SERIE 9000
-
-Escalabilidad Internacional
-
-Nuevos países.
-
-Nuevas sedes.
-
-Expansión mundial.
+Toda documentación es viva.
 
 ---
 
@@ -197,156 +142,11 @@ Compatible con automatización.
 
 ---
 
-# CICLO DE VIDA
-
-Todo documento seguirá exactamente este flujo.
-
-Idea
-
-↓
-
-Diseño
-
-↓
-
-Borrador
-
-↓
-
-Revisión
-
-↓
-
-Aprobación
-
-↓
-
-Publicación
-
-↓
-
-Auditoría
-
-↓
-
-Actualización
-
-↓
-
-Nueva versión
-
-Nunca existirá documentación estática.
-
----
-
-# IDENTIFICACIÓN
-
-Todo documento tendrá
-
-Código
-
-Nombre
-
-Versión
-
-Fecha
-
-Clasificación
-
-Autor
-
-Revisor
-
-Aprobador
-
-Estado
-
----
-
-Ejemplo
-
-1001_SOP_ADMISION_NIÑAS
-
-Versión 1.0
-
-Estado:
-Aprobado
-
----
-
-# CONTROL DE VERSIONES
-
-1.0
-
-Primera versión
-
-1.1
-
-Correcciones menores
-
-1.2
-
-Actualizaciones
-
-2.0
-
-Cambio importante
-
-3.0
-
-Rediseño completo
-
----
-
-# TRAZABILIDAD
-
-Cada documento conocerá
-
-De qué documento nace.
-
-Qué documentos modifica.
-
-Qué documentos utiliza.
-
-Qué documentos dependen de él.
-
-Toda la documentación funcionará como una red.
-
-Nunca como archivos aislados.
-
----
-
 # MOTOR DOCUMENTAL
 
 Todo documento será generado utilizando una plantilla oficial.
 
 No existirán documentos libres.
-
----
-
-# METADATOS
-
-Cada documento almacenará automáticamente
-
-Área
-
-Proceso
-
-Responsable
-
-Nivel de confidencialidad
-
-Palabras clave
-
-Fecha
-
-Estado
-
-Dependencias
-
-Indicadores
-
-Historial
 
 ---
 

@@ -339,6 +339,12 @@ Comunicaciones
 
 ---
 
+INT
+
+Relaciones Internacionales
+
+---
+
 # EJEMPLO
 
 1104_SOP_PSI_EVALUACION_INICIAL

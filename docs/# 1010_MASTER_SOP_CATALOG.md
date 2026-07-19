@@ -37,9 +37,15 @@ Cada sistema debe formar parte de la arquitectura institucional.
 
 Los procedimientos se organizan por familias funcionales.
 
-Cada familia posee un rango exclusivo de códigos.
+Cada familia posee un rango exclusivo de cincuenta códigos
+dentro del Nivel 3, conforme a 1003_DOCUMENT_CLASSIFICATION_SYSTEM.
 
-Esto garantiza escalabilidad durante décadas.
+El rango de familia es una guía de asignación.
+
+El área del documento se expresa en el segmento ÁREA del nombre,
+conforme a 1004_DOCUMENT_NAMING_AND_IDENTIFICATION_STANDARD.
+
+En caso de discrepancia, prevalece el segmento ÁREA.
 
 ---
 
@@ -89,377 +95,377 @@ Esto garantiza escalabilidad durante décadas.
 
 ---
 
-# SERIE 1200
+# SERIE 1150
 
 ## EDUCACIÓN
 
-1201 Diagnóstico académico
+1151 Diagnóstico académico
 
-1202 Plan educativo individual
+1152 Plan educativo individual
 
-1203 Asignación de mentores
+1153 Asignación de mentores
 
-1204 Organización curricular
+1154 Organización curricular
 
-1205 Evaluación mensual
+1155 Evaluación mensual
 
-1206 Evaluación trimestral
+1156 Evaluación trimestral
 
-1207 Evaluación anual
+1157 Evaluación anual
 
-1208 Educación personalizada
+1158 Educación personalizada
 
-1209 Tutorías
+1159 Tutorías
 
-1210 Gestión bibliográfica
+1160 Gestión bibliográfica
 
-1211 Uso de laboratorios
+1161 Uso de laboratorios
 
-1212 Actividades extracurriculares
+1162 Actividades extracurriculares
 
-1213 Gestión de proyectos
+1163 Gestión de proyectos
 
-1214 Ferias académicas
+1164 Ferias académicas
 
-1215 Certificaciones
+1165 Certificaciones
+
+---
+
+# SERIE 1200
+
+## PSICOLOGÍA
+
+1201 Evaluación inicial
+
+1202 Historia clínica psicológica
+
+1203 Terapia individual
+
+1204 Terapia grupal
+
+1205 Intervención en crisis
+
+1206 Seguimiento emocional
+
+1207 Evaluación de conducta
+
+1208 Desarrollo socioemocional
+
+1209 Atención familiar
+
+1210 Alta psicológica
+
+---
+
+# SERIE 1250
+
+## MEDICINA
+
+1251 Historia clínica
+
+1252 Examen físico
+
+1253 Vacunación
+
+1254 Atención médica general
+
+1255 Atención de urgencias
+
+1256 Derivación especializada
+
+1257 Administración de medicamentos
+
+1258 Control epidemiológico
+
+1259 Seguimiento clínico
+
+1260 Alta médica
 
 ---
 
 # SERIE 1300
 
-## PSICOLOGÍA
+## NUTRICIÓN
 
-1301 Evaluación inicial
+1301 Evaluación nutricional
 
-1302 Historia clínica psicológica
+1302 Plan alimentario
 
-1303 Terapia individual
+1303 Control antropométrico
 
-1304 Terapia grupal
+1304 Preparación de alimentos
 
-1305 Intervención en crisis
+1305 Control sanitario
 
-1306 Seguimiento emocional
+1306 Almacenamiento de alimentos
 
-1307 Evaluación de conducta
+1307 Control de calidad
 
-1308 Desarrollo socioemocional
+1308 Suplementación
 
-1309 Atención familiar
+1309 Educación alimentaria
 
-1310 Alta psicológica
+1310 Auditoría nutricional
+
+---
+
+# SERIE 1350
+
+## AGRICULTURA
+
+1351 Planificación agrícola
+
+1352 Preparación del terreno
+
+1353 Siembra
+
+1354 Fertilización
+
+1355 Riego
+
+1356 Control biológico
+
+1357 Cosecha
+
+1358 Almacenamiento
+
+1359 Comercialización
+
+1360 Auditoría agrícola
 
 ---
 
 # SERIE 1400
 
-## MEDICINA
+## AVICULTURA
 
-1401 Historia clínica
+1401 Recepción de aves
 
-1402 Examen físico
+1402 Manejo diario
 
-1403 Vacunación
+1403 Alimentación
 
-1404 Atención médica general
+1404 Bioseguridad
 
-1405 Atención de urgencias
+1405 Recolección de huevos
 
-1406 Derivación especializada
+1406 Clasificación
 
-1407 Administración de medicamentos
+1407 Incubación
 
-1408 Control epidemiológico
+1408 Reproducción
 
-1409 Seguimiento clínico
+1409 Bienestar animal
 
-1410 Alta médica
+1410 Auditoría avícola
+
+---
+
+# SERIE 1450
+
+## INFRAESTRUCTURA
+
+1451 Inspecciones
+
+1452 Mantenimiento preventivo
+
+1453 Mantenimiento correctivo
+
+1454 Energía solar
+
+1455 Agua potable
+
+1456 Desalinizadora
+
+1457 Caminos internos
+
+1458 Jardinería
+
+1459 Inventario
+
+1460 Obras nuevas
 
 ---
 
 # SERIE 1500
 
-## NUTRICIÓN
+## SEGURIDAD
 
-1501 Evaluación nutricional
+1501 Control de acceso
 
-1502 Plan alimentario
+1502 Visitantes
 
-1503 Control antropométrico
+1503 Videovigilancia
 
-1504 Preparación de alimentos
+1504 Alarmas
 
-1505 Control sanitario
+1505 Evacuación
 
-1506 Almacenamiento de alimentos
+1506 Incendios
 
-1507 Control de calidad
+1507 Primeros auxilios
 
-1508 Suplementación
+1508 Emergencias
 
-1509 Educación alimentaria
+1509 Protección infantil
 
-1510 Auditoría nutricional
+1510 Gestión de incidentes
+
+---
+
+# SERIE 1550
+
+## FINANZAS
+
+1551 Presupuesto
+
+1552 Compras
+
+1553 Caja menor
+
+1554 Bancos
+
+1555 Donaciones
+
+1556 Pagos
+
+1557 Contabilidad
+
+1558 Auditoría financiera
+
+1559 Tesorería
+
+1560 Cierre mensual
 
 ---
 
 # SERIE 1600
 
-## AGRICULTURA
+## RECURSOS HUMANOS
 
-1601 Planificación agrícola
+1601 Reclutamiento
 
-1602 Preparación del terreno
+1602 Selección
 
-1603 Siembra
+1603 Contratación
 
-1604 Fertilización
+1604 Inducción
 
-1605 Riego
+1605 Evaluación
 
-1606 Control biológico
+1606 Capacitación
 
-1607 Cosecha
+1607 Vacaciones
 
-1608 Almacenamiento
+1608 Desempeño
 
-1609 Comercialización
+1609 Bienestar laboral
 
-1610 Auditoría agrícola
+1610 Desvinculación
+
+---
+
+# SERIE 1650
+
+## HERA
+
+1651 Gestión documental
+
+1652 Memoria institucional
+
+1653 Indexación
+
+1654 Análisis documental
+
+1655 Generación automática
+
+1656 Auditoría documental
+
+1657 Gestión del conocimiento
+
+1658 Aprendizaje institucional
+
+1659 Respaldo documental
+
+1660 Evolución del conocimiento
 
 ---
 
 # SERIE 1700
 
-## AVICULTURA
+## AUDITORÍA
 
-1701 Recepción de aves
+1701 Auditoría interna
 
-1702 Manejo diario
+1702 Auditoría académica
 
-1703 Alimentación
+1703 Auditoría financiera
 
-1704 Bioseguridad
+1704 Auditoría documental
 
-1705 Recolección de huevos
+1705 Auditoría tecnológica
 
-1706 Clasificación
+1706 Auditoría de seguridad
 
-1707 Incubación
+1707 Auditoría agrícola
 
-1708 Reproducción
+1708 Auditoría institucional
 
-1709 Bienestar animal
+1709 Seguimiento de hallazgos
 
-1710 Auditoría avícola
+1710 Cierre de auditorías
+
+---
+
+# SERIE 1750
+
+## INVESTIGACIÓN
+
+1751 Diseño de proyectos
+
+1752 Ética
+
+1753 Gestión de datos
+
+1754 Publicaciones
+
+1755 Propiedad intelectual
+
+1756 Innovación
+
+1757 Vinculación académica
+
+1758 Laboratorios
+
+1759 Transferencia tecnológica
+
+1760 Archivo científico
 
 ---
 
 # SERIE 1800
 
-## INFRAESTRUCTURA
-
-1801 Inspecciones
-
-1802 Mantenimiento preventivo
-
-1803 Mantenimiento correctivo
-
-1804 Energía solar
-
-1805 Agua potable
-
-1806 Desalinizadora
-
-1807 Caminos internos
-
-1808 Jardinería
-
-1809 Inventario
-
-1810 Obras nuevas
-
----
-
-# SERIE 1900
-
-## SEGURIDAD
-
-1901 Control de acceso
-
-1902 Visitantes
-
-1903 Videovigilancia
-
-1904 Alarmas
-
-1905 Evacuación
-
-1906 Incendios
-
-1907 Primeros auxilios
-
-1908 Emergencias
-
-1909 Protección infantil
-
-1910 Gestión de incidentes
-
----
-
-# SERIE 2000
-
-## FINANZAS
-
-2001 Presupuesto
-
-2002 Compras
-
-2003 Caja menor
-
-2004 Bancos
-
-2005 Donaciones
-
-2006 Pagos
-
-2007 Contabilidad
-
-2008 Auditoría financiera
-
-2009 Tesorería
-
-2010 Cierre mensual
-
----
-
-# SERIE 2100
-
-## RECURSOS HUMANOS
-
-2101 Reclutamiento
-
-2102 Selección
-
-2103 Contratación
-
-2104 Inducción
-
-2105 Evaluación
-
-2106 Capacitación
-
-2107 Vacaciones
-
-2108 Desempeño
-
-2109 Bienestar laboral
-
-2110 Desvinculación
-
----
-
-# SERIE 2200
-
-## HERA
-
-2201 Gestión documental
-
-2202 Memoria institucional
-
-2203 Indexación
-
-2204 Análisis documental
-
-2205 Generación automática
-
-2206 Auditoría documental
-
-2207 Gestión del conocimiento
-
-2208 Aprendizaje institucional
-
-2209 Respaldo documental
-
-2210 Evolución del conocimiento
-
----
-
-# SERIE 2300
-
-## AUDITORÍA
-
-2301 Auditoría interna
-
-2302 Auditoría académica
-
-2303 Auditoría financiera
-
-2304 Auditoría documental
-
-2305 Auditoría tecnológica
-
-2306 Auditoría de seguridad
-
-2307 Auditoría agrícola
-
-2308 Auditoría institucional
-
-2309 Seguimiento de hallazgos
-
-2310 Cierre de auditorías
-
----
-
-# SERIE 2400
-
-## INVESTIGACIÓN
-
-2401 Diseño de proyectos
-
-2402 Ética
-
-2403 Gestión de datos
-
-2404 Publicaciones
-
-2405 Propiedad intelectual
-
-2406 Innovación
-
-2407 Vinculación académica
-
-2408 Laboratorios
-
-2409 Transferencia tecnológica
-
-2410 Archivo científico
-
----
-
-# SERIE 2500
-
 ## EXPANSIÓN INTERNACIONAL
 
-2501 Apertura de sedes
+1801 Apertura de sedes
 
-2502 Adaptación normativa
+1802 Adaptación normativa
 
-2503 Convenios
+1803 Convenios
 
-2504 Relaciones internacionales
+1804 Relaciones internacionales
 
-2505 Traducción documental
+1805 Traducción documental
 
-2506 Homologación
+1806 Homologación
 
-2507 Capacitación internacional
+1807 Capacitación internacional
 
-2508 Cooperación
+1808 Cooperación
 
-2509 Evaluación internacional
+1809 Evaluación internacional
 
-2510 Integración institucional
+1810 Integración institucional
 
 ---
 
@@ -467,9 +473,9 @@ Esto garantiza escalabilidad durante décadas.
 
 Familias documentales: 15
 
-SOP definidos inicialmente: 150
+SOP definidos inicialmente: 165
 
-Capacidad proyectada: Más de 2.000 SOP
+Capacidad del Nivel 3: 900 códigos (1100-1999). Reservados 1850-1999.
 
 Horizonte de crecimiento: Ilimitado
 

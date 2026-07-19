@@ -187,21 +187,21 @@ Número de anexos.
 
 ## RELACIONES
 
-Documento padre.
+Todo documento podrá declarar relaciones con otros documentos.
 
-Documentos hijos.
+Cada relación se registrará como un par.
 
-Documentos relacionados.
+Tipo de relación.
 
-SOP relacionados.
+Código del documento destino.
 
-Protocolos asociados.
+Los tipos de relación admitidos se definen en el documento
+1008_DOCUMENT_RELATIONSHIP_AND_TRACEABILITY_SYSTEM.
 
-Políticas asociadas.
+Este estándar almacena las relaciones. No define sus tipos.
 
-Formularios utilizados.
-
-Checklists relacionados.
+No se registrará el tipo documental del destino.
+El código del documento ya lo expresa.
 
 ---
 
@@ -315,19 +315,15 @@ El propietario.
 
 # ESTADOS DEL DOCUMENTO
 
-Todo documento deberá indicar.
+Todo documento deberá indicar su estado en el campo Estado
+del bloque VERSIONADO.
 
-Borrador.
+El vocabulario de estados se define en el documento
+1006_DOCUMENT_VERSION_CONTROL_SYSTEM.
 
-En revisión.
+Este estándar almacena el estado. No lo define.
 
-Vigente.
-
-Suspendido.
-
-Obsoleto.
-
-Archivado.
+El estado pertenece a la versión, no al documento.
 
 ---
 

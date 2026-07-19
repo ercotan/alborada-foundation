@@ -259,81 +259,14 @@ Documento General.
 
 Se utilizarán códigos estandarizados.
 
-ADM
+La taxonomía completa de áreas se define en el documento
+1003_DOCUMENT_CLASSIFICATION_SYSTEM.
 
-Admisión.
+Este estándar consume dicha taxonomía. No la define.
 
-ACA
+Ejemplos de uso.
 
-Academia.
-
-PSI
-
-Psicología.
-
-MED
-
-Medicina.
-
-NUT
-
-Nutrición.
-
-AGR
-
-Agricultura.
-
-AVI
-
-Avicultura.
-
-IA
-
-HERA.
-
-FIN
-
-Finanzas.
-
-RRHH
-
-Recursos Humanos.
-
-LEG
-
-Legal.
-
-SEG
-
-Seguridad.
-
-INF
-
-Infraestructura.
-
-COM
-
-Comunicaciones.
-
-DIR
-
-Dirección.
-
-AUD
-
-Auditoría.
-
-DOC
-
-Gestión Documental.
-
-INV
-
-Investigación.
-
-INT
-
-Relaciones Internacionales.
+ADM. ACA. PSI. FIN. SEG. IA. INT.
 
 ---
 
@@ -465,15 +398,10 @@ El estado tampoco formará parte del nombre.
 
 Será un metadato.
 
-Ejemplo.
+El vocabulario de estados se define en
+1006_DOCUMENT_VERSION_CONTROL_SYSTEM.
 
-BORRADOR.
-
-VIGENTE.
-
-OBSOLETO.
-
-ARCHIVADO.
+Este estándar no lo define.
 
 ---
 
