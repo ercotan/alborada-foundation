@@ -62,7 +62,7 @@ La misión es permanente.
 # ESTRUCTURA GENERAL
 
 ```
-                 CONSEJO FUNDACIONAL
+                 CONSEJO SUPERIOR DE GOBIERNO
 
                          │
 
@@ -104,7 +104,7 @@ Equipos Operativos
 
 ---
 
-# CONSEJO FUNDACIONAL
+# CONSEJO SUPERIOR DE GOBIERNO
 
 Es el máximo órgano institucional.
 

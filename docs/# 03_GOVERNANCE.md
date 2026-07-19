@@ -87,7 +87,7 @@ Los principios no.
 
 La Fundación se organizará mediante órganos claramente definidos.
 
-### Consejo Fundacional
+### Consejo Superior de Gobierno
 
 Custodia la misión.
 
@@ -99,7 +99,7 @@ Garantiza la continuidad institucional.
 
 ---
 
-### Dirección Ejecutiva
+### Presidente Ejecutivo
 
 Responsable de ejecutar la estrategia.
 

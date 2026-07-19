@@ -95,7 +95,7 @@ El sistema evaluará.
 
 Gobierno institucional.
 
-Dirección ejecutiva.
+Dirección Ejecutiva.
 
 Áreas administrativas.
 

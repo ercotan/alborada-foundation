@@ -563,7 +563,7 @@ La calidad del currículo será medida mediante:
 
 # DECLARACIÓN FINAL
 
-El currículo de Alborada no pretende formar alumnas sobresalientes únicamente durante su etapa escolar.
+El currículo de Alborada no pretende formar estudiantes sobresalientes únicamente durante su etapa escolar.
 
 Pretende formar mujeres capaces de aprender durante toda su vida, liderar con integridad, construir riqueza con propósito y generar un impacto positivo en cualquier lugar del mundo donde decidan vivir.
 

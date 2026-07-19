@@ -349,7 +349,7 @@ Ideas institucionales.
 
 # HERA ESTRATEGIA
 
-Asistirá al Consejo Directivo mediante.
+Asistirá al Consejo Superior de Gobierno mediante.
 
 Escenarios.
 

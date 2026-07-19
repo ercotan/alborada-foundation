@@ -154,7 +154,7 @@ Toda teoría puede revisarse.
 
 Toda decisión debe fundamentarse.
 
-Las alumnas aprenderán a argumentar.
+Las estudiantes aprenderán a argumentar.
 
 No únicamente a opinar.
 
@@ -203,7 +203,7 @@ Mantener la calma en momentos complejos.
 
 La independencia económica constituye una forma de libertad.
 
-Las alumnas aprenderán desde edades tempranas:
+Las estudiantes aprenderán desde edades tempranas:
 
 Administración del dinero.
 
@@ -282,7 +282,7 @@ El conocimiento sin ética puede convertirse en un peligro.
 
 Toda decisión tiene consecuencias.
 
-Las alumnas aprenderán a reflexionar sobre el impacto de sus acciones.
+Las estudiantes aprenderán a reflexionar sobre el impacto de sus acciones.
 
 El objetivo consiste en desarrollar criterio.
 

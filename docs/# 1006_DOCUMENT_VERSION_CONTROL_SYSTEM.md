@@ -317,7 +317,7 @@ Verifica aplicabilidad.
 
 ---
 
-## Consejo Institucional
+## Consejo Superior de Gobierno
 
 Aprueba las versiones oficiales.
 

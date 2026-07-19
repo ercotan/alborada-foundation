@@ -13,7 +13,7 @@ Clasificación: Documento Estratégico
 
 La protección integral de las niñas constituye el principio superior de toda la Fundación Alborada.
 
-Ningún objetivo educativo, tecnológico, financiero o institucional tendrá prioridad sobre la seguridad, la dignidad y el bienestar de las estudiantes.
+Ningún objetivo educativo, tecnológico, financiero o institucional tendrá prioridad sobre la seguridad, la dignidad y el bienestar de las niñas.
 
 Toda decisión deberá evaluarse considerando primero su impacto sobre ellas.
 
@@ -27,7 +27,7 @@ Construir uno de los entornos educativos más seguros, transparentes y protegido
 
 # MISIÓN
 
-Implementar un sistema integral de prevención, detección, respuesta, acompañamiento y mejora continua que garantice la protección permanente de todas las estudiantes.
+Implementar un sistema integral de prevención, detección, respuesta, acompañamiento y mejora continua que garantice la protección permanente de todas las niñas.
 
 ---
 

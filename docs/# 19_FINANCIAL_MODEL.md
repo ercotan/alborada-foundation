@@ -309,7 +309,7 @@ Dirección General.
 
 Nivel IV.
 
-Consejo Directivo.
+Consejo Superior de Gobierno.
 
 Los límites monetarios serán definidos en políticas internas.
 

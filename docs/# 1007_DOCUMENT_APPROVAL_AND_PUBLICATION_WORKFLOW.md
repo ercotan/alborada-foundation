@@ -141,7 +141,7 @@ Aprueba documentos de impacto operativo.
 
 ---
 
-## Consejo Institucional
+## Consejo Superior de Gobierno
 
 Aprueba.
 

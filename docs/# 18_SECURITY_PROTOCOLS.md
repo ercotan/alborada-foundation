@@ -75,7 +75,7 @@ Cada anillo protege al siguiente.
 
 La prioridad absoluta son las personas.
 
-Protección de estudiantes.
+Protección de niñas.
 
 Protección de docentes.
 

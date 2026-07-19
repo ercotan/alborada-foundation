@@ -103,7 +103,7 @@ Visión de largo plazo.
 
 Este sistema comprenderá.
 
-Consejo Directivo.
+Consejo Superior de Gobierno.
 
 Dirección Ejecutiva.
 
@@ -169,7 +169,7 @@ Aprendizaje Institucional
 
 La gobernanza institucional estará sustentada sobre.
 
-Consejo Directivo.
+Consejo Superior de Gobierno.
 
 Dirección Ejecutiva.
 
