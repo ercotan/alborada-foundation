@@ -89,7 +89,7 @@ Compatible con revisión humana.
 
 Antes de generar cualquier documento, HERA deberá consultar obligatoriamente.
 
-## Nivel 1
+## Orden de Consulta 1
 
 Constitución Institucional.
 
@@ -97,7 +97,7 @@ Serie 0000.
 
 ---
 
-## Nivel 2
+## Orden de Consulta 2
 
 Normas Maestras.
 
@@ -105,31 +105,31 @@ Serie 1000.
 
 ---
 
-## Nivel 3
+## Orden de Consulta 3
 
 Políticas Institucionales.
 
 ---
 
-## Nivel 4
+## Orden de Consulta 4
 
 Protocolos.
 
 ---
 
-## Nivel 5
+## Orden de Consulta 5
 
 SOP relacionados.
 
 ---
 
-## Nivel 6
+## Orden de Consulta 6
 
 Documentación técnica específica.
 
 ---
 
-## Nivel 7
+## Orden de Consulta 7
 
 Normativa legal aplicable.
 
