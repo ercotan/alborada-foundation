@@ -2,12 +2,13 @@
 
 | | |
 |---|---|
+| **Identifier** | `ADR-0001` — engineering decision record. Not a `# 1003` institutional code |
 | **Status** | Accepted |
 | **Date** | 2026-07-19 |
 | **Scope** | Documentation normalization, Stage 4 |
 | **Supersedes** | The merge strategy in `DOCUMENTATION_NORMALIZATION_PLAN.md` §12 (M-01 … M-15) |
 | **Type** | Engineering record — **not normative**, defines no institutional doctrine |
-| **Related** | `# 1008` (relationship taxonomy) · `# 1012` (reference auditing standard) · plan §12.2, §15.1 |
+| **Related** | `# 1008` (relationship taxonomy) · `STD-0001` (reference auditing standard) · plan §12.2, §15.1 |
 
 ---
 
@@ -17,13 +18,13 @@
 
 | | |
 |---|---|
-| **Location** | `decisions/` — alongside `ARCHITECTURE.md`, `DOCUMENTATION_NORMALIZATION_PLAN.md`, `MASTER_DEVELOPMENT_GUIDE.md` |
+| **Location** | `engineering/` — alongside `ARCHITECTURE.md`, `DOCUMENTATION_NORMALIZATION_PLAN.md`, `MASTER_DEVELOPMENT_GUIDE.md` |
 | **Not in** | `docs/` — the institutional corpus |
 | **Governed by** | Nothing in `docs/`. It carries no document code, no `# 1003` level, no `# 1005` metadata, and does not enter the `# 1007` approval workflow |
 | **Authority** | **None over any institutional document.** It records why an engineering decision was taken. It cannot create, modify or override doctrine |
 | **Audience** | Future contributors to the normalization programme |
 
-Placing this record inside `docs/` would be the same error avoided with `# 1012`: an engineering artifact acquiring apparent doctrinal standing by proximity. Whether ADRs are eventually indexed by the N-05 non-normative registry, or remain permanently outside the corpus, is deferred to Stage 5 (plan §15.1).
+Placing this record inside `docs/` would be the same error avoided with `STD-0001`: an engineering artifact acquiring apparent doctrinal standing by proximity. Whether ADRs are eventually indexed by the N-05 non-normative registry, or remain permanently outside the corpus, is deferred to Stage 5 (plan §15.1).
 
 ---
 
@@ -134,7 +135,7 @@ Post-correction, on the 1000-series: 21 raw marker hits reduced to **8 detected 
 1005→1008   1010→1003   1010→1004   1011→1007
 ```
 
-**Confidence caveat, recorded deliberately:** all eight detected edges are Stage 2 edits. The standard was validated against text written by the same process that produced the standard. **This is not independent evidence**, and the caveat is carried in `# 1012` itself rather than left in a working note.
+**Confidence caveat, recorded deliberately:** all eight detected edges are Stage 2 edits. The standard was validated against text written by the same process that produced the standard. **This is not independent evidence**, and the caveat is carried in `STD-0001` itself rather than left in a working note.
 
 ---
 
@@ -178,7 +179,7 @@ P4 selected thematically and found thematic relationships. P5 selected dispersel
 
 The classification standard achieves full precision on explicit references and **cannot detect latent ones at all**. Rather than extend it into semantic inference — where it demonstrably could not produce reproducible results — that territory was declared out of scope in the instrument itself.
 
-The consequence is deliberate and uncomfortable: `# 1012` validates relationships already declared and does not discover missing ones. **The corpus's central defect — 114 nodes and almost no edges — is not solved by `# 1012`.** An instrument that had claimed the broader capability would have produced confident, unreproducible findings and closed the question falsely.
+The consequence is deliberate and uncomfortable: `STD-0001` validates relationships already declared and does not discover missing ones. **The corpus's central defect — 114 nodes and almost no edges — is not solved by `STD-0001`.** An instrument that had claimed the broader capability would have produced confident, unreproducible findings and closed the question falsely.
 
 ### 5.4 Validating on your own output is not validation
 
@@ -209,12 +210,12 @@ H1 was true of the 1000-series and false of the doctrinal corpus. The eleven-doc
 |---|---|
 | Five relationship-taxonomy pilots | Complete, 49 documents |
 | Mention-vs-dependency classification standard | Validated, 100 % precision on explicit references |
-| `# 1012_ESTANDAR_DE_AUDITORIA_DE_REFERENCIAS` | Committed `eab9cec`, explicitly non-normative |
+| `STD-0001` | Committed `eab9cec`, explicitly non-normative |
 | Plan §12 rewritten; merge record preserved as superseded | Committed `4535219` |
 
 ### 6.2 Architectural separation established
 
-`# 1008` owns the relationship taxonomy and was **never modified** across all of Stage 4. `# 1012` determines *whether* a reference constitutes a relationship; `# 1008` determines *what type* it is. On divergence, `# 1008` prevails.
+`# 1008` owns the relationship taxonomy and was **never modified** across all of Stage 4. `STD-0001` determines *whether* a reference constitutes a relationship; `# 1008` determines *what type* it is. On divergence, `# 1008` prevails.
 
 This split was preserved through five pilots specifically so that an auditing instrument could never acquire authority over institutional doctrine by being useful.
 
@@ -226,7 +227,7 @@ This split was preserved through five pilots specifically so that an auditing in
 
 **Normalization effort shifts from deletion to connection.** The original plan front-loaded consolidation; the replacement front-loads boundary definition and reference population. Stages 5–9 are unchanged in sequence but now operate on the full corpus rather than a reduced one — more renames, more metadata, more relationship entries.
 
-**The unresolved gap is discovery, not validation.** `# 1012` verifies declared references. Populating a graph that currently has almost no edges requires finding undeclared ones, which no current instrument does. This is the largest known open problem in the normalization programme.
+**The unresolved gap is discovery, not validation.** `STD-0001` verifies declared references. Populating a graph that currently has almost no edges requires finding undeclared ones, which no current instrument does. This is the largest known open problem in the normalization programme.
 
 **Constitutional restructuring is permanently outside engineering.** M-08 (`00`+`67`) and M-09 (`66`+`84`) touch founding instruments. They are not revived by this ADR and are not blocked by it either — they are a Consejo Superior de Gobierno question under any methodology.
 
@@ -243,7 +244,7 @@ This split was preserved through five pilots specifically so that an auditing in
 | **P-5** | Hierarchy is never inferred from numbering alone |
 | **P-6** | Any corpus-wide claim requires a dispersed control sample |
 | **P-7** | `# 1008` is sole owner of the relationship taxonomy. Auditing instruments reference it and never redefine it |
-| **P-8** | `# 1012` is non-normative and cannot supersede `# 1008` or any ownership document |
+| **P-8** | `STD-0001` is non-normative and cannot supersede `# 1008` or any ownership document |
 | **P-9** | Constitutional instruments are restructured only by Consejo ruling |
 | **P-10** | Instruments declare their own limits. Declared scope is part of the instrument, not commentary on it |
 
@@ -252,12 +253,12 @@ This split was preserved through five pilots specifically so that an auditing in
 | # | Deferred | Resolve at | Why not now |
 |---|---|---|---|
 | **D-1** | Documentary families model (F1–F4) | Stage 4 completion | Designed but **not approved**. Consolidating it would fix a taxonomy validated on five pilots only |
-| **D-2** | N-05 registry for non-normative governance artifacts | **Stage 5** (plan §15.1) | `# 1012` currently has no parent document. Resolving it by widening `# 1000`'s normative index would contradict `# 1012`'s declared nature |
-| **D-3** | Latent dependency discovery | Post-Stage 4 | Requires semantic inference. Declared out of scope in `# 1012` rather than attempted unreliably |
+| **D-2** | N-05 registry for non-normative governance artifacts | **Stage 5** (plan §15.1) | `STD-0001` currently has no parent document. Resolving it by widening `# 1000`'s normative index would contradict `STD-0001`'s declared nature |
+| **D-3** | Latent dependency discovery | Post-Stage 4 | Requires semantic inference. Declared out of scope in `STD-0001` rather than attempted unreliably |
 | **D-4** | Semantic redundancy measurement | Unscheduled | §2.2 — the merge plan was refuted on textual evidence only. Whether the corpus is *semantically* redundant is unmeasured |
 | **D-5** | `gemelo digital` conflict (`# 27` vs `# 59`) | Stage 4 boundaries | A domain boundary question once D-1 resolves |
 | **D-6** | Documentary ownership of the five deferred concepts (C1–C5) | Stage 4 completion | Conceptual ownership is settled; documentary ownership follows the surviving document |
-| **D-7** | Independent validation of `# 1012` | When the corpus contains references authored outside this criterion | §5.4 — cannot be resolved by more analysis of existing text |
+| **D-7** | Independent validation of `STD-0001` | When the corpus contains references authored outside this criterion | §5.4 — cannot be resolved by more analysis of existing text |
 
 ---
 

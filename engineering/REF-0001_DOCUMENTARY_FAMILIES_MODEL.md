@@ -4,13 +4,14 @@
 
 | | |
 |---|---|
+| **Identifier** | `REF-0001` — engineering reference model. Not a `# 1003` institutional code |
 | **Status** | Approved · authoritative version |
 | **Date** | 19 July 2026 |
 | **Layer** | Engineering documentation — Layer 2, `PROJECT_CONSTITUTION.md` |
-| **Location** | `decisions/` — **not** the institutional corpus |
+| **Location** | `engineering/` — **not** the institutional corpus |
 | **Authority** | **None over any document in `docs/`.** Creates no doctrine, defines no institutional term, assigns no concept ownership |
 | **Supersedes** | Proposal revisions 1 and 2 (working notes, not persisted) |
-| **Companion** | `ADR-0001_STAGE_4_DIRECTION_CHANGE.md` — why Stage 4 changed direction |
+| **Companion** | `engineering/ADR-0001_STAGE_4_DIRECTION_CHANGE.md` — why Stage 4 changed direction |
 
 ---
 
@@ -255,7 +256,7 @@ These are engineering rationale and are preserved deliberately. Each was a corre
 
 **9.5 Evidence is partial.** 38 of 114 documents measured behaviorally; 17 purpose statements read. F3 rests on six members.
 
-**9.6 F2's clean profile is partly self-made.** Every F2 reference was written during Stage 2 by the process that also produced this model. The circularity recorded in `# 1012` §5.4 applies here too.
+**9.6 F2's clean profile is partly self-made.** Every F2 reference was written during Stage 2 by the process that also produced this model. The circularity recorded in `STD-0001` §5.4 applies here too.
 
 **9.7 Latent dependencies remain unmeasured.** The model asserts that F3 and F4 carry heavy undeclared dependencies without quantifying them, because no instrument measures them.
 
@@ -278,7 +279,7 @@ Amendments to the F3 registry require ratification by the Architecture authority
 
 Amendments to family definitions require re-validation against the pilot sample.
 
-Where this model diverges from `# 1003`, `# 1008`, `# 1011`, `# 1012`, or any owning document, **the institutional document prevails and this model is corrected.**
+Where this model diverges from `# 1003`, `# 1008`, `# 1011`, `STD-0001`, or any owning document, **the institutional document prevails and this model is corrected.**
 
 ---
 

@@ -1,11 +1,15 @@
-# 1012_ESTANDAR_DE_AUDITORIA_DE_REFERENCIAS.md
+# STD-0001_REFERENCE_AUDITING_STANDARD.md
 
 # ESTÁNDAR DE AUDITORÍA DE REFERENCIAS DOCUMENTALES
 ## Fundación Alborada
 
 Versión 1.0
 
-Clasificación: Estándar de Auditoría
+Identificador: STD-0001
+
+Capa: Documentación de ingeniería. No pertenece al corpus institucional.
+
+Autoridad: ninguna sobre los documentos de docs/. En caso de divergencia, prevalece el documento institucional.
 
 ---
 
@@ -301,6 +305,6 @@ Esa distinción es su principal garantía.
 
 Fundación Alborada
 
-1012_ESTANDAR_DE_AUDITORIA_DE_REFERENCIAS.md
+STD-0001_REFERENCE_AUDITING_STANDARD.md
 
 Versión 1.0
