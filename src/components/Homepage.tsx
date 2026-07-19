@@ -5,6 +5,7 @@ import {
   CampusSection,
   CohortSection,
   ContactSection,
+  DonationSection,
   HeraSection,
   HeroSection,
   ImpactSection,
@@ -30,6 +31,7 @@ export const Homepage: React.FC = () => (
     <ImpactSection />
     <TimelineSection />
     <TransparencySection />
+    <DonationSection />
     <AlliancesSection />
     <ContactSection />
     <OrientationSection />

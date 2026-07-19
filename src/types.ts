@@ -118,3 +118,25 @@ export interface ContactInterest {
   value: string;
   label: string;
 }
+
+/** A funding tier card in the Donations section. */
+export interface DonationTier {
+  id: string;
+  /** Small uppercase category label above the title. */
+  category: string;
+  title: string;
+  text: string;
+  /** Unit suffix shown after the amount input, e.g. "USD/mes". */
+  amountUnit: string;
+  defaultAmount: number;
+  /**
+   * Literal Tailwind width utility for the progress bar (e.g. "w-[78%]").
+   * Stored as a complete literal — Tailwind's extractor scans source text
+   * statically, so an interpolated `w-[${n}%]` would never be generated.
+   */
+  progressClass: string;
+  goalLabel: string;
+  progressLabel: string;
+  /** Extra grid-span utilities applied to this card only. */
+  cardClassName?: string;
+}

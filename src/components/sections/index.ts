@@ -9,6 +9,7 @@ export { SustainabilitySection } from "./SustainabilitySection";
 export { ImpactSection } from "./ImpactSection";
 export { TimelineSection } from "./TimelineSection";
 export { TransparencySection } from "./TransparencySection";
+export { DonationSection } from "./DonationSection";
 export { AlliancesSection } from "./AlliancesSection";
 export { ContactSection } from "./ContactSection";
 export { OrientationSection } from "./OrientationSection";
