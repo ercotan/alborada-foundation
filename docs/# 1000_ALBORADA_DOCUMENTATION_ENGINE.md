@@ -105,6 +105,10 @@ Catálogo maestro de SOP.
 
 1010_MASTER_SOP_CATALOG.
 
+Glosario institucional.
+
+1011_GLOSARIO_INSTITUCIONAL.
+
 ---
 
 La jerarquía de series y niveles se define en
