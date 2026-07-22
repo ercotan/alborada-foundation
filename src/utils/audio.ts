@@ -11,7 +11,7 @@ export class CinematicAudioEngine {
   private subOsc2: OscillatorNode | null = null;
   private subGain: GainNode | null = null;
   private filter: BiquadFilterNode | null = null;
-  
+
   // Harmonic chords representing "Knowledge rising" (A major / E major chords)
   private padOscs: OscillatorNode[] = [];
   private padGain: GainNode | null = null;
@@ -31,9 +31,13 @@ export class CinematicAudioEngine {
 
     try {
       // Create audio context
-      const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+      // Safari exposes the constructor under a vendor prefix.
+      const AudioContextClass =
+        window.AudioContext ||
+        (window as Window & { webkitAudioContext?: typeof AudioContext })
+          .webkitAudioContext;
       this.ctx = new AudioContextClass();
-      
+
       // Master Gain
       this.masterVolume = this.ctx.createGain();
       this.masterVolume.gain.setValueAtTime(0, this.ctx.currentTime);
@@ -50,7 +54,7 @@ export class CinematicAudioEngine {
       this.subOsc1 = this.ctx.createOscillator();
       this.subOsc1.type = "triangle";
       this.subOsc1.frequency.setValueAtTime(43.65, this.ctx.currentTime); // F1
-      
+
       this.subOsc2 = this.ctx.createOscillator();
       this.subOsc2.type = "sine";
       this.subOsc2.frequency.setValueAtTime(65.41, this.ctx.currentTime); // C2
@@ -77,16 +81,19 @@ export class CinematicAudioEngine {
       this.padGain.connect(this.padFilter);
 
       // Chords: E3 (164.8Hz), A3 (220.0Hz), C#4 (277.2Hz), E4 (329.6Hz)
-      const freqs = [164.81, 220.00, 277.18, 329.63];
+      const freqs = [164.81, 220.0, 277.18, 329.63];
       freqs.forEach((freq) => {
         if (!this.ctx) return;
         const osc = this.ctx.createOscillator();
         osc.type = "sine";
         osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
-        
+
         // Detune slightly for lush thickness
-        osc.detune.setValueAtTime((Math.random() - 0.5) * 15, this.ctx.currentTime);
-        
+        osc.detune.setValueAtTime(
+          (Math.random() - 0.5) * 15,
+          this.ctx.currentTime,
+        );
+
         osc.connect(this.padGain!);
         osc.start();
         this.padOscs.push(osc);
@@ -105,7 +112,11 @@ export class CinematicAudioEngine {
 
       // Generate White Noise Buffer
       const bufferSize = 2 * this.ctx.sampleRate;
-      const noiseBuffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+      const noiseBuffer = this.ctx.createBuffer(
+        1,
+        bufferSize,
+        this.ctx.sampleRate,
+      );
       const output = noiseBuffer.getChannelData(0);
       for (let i = 0; i < bufferSize; i++) {
         output[i] = Math.random() * 2 - 1;
@@ -124,13 +135,16 @@ export class CinematicAudioEngine {
 
       const lfoGain = this.ctx.createGain();
       lfoGain.gain.setValueAtTime(100, this.ctx.currentTime); // Sweeps 100Hz around center
-      
+
       this.noiseLFO.connect(lfoGain);
       lfoGain.connect(this.noiseFilter.frequency);
       this.noiseLFO.start();
 
       // Smooth fade in master
-      this.masterVolume.gain.linearRampToValueAtTime(0.8, this.ctx.currentTime + 3.0);
+      this.masterVolume.gain.linearRampToValueAtTime(
+        0.8,
+        this.ctx.currentTime + 3.0,
+      );
 
       this.isInitialized = true;
     } catch (e) {

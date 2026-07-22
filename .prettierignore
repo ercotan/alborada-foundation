@@ -1,0 +1,8 @@
+dist
+coverage
+node_modules
+package-lock.json
+
+# The institutional corpus is normative content, not source code.
+# Formatting it would create diff noise against documents under review.
+docs

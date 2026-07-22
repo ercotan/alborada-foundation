@@ -9,7 +9,7 @@ export type AppView = "cinema" | "homepage";
 export interface CinematicState {
   progress: number; // 0 to 1
   isPlaying: boolean;
-  speed: number;    // 0.5, 1, 2
+  speed: number; // 0.5, 1, 2
   isMuted: boolean;
   cameraDolly: boolean;
 }

@@ -61,7 +61,10 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
         radius: Math.random() * 80 + 60,
         vx: (Math.random() - 0.5) * 0.08,
         alpha: Math.random() * 0.18 + 0.04,
-        color: Math.random() > 0.5 ? "rgba(212, 175, 55, 0.06)" : "rgba(112, 139, 200, 0.04)",
+        color:
+          Math.random() > 0.5
+            ? "rgba(212, 175, 55, 0.06)"
+            : "rgba(112, 139, 200, 0.04)",
       });
     }
     mistCloudsRef.current = clouds;
@@ -143,16 +146,19 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
       // 2. DRAW SKY GRADIENT
       // ==========================================
       const skyGrad = ctx.createLinearGradient(0, 0, 0, horizonY);
-      
+
       // Interpolate sky colors based on sunrise progress
       // Top of sky: stays deep dark navy (Natural Tones #02050D)
       skyGrad.addColorStop(0, "#02050D");
 
       // Mid sky (Natural Tones #050A1A base with progress interpolation)
-      const midSkyNavyR = Math.round(5 + progress * 15);    // 5 -> 20
-      const midSkyNavyG = Math.round(10 + progress * 20);   // 10 -> 30
-      const midSkyNavyB = Math.round(26 + progress * 25);   // 26 -> 51
-      skyGrad.addColorStop(0.6, `rgb(${midSkyNavyR}, ${midSkyNavyG}, ${midSkyNavyB})`);
+      const midSkyNavyR = Math.round(5 + progress * 15); // 5 -> 20
+      const midSkyNavyG = Math.round(10 + progress * 20); // 10 -> 30
+      const midSkyNavyB = Math.round(26 + progress * 25); // 26 -> 51
+      skyGrad.addColorStop(
+        0.6,
+        `rgb(${midSkyNavyR}, ${midSkyNavyG}, ${midSkyNavyB})`,
+      );
 
       // Just above horizon (transition area with Natural Tones #1A1208 warmth)
       if (progress < 0.25) {
@@ -166,10 +172,13 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
         // Sunrise: glowing transition with vibrant gold-orange layers
         const factor = (progress - 0.25) / 0.75;
         // Blend from Natural Tones #1A1208 warm gold to brilliant liquid gold near the horizon
-        const r = Math.round(186 + factor * 69);  // 186 -> 255
+        const r = Math.round(186 + factor * 69); // 186 -> 255
         const g = Math.round(120 + factor * 110); // 120 -> 230
-        const b = Math.round(48 + factor * 113);  // 48 -> 161
-        skyGrad.addColorStop(0.85, `rgba(${r - 90}, ${g - 50}, ${b - 20}, 0.5)`);
+        const b = Math.round(48 + factor * 113); // 48 -> 161
+        skyGrad.addColorStop(
+          0.85,
+          `rgba(${r - 90}, ${g - 50}, ${b - 20}, 0.5)`,
+        );
         skyGrad.addColorStop(1.0, `rgb(${r}, ${g}, ${b})`);
       }
 
@@ -182,26 +191,43 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
       // Sun Y: goes from horizonY + 50 (below) to horizonY - 45 (approx 1/3 above horizon)
       const sunMaxHeight = 35; // height above horizon
       const sunMinHeight = -65; // depth below horizon
-      const sunY = horizonY - (sunMinHeight + progress * (sunMaxHeight - sunMinHeight));
+      const sunY =
+        horizonY - (sunMinHeight + progress * (sunMaxHeight - sunMinHeight));
       const sunRadius = Math.min(width, height) * 0.055 + 10; // Responsive sun radius (around 50px)
 
       // Draw sun if its glow touches the sky
       if (progress > 0.0) {
         // Draw volumetric sun atmosphere glow (behind sun disk)
         const atmosGlow = ctx.createRadialGradient(
-          width / 2, sunY, 2,
-          width / 2, sunY, sunRadius * (4 + progress * 6)
+          width / 2,
+          sunY,
+          2,
+          width / 2,
+          sunY,
+          sunRadius * (4 + progress * 6),
         );
-        
+
         // Pure gold to transparent orange/navy
-        atmosGlow.addColorStop(0, `rgba(255, 245, 215, ${0.45 + progress * 0.35})`);
-        atmosGlow.addColorStop(0.15, `rgba(255, 200, 110, ${0.3 + progress * 0.45})`);
+        atmosGlow.addColorStop(
+          0,
+          `rgba(255, 245, 215, ${0.45 + progress * 0.35})`,
+        );
+        atmosGlow.addColorStop(
+          0.15,
+          `rgba(255, 200, 110, ${0.3 + progress * 0.45})`,
+        );
         atmosGlow.addColorStop(0.4, `rgba(212, 175, 55, ${0.12 * progress})`);
         atmosGlow.addColorStop(1.0, "rgba(4, 8, 20, 0)");
 
         ctx.fillStyle = atmosGlow;
         ctx.beginPath();
-        ctx.arc(width / 2, sunY, sunRadius * (4 + progress * 6), 0, Math.PI * 2);
+        ctx.arc(
+          width / 2,
+          sunY,
+          sunRadius * (4 + progress * 6),
+          0,
+          Math.PI * 2,
+        );
         ctx.fill();
 
         // Draw Volumetric Light Rays (God Rays) passing through the mist
@@ -219,20 +245,28 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
           for (let r = 0; r < rayCount; r++) {
             // Ray angle sweeps slowly
             const angleOffset = Math.sin(time * 0.003 + r * 15) * 0.04;
-            const centerAngle = (Math.PI + (r / (rayCount - 1)) * Math.PI) + angleOffset;
+            const centerAngle =
+              Math.PI + (r / (rayCount - 1)) * Math.PI + angleOffset;
             const rayWidth = 0.08 + Math.sin(time * 0.005 + r) * 0.02;
 
-            const x1 = width / 2 + Math.cos(centerAngle - rayWidth) * maxRayLength;
+            const x1 =
+              width / 2 + Math.cos(centerAngle - rayWidth) * maxRayLength;
             const y1 = sunY + Math.sin(centerAngle - rayWidth) * maxRayLength;
-            const x2 = width / 2 + Math.cos(centerAngle + rayWidth) * maxRayLength;
+            const x2 =
+              width / 2 + Math.cos(centerAngle + rayWidth) * maxRayLength;
             const y2 = sunY + Math.sin(centerAngle + rayWidth) * maxRayLength;
 
             const rayGrad = ctx.createRadialGradient(
-              width / 2, sunY, sunRadius,
-              width / 2, sunY, maxRayLength
+              width / 2,
+              sunY,
+              sunRadius,
+              width / 2,
+              sunY,
+              maxRayLength,
             );
-            
-            const rayAlpha = (0.07 * Math.sin(time * 0.002 + r * 2.5) + 0.12) * rayProgress;
+
+            const rayAlpha =
+              (0.07 * Math.sin(time * 0.002 + r * 2.5) + 0.12) * rayProgress;
             rayGrad.addColorStop(0, `rgba(255, 225, 150, ${rayAlpha})`);
             rayGrad.addColorStop(0.5, `rgba(212, 175, 55, ${rayAlpha * 0.3})`);
             rayGrad.addColorStop(1.0, "rgba(4, 8, 20, 0)");
@@ -257,8 +291,12 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
           ctx.clip();
 
           const sunDiskGrad = ctx.createRadialGradient(
-            width / 2, sunY, 0,
-            width / 2, sunY, sunRadius
+            width / 2,
+            sunY,
+            0,
+            width / 2,
+            sunY,
+            sunRadius,
           );
           sunDiskGrad.addColorStop(0, "#ffffff");
           sunDiskGrad.addColorStop(0.4, "#fffaf0");
@@ -285,14 +323,24 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
         }
 
         const mistGrad = ctx.createRadialGradient(
-          cloud.x, cloud.y, 0,
-          cloud.x, cloud.y, cloud.radius
+          cloud.x,
+          cloud.y,
+          0,
+          cloud.x,
+          cloud.y,
+          cloud.radius,
         );
-        
+
         // Modulate alpha based on progress: mist is visible in first light, slightly glows in gold dawn
         const currentAlpha = cloud.alpha * (0.6 + progress * 0.4);
-        mistGrad.addColorStop(0, cloud.color.replace(/[\d.]+\)$/, `${currentAlpha})`));
-        mistGrad.addColorStop(0.5, cloud.color.replace(/[\d.]+\)$/, `${currentAlpha * 0.45})`));
+        mistGrad.addColorStop(
+          0,
+          cloud.color.replace(/[\d.]+\)$/, `${currentAlpha})`),
+        );
+        mistGrad.addColorStop(
+          0.5,
+          cloud.color.replace(/[\d.]+\)$/, `${currentAlpha * 0.45})`),
+        );
         mistGrad.addColorStop(1.0, "rgba(4, 8, 20, 0)");
 
         ctx.fillStyle = mistGrad;
@@ -306,8 +354,8 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
       // ==========================================
       // Base water background (Natural Tones #0A1020 -> #020408)
       const oceanGrad = ctx.createLinearGradient(0, horizonY, 0, height);
-      oceanGrad.addColorStop(0, "#0A1020"); 
-      oceanGrad.addColorStop(1, "#020408"); 
+      oceanGrad.addColorStop(0, "#0A1020");
+      oceanGrad.addColorStop(1, "#020408");
       ctx.fillStyle = oceanGrad;
       ctx.fillRect(0, horizonY, width, height - horizonY);
 
@@ -316,7 +364,7 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
       // we draw horizontal reflection lines with high-frequency sine-wave modulation.
       const waterHeight = height - horizonY;
       const step = 2; // For smooth resolution and performance
-      
+
       for (let y = horizonY; y < height; y += step) {
         const screenY = y;
         const t = (y - horizonY) / waterHeight; // 0 to 1 distance factor
@@ -325,37 +373,41 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
         if (progress > 0.05) {
           // Reflection width: starts thin at the horizon, broadens closer to the camera
           // But perspective keeps it structurally bound
-          const baseWidth = width * 0.045 + t * width * 0.14; 
-          
+          const baseWidth = width * 0.045 + t * width * 0.14;
+
           // Microscopic ripples wave calculations:
           // Wave frequency increases towards the horizon (perspective compression)
-          const freq = (1.5 / (t + 0.05)) + Math.sin(time * 0.01) * 0.1;
+          const freq = 1.5 / (t + 0.05) + Math.sin(time * 0.01) * 0.1;
           const wavePhase1 = Math.sin(screenY * 0.5 + time * 0.05) * 1.5;
           const wavePhase2 = Math.cos(screenY * 0.12 - time * 0.035) * 2.0;
-          
+
           // Generate micro ripple value
-          const rippleValue = Math.sin(screenY * freq * 0.08 + time * 0.08 + wavePhase1) * 
-                             Math.cos(screenY * freq * 0.03 - time * 0.04 + wavePhase2);
-          
+          const rippleValue =
+            Math.sin(screenY * freq * 0.08 + time * 0.08 + wavePhase1) *
+            Math.cos(screenY * freq * 0.03 - time * 0.04 + wavePhase2);
+
           // Amplitude of ripple diminishes towards horizon, also less active at bottom
           const rippleAmp = 0.5 + 0.5 * Math.sin(Math.PI * t); // peaking in middle-ground
 
           // Width of reflection flare at this y
           const flareWidth = baseWidth * (1 + rippleValue * 0.25 * rippleAmp);
-          
+
           // Reflection alpha: stronger when sun is higher
           const reflectionBaseAlpha = 0.85 * Math.pow(progress, 1.2);
-          
+
           // Calculate horizontal reflection gradient centered on screen width
           const center = width / 2;
           const startX = Math.max(0, center - flareWidth);
           const endX = Math.min(width, center + flareWidth);
-          
+
           if (endX - startX > 0.5) {
             const reflectGrad = ctx.createLinearGradient(startX, 0, endX, 0);
-            
+
             // Core of the sun reflection: molten gold
-            const alphaFactor = reflectionBaseAlpha * (0.35 + (1.0 - t * 0.6) * 0.6) * (1.0 + rippleValue * 0.3 * rippleAmp);
+            const alphaFactor =
+              reflectionBaseAlpha *
+              (0.35 + (1.0 - t * 0.6) * 0.6) *
+              (1.0 + rippleValue * 0.3 * rippleAmp);
             const coreAlpha = alphaFactor;
             const midAlpha = alphaFactor * 0.4;
             const edgeAlpha = 0;
@@ -366,9 +418,18 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
             const b = Math.round(55 + progress * 106); // 55 -> 161
 
             reflectGrad.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${edgeAlpha})`);
-            reflectGrad.addColorStop(0.35, `rgba(${r}, ${g - 25}, ${b - 20}, ${midAlpha * 0.5})`);
-            reflectGrad.addColorStop(0.5, `rgba(${r + 20}, ${g + 10}, ${b + 40}, ${coreAlpha})`); // Bright white-gold core
-            reflectGrad.addColorStop(0.65, `rgba(${r}, ${g - 25}, ${b - 20}, ${midAlpha * 0.5})`);
+            reflectGrad.addColorStop(
+              0.35,
+              `rgba(${r}, ${g - 25}, ${b - 20}, ${midAlpha * 0.5})`,
+            );
+            reflectGrad.addColorStop(
+              0.5,
+              `rgba(${r + 20}, ${g + 10}, ${b + 40}, ${coreAlpha})`,
+            ); // Bright white-gold core
+            reflectGrad.addColorStop(
+              0.65,
+              `rgba(${r}, ${g - 25}, ${b - 20}, ${midAlpha * 0.5})`,
+            );
             reflectGrad.addColorStop(1, `rgba(${r}, ${g}, ${b}, ${edgeAlpha})`);
 
             ctx.fillStyle = reflectGrad;
@@ -378,7 +439,9 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
         }
 
         // Draw general obsidian glass dark reflections/specular highlights
-        const ambientRipple = Math.sin(screenY * 0.2 - time * 0.04) * Math.cos(screenY * 0.05 + time * 0.02);
+        const ambientRipple =
+          Math.sin(screenY * 0.2 - time * 0.04) *
+          Math.cos(screenY * 0.05 + time * 0.02);
         if (ambientRipple > 0.75) {
           const ambientAlpha = 0.03 * (1.0 - t) * (ambientRipple - 0.75);
           ctx.fillStyle = `rgba(161, 178, 220, ${ambientAlpha})`;
@@ -404,7 +467,7 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
           // Camera Dolly-in 3D effect:
           // Particles move slightly faster and expand as they get closer to the camera
           if (cameraDolly) {
-            p.size = (Math.max(0.2, p.size)) * (1.0 + 0.00025 * speed);
+            p.size = Math.max(0.2, p.size) * (1.0 + 0.00025 * speed);
           }
 
           // Boundary checks & respawning

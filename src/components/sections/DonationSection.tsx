@@ -6,7 +6,10 @@ const CARD_CLASS =
 
 export const DonationSection: React.FC = () => {
   return (
-    <section id="donations" className="py-24 px-6 md:px-12 bg-[#050a1a] relative">
+    <section
+      id="donations"
+      className="py-24 px-6 md:px-12 bg-[#050a1a] relative"
+    >
       <div className="max-w-5xl mx-auto flex flex-col gap-12">
         <div className="text-center flex flex-col items-center gap-3 max-w-2xl mx-auto">
           <span className="font-mono text-[10px] tracking-[0.4em] text-gold-500 uppercase">
@@ -17,7 +20,8 @@ export const DonationSection: React.FC = () => {
           </h2>
           <div className="w-12 h-[1px] bg-gold-500/20 my-1" />
           <p className="text-white/40 font-sans text-xs md:text-sm leading-relaxed font-light">
-            Cada aporte se destina a la educación, la protección y el desarrollo de las estudiantes.
+            Cada aporte se destina a la educación, la protección y el desarrollo
+            de las estudiantes.
           </p>
         </div>
 
@@ -56,7 +60,9 @@ export const DonationSection: React.FC = () => {
               Formas de colaborar
             </span>
             <p className="text-xs md:text-sm text-white/50 leading-relaxed font-light">
-              La Fundación Alborada recibe acompañamiento por distintas vías. Escríbanos indicando su interés y le responderemos con los pasos concretos.
+              La Fundación Alborada recibe acompañamiento por distintas vías.
+              Escríbanos indicando su interés y le responderemos con los pasos
+              concretos.
             </p>
           </div>
 
@@ -81,7 +87,10 @@ export const DonationSection: React.FC = () => {
           </div>
 
           <p className="text-[11px] text-white/35 leading-relaxed font-light text-center max-w-2xl mx-auto border-t border-white/5 pt-6">
-            La Fundación Alborada no publica cifras de financiación, montos recaudados ni porcentajes de avance mientras no estén oficialmente verificados. La información financiera y el progreso de cada proyecto se publicarán cuando cuenten con verificación oficial.
+            La Fundación Alborada no publica cifras de financiación, montos
+            recaudados ni porcentajes de avance mientras no estén oficialmente
+            verificados. La información financiera y el progreso de cada
+            proyecto se publicarán cuando cuenten con verificación oficial.
           </p>
         </div>
       </div>
