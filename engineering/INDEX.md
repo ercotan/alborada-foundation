@@ -15,6 +15,7 @@
 | ID | Title | Type | Status | Date | Superseded by |
 |---|---|---|---|---|---|
 | `ADR-0001` | Stage 4 direction change: merge consolidation → domain architecture | Record | Accepted | 2026-07-19 | — |
+| `ADR-0002` | Phase P0 engineering foundations | Record | Accepted | 2026-07-22 | — |
 | `STD-0001` | Estándar de Auditoría de Referencias Documentales | Instrument | Approved | 2026-07-19 | — |
 | `REF-0001` | Documentary Families Model F1–F4 | Instrument | Approved | 2026-07-19 | — |
 
