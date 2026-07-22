@@ -21,6 +21,7 @@ export default defineConfig(() => {
             __dirname,
             "proteccion-infantil.html",
           ),
+          contacto: path.resolve(__dirname, "contacto.html"),
         },
       },
     },

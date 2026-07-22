@@ -1,30 +1,11 @@
 import React from "react";
 import { CheckCircle2, Send } from "lucide-react";
 import { motion } from "motion/react";
+import { collaborationPaths, contactPageHref } from "../../data/contact";
 import { primaryContact, specializedContacts } from "../../data/homepage";
 import { SectionEyebrow } from "../ui/SectionEyebrow";
 
 const CONTACT_EMAIL = primaryContact.email;
-
-/** Who we hope to hear from, and what collaboration looks like for each. */
-const collaborationPaths: { audience: string; text: string }[] = [
-  {
-    audience: "Instituciones y programas públicos",
-    text: "Convenios, cooperación y apoyo institucional.",
-  },
-  {
-    audience: "Empresas y fundaciones",
-    text: "Colaboración, responsabilidad social y aportes en especie.",
-  },
-  {
-    audience: "Profesionales y voluntarios",
-    text: "Docencia, mentoría, oficios y acompañamiento.",
-  },
-  {
-    audience: "Personas y familias",
-    text: "Consultas sobre el proyecto y formas de participar.",
-  },
-];
 
 export const ContactSection: React.FC = () => (
   <section
@@ -58,17 +39,23 @@ export const ContactSection: React.FC = () => (
 
         <div className="mt-7 grid gap-5 md:grid-cols-2">
           {collaborationPaths.map((path) => (
-            <div key={path.audience} className="flex items-start gap-3">
+            <a
+              key={path.audience}
+              href={contactPageHref(path.category)}
+              // Negative margin plus equal padding widens the click target to
+              // the whole option without shifting the layout by a pixel.
+              className="group -m-3 flex items-start gap-3 rounded-2xl p-3 transition hover:bg-white/[0.04] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af37]"
+            >
               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]" />
               <div>
-                <h3 className="font-serif text-base text-white">
+                <h3 className="font-serif text-base text-white transition-colors group-hover:text-[#d4af37]">
                   {path.audience}
                 </h3>
                 <p className="mt-1 text-xs leading-6 text-white/50">
                   {path.text}
                 </p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
