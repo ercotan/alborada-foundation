@@ -1,9 +1,10 @@
 import React from "react";
 import { CheckCircle2, Send } from "lucide-react";
 import { motion } from "motion/react";
+import { primaryContact, specializedContacts } from "../../data/homepage";
 import { SectionEyebrow } from "../ui/SectionEyebrow";
 
-const CONTACT_EMAIL = "contacto@alboradafoundation.org";
+const CONTACT_EMAIL = primaryContact.email;
 
 /** Who we hope to hear from, and what collaboration looks like for each. */
 const collaborationPaths: { audience: string; text: string }[] = [
@@ -103,6 +104,28 @@ export const ContactSection: React.FC = () => (
           >
             {CONTACT_EMAIL}
           </a>
+        </div>
+
+        <div className="mt-8 border-t border-white/7 pt-7">
+          <span className="text-[10px] uppercase tracking-[0.28em] text-[#d4af37]/80">
+            Contactos especializados
+          </span>
+
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            {specializedContacts.map((contact) => (
+              <div key={contact.email}>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="font-mono text-[11px] text-white/50 transition hover:text-[#d4af37]"
+                >
+                  {contact.email}
+                </a>
+                <p className="mt-1 text-xs leading-6 text-white/40">
+                  {contact.purpose}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
     </div>

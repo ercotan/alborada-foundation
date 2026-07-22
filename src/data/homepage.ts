@@ -25,6 +25,7 @@ import type {
   CampusNode,
   ContactInterest,
   DonationTier,
+  InstitutionalContact,
   IconFeature,
   ImpactStat,
   ModelPillar,
@@ -420,6 +421,39 @@ export const contactInterests: ContactInterest[] = [
   { value: "academic", label: "Cooperación académica" },
   { value: "technology", label: "Tecnología" },
   { value: "press", label: "Prensa" },
+];
+
+/**
+ * Primary institutional mailbox. Anyone unsure where to write should use this
+ * one, so it carries the strongest emphasis in the Contact section.
+ */
+export const primaryContact: InstitutionalContact = {
+  email: "contacto@alboradafoundation.org",
+  purpose: "Contacto general con la fundación.",
+};
+
+/**
+ * Direct mailboxes for correspondence that should reach a specific desk.
+ * Secondary to `primaryContact` — they route faster, they do not replace it.
+ */
+export const specializedContacts: InstitutionalContact[] = [
+  {
+    email: "alianzas@alboradafoundation.org",
+    purpose:
+      "Alianzas institucionales, universidades, empresas y entidades públicas.",
+  },
+  {
+    email: "prensa@alboradafoundation.org",
+    purpose: "Medios de comunicación, entrevistas y prensa.",
+  },
+  {
+    email: "judiciales@alboradafoundation.org",
+    purpose: "Correspondencia legal y notificaciones oficiales.",
+  },
+  {
+    email: "info@alboradafoundation.org",
+    purpose: "Información general y consultas.",
+  },
 ];
 
 /* -------------------------------------------------------------------------- */

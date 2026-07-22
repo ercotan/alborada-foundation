@@ -120,6 +120,19 @@ export interface ContactInterest {
 }
 
 /**
+ * A published institutional mailbox.
+ *
+ * Every address the foundation publishes is declared here, so the set can be
+ * verified in one place rather than discovered across components.
+ */
+export interface InstitutionalContact {
+  /** Full address, without the `mailto:` scheme. */
+  email: string;
+  /** What this mailbox is for, in one line. */
+  purpose: string;
+}
+
+/**
  * A support area card in the Donations section.
  *
  * Describes *where* support is needed. It deliberately carries no amount,
