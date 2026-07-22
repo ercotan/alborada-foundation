@@ -30,7 +30,6 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
   const initParticles = (width: number, height: number) => {
     const particles: Particle[] = [];
     const count = 150;
-    const horizonY = height * 0.52;
 
     for (let i = 0; i < count; i++) {
       particles.push({
@@ -405,7 +404,6 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
           // Camera Dolly-in 3D effect:
           // Particles move slightly faster and expand as they get closer to the camera
           if (cameraDolly) {
-            const distanceScale = 1.0 + (zoomRef.current - 1.0) * 8.0;
             p.size = (Math.max(0.2, p.size)) * (1.0 + 0.00025 * speed);
           }
 

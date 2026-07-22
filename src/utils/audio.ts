@@ -18,7 +18,6 @@ export class CinematicAudioEngine {
   private padFilter: BiquadFilterNode | null = null;
 
   // Noise generator for wind/ocean breeze
-  private noiseSource: AudioWorkletNode | ScriptProcessorNode | null = null;
   private noiseGain: GainNode | null = null;
   private noiseFilter: BiquadFilterNode | null = null;
   private noiseLFO: OscillatorNode | null = null;
