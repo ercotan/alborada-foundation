@@ -1,139 +1,110 @@
 import React from "react";
 import { CheckCircle2, Send } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { contactInterests } from "../../data/homepage";
-import { useContactForm } from "../../hooks/useContactForm";
+import { motion } from "motion/react";
 import { SectionEyebrow } from "../ui/SectionEyebrow";
 
-/** Shared styling for the free-text fields of the form. */
-const fieldClassName =
-  "rounded-xl border border-white/10 bg-white/[0.035] px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-[#d4af37]/50";
+const CONTACT_EMAIL = "contacto@alboradafoundation.org";
 
-export const ContactSection: React.FC = () => {
-  const { data, updateField, submitted, handleSubmit, resetSubmission } =
-    useContactForm();
+/** Who we hope to hear from, and what collaboration looks like for each. */
+const collaborationPaths: { audience: string; text: string }[] = [
+  {
+    audience: "Instituciones y programas públicos",
+    text: "Convenios, cooperación y apoyo institucional.",
+  },
+  {
+    audience: "Empresas y fundaciones",
+    text: "Colaboración, responsabilidad social y aportes en especie.",
+  },
+  {
+    audience: "Profesionales y voluntarios",
+    text: "Docencia, mentoría, oficios y acompañamiento.",
+  },
+  {
+    audience: "Personas y familias",
+    text: "Consultas sobre el proyecto y formas de participar.",
+  },
+];
 
-  return (
-    <section
-      id="contact"
-      className="border-t border-white/5 bg-[#050a16] px-6 py-28 md:px-12"
-    >
-      <div className="mx-auto max-w-3xl">
-        <div className="text-center">
-          <SectionEyebrow>Contacto</SectionEyebrow>
+export const ContactSection: React.FC = () => (
+  <section
+    id="contact"
+    className="border-t border-white/5 bg-[#050a16] px-6 py-28 md:px-12"
+  >
+    <div className="mx-auto max-w-3xl">
+      <div className="text-center">
+        <SectionEyebrow>Contacto</SectionEyebrow>
 
-          <h2 className="mt-7 font-serif text-4xl font-light md:text-5xl">
-            Hablemos sobre el futuro de Alborada
-          </h2>
-        </div>
+        <h2 className="mt-7 font-serif text-4xl font-light md:text-5xl">
+          Hablemos sobre el futuro de Alborada
+        </h2>
 
-        <div className="mt-14 rounded-3xl border border-white/8 bg-black/25 p-8">
-          <AnimatePresence mode="wait">
-            {!submitted ? (
-              <motion.form
-                key="form"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onSubmit={handleSubmit}
-                className="space-y-5"
-              >
-                <div className="grid gap-5 md:grid-cols-2">
-                  <input
-                    type="text"
-                    required
-                    value={data.name}
-                    onChange={(event) =>
-                      updateField("name", event.target.value)
-                    }
-                    placeholder="Nombre completo"
-                    className={fieldClassName}
-                  />
-
-                  <input
-                    type="email"
-                    required
-                    value={data.email}
-                    onChange={(event) =>
-                      updateField("email", event.target.value)
-                    }
-                    placeholder="Correo electrónico"
-                    className={fieldClassName}
-                  />
-                </div>
-
-                <div className="grid gap-5 md:grid-cols-2">
-                  <input
-                    type="text"
-                    value={data.organization}
-                    onChange={(event) =>
-                      updateField("organization", event.target.value)
-                    }
-                    placeholder="Organización"
-                    className={fieldClassName}
-                  />
-
-                  <select
-                    value={data.interest}
-                    onChange={(event) =>
-                      updateField("interest", event.target.value)
-                    }
-                    className="rounded-xl border border-white/10 bg-[#07101f] px-4 py-3 text-sm text-white outline-none focus:border-[#d4af37]/50"
-                  >
-                    {contactInterests.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <textarea
-                  required
-                  rows={5}
-                  value={data.message}
-                  onChange={(event) =>
-                    updateField("message", event.target.value)
-                  }
-                  placeholder="Mensaje"
-                  className={`w-full resize-none ${fieldClassName}`}
-                />
-
-                <button
-                  type="submit"
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#d4af37] px-6 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f]"
-                >
-                  Enviar mensaje
-                  <Send className="h-4 w-4" />
-                </button>
-              </motion.form>
-            ) : (
-              <motion.div
-                key="success"
-                initial={{ opacity: 0, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="py-12 text-center"
-              >
-                <CheckCircle2 className="mx-auto h-10 w-10 text-[#d4af37]" />
-
-                <h3 className="mt-6 font-serif text-2xl">Mensaje recibido</h3>
-
-                <p className="mx-auto mt-4 max-w-md text-sm leading-7 text-white/52">
-                  Gracias por ponerse en contacto con Fundación Alborada.
-                  Revisaremos su mensaje y responderemos a la mayor brevedad.
-                </p>
-
-                <button
-                  onClick={resetSubmission}
-                  className="mt-7 text-[10px] uppercase tracking-[0.2em] text-[#d4af37]"
-                >
-                  Enviar otro mensaje
-                </button>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+        <p className="mx-auto mt-7 max-w-2xl text-sm leading-8 text-white/62 md:text-base">
+          Alborada está en construcción, y muchas de las mejores ideas llegan
+          desde afuera. Si quiere conocer el proyecto, aportar su experiencia o
+          explorar una colaboración, nos gustaría escucharle.
+        </p>
       </div>
-    </section>
-  );
-};
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="mt-14 rounded-3xl border border-white/8 bg-black/25 p-8 md:p-10"
+      >
+        <span className="text-[10px] uppercase tracking-[0.28em] text-[#d4af37]/80">
+          Toda colaboración es bienvenida
+        </span>
+
+        <div className="mt-7 grid gap-5 md:grid-cols-2">
+          {collaborationPaths.map((path) => (
+            <div key={path.audience} className="flex items-start gap-3">
+              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]" />
+              <div>
+                <h3 className="font-serif text-base text-white">
+                  {path.audience}
+                </h3>
+                <p className="mt-1 text-xs leading-6 text-white/50">
+                  {path.text}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-8 border-t border-white/7 pt-7 text-xs leading-7 text-white/50">
+          No hace falta un presupuesto ni una organización detrás. El tiempo, el
+          conocimiento y una buena conexión también construyen.
+        </p>
+
+        <div className="mt-8 rounded-2xl border border-white/7 bg-white/[0.02] p-6">
+          <span className="text-[10px] uppercase tracking-[0.28em] text-[#d4af37]/80">
+            Qué ocurre después
+          </span>
+
+          <p className="mt-4 text-xs leading-7 text-white/55">
+            Su mensaje llega directamente al correo de la fundación. Una persona
+            del equipo lo lee y le responde. Si su propuesta necesita más
+            detalle, coordinamos una conversación.
+          </p>
+        </div>
+
+        <div className="mt-8 flex flex-col items-center gap-4">
+          <a
+            href={`mailto:${CONTACT_EMAIL}?subject=Contacto%20institucional`}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#d4af37] px-6 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:scale-[1.01]"
+          >
+            Escribir a la fundación
+            <Send className="h-4 w-4" />
+          </a>
+
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="font-mono text-[11px] text-white/40 transition hover:text-[#d4af37]"
+          >
+            {CONTACT_EMAIL}
+          </a>
+        </div>
+      </motion.div>
+    </div>
+  </section>
+);
