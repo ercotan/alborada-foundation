@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { PROTECTION_CONTACT_EMAIL } from "../../data/childProtection";
+import {
+  emergencyLines,
+  PROTECTION_CONTACT_EMAIL,
+} from "../../data/childProtection";
 import {
   emptyReport,
   prepareReport,
@@ -300,9 +303,11 @@ export const ChildProtectionForm: React.FC = () => {
             className="mt-4 rounded-2xl border border-[#d4af37]/30 bg-[#d4af37]/8 p-5 text-sm leading-7 text-white/80"
           >
             Si hay peligro en este momento, <strong>llame primero</strong> a la
-            línea de emergencias de su país. En Colombia, el{" "}
-            <strong>123</strong> y la línea de protección de la niñez{" "}
-            <strong>141</strong>. Puede completar este formulario después.
+            línea de emergencias de su país. En {emergencyLines.country}, el{" "}
+            <strong>{emergencyLines.general.number}</strong> y la línea de
+            protección de la niñez{" "}
+            <strong>{emergencyLines.childProtection.number}</strong>. Puede
+            completar este formulario después.
           </p>
         )}
       </fieldset>

@@ -9,6 +9,29 @@
 
 export const PROTECTION_CONTACT_EMAIL = "contacto@alboradafoundation.org";
 
+/**
+ * National emergency lines.
+ *
+ * SAFETY-CRITICAL. Confirmed correct for Colombia by Ernesto Cosovi on
+ * 22 July 2026. A wrong number on this page is the most damaging defect the
+ * site can carry, so these values must not be edited without re-confirmation
+ * from the foundation.
+ *
+ * Declared once, and consumed by both the page and the form, so the two
+ * surfaces cannot drift apart.
+ */
+export const emergencyLines = {
+  country: "Colombia",
+  general: {
+    number: "123",
+    label: "emergencias",
+  },
+  childProtection: {
+    number: "141",
+    label: "línea de protección de niños, niñas y adolescentes del ICBF",
+  },
+} as const;
+
 /** Situations a person can report. Written plainly, without euphemism. */
 export const reportableSituations: string[] = [
   "Violencia física, psicológica o sexual",

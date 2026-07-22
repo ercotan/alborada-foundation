@@ -2,6 +2,7 @@ import React from "react";
 import { ChildProtectionForm } from "../components/protection/ChildProtectionForm";
 import {
   confidentialityPolicy,
+  emergencyLines,
   reportableSituations,
   responseProcess,
   usefulInformation,
@@ -81,10 +82,16 @@ export const ChildProtectionPage: React.FC = () => (
           inmediato con la línea de emergencias de su país.
         </p>
         <p className="mt-4 text-sm leading-7 text-white/75">
-          En Colombia: <strong className="text-white">123</strong> para
-          emergencias, y <strong className="text-white">141</strong> para la
-          línea de protección de niños, niñas y adolescentes del ICBF. Ambas
-          atienden a toda hora y son gratuitas.
+          En {emergencyLines.country}:{" "}
+          <strong className="text-white">
+            {emergencyLines.general.number}
+          </strong>{" "}
+          para {emergencyLines.general.label}, y{" "}
+          <strong className="text-white">
+            {emergencyLines.childProtection.number}
+          </strong>{" "}
+          para la {emergencyLines.childProtection.label}. Ambas atienden a toda
+          hora y son gratuitas.
         </p>
         <p className="mt-4 text-sm leading-7 text-white/60">
           Después de hacerlo, puede escribirnos igualmente.

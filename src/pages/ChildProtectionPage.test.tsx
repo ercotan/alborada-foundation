@@ -7,6 +7,7 @@
 
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { emergencyLines } from "../data/childProtection";
 import { ChildProtectionPage } from "./ChildProtectionPage";
 
 const pageText = () => {
@@ -60,6 +61,15 @@ describe("ChildProtectionPage", () => {
     const { container } = render(<ChildProtectionPage />);
     expect(container.querySelector("form")).not.toBeNull();
     expect(container.querySelector("textarea")).not.toBeNull();
+  });
+
+  it("publishes the confirmed emergency numbers", () => {
+    // Confirmed correct for Colombia by the foundation, 22 July 2026.
+    // If these change, they change in src/data/childProtection.ts only.
+    const text = pageText();
+    expect(text).toContain(emergencyLines.general.number);
+    expect(text).toContain(emergencyLines.childProtection.number);
+    expect(text).toContain(emergencyLines.country);
   });
 
   it("links back to the main site", () => {
