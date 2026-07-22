@@ -10,14 +10,14 @@ export const DonationSection: React.FC = () => {
       <div className="max-w-5xl mx-auto flex flex-col gap-12">
         <div className="text-center flex flex-col items-center gap-3 max-w-2xl mx-auto">
           <span className="font-mono text-[10px] tracking-[0.4em] text-gold-500 uppercase">
-            11 / UNIRSE AL AMANECER
+            Cómo apoyar
           </span>
           <h2 className="font-serif font-light text-3xl md:text-4xl text-white tracking-wide">
-            Respaldar la Misión Alborada
+            Acompañar el proyecto Alborada
           </h2>
           <div className="w-12 h-[1px] bg-gold-500/20 my-1" />
           <p className="text-white/40 font-sans text-xs md:text-sm leading-relaxed font-light">
-            Su aporte material no alimenta un gasto administrativo efímero; construye ladrillos cognitivos y soberanía real de por vida.
+            Cada aporte se destina a la educación, la protección y el desarrollo de las estudiantes.
           </p>
         </div>
 

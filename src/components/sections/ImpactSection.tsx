@@ -9,14 +9,19 @@ export const ImpactSection: React.FC = () => (
   >
     <div className="mx-auto max-w-6xl">
       <div className="text-center">
-        <SectionEyebrow>Impacto</SectionEyebrow>
+        <SectionEyebrow>Nuestro compromiso</SectionEyebrow>
 
         <h2 className="mt-7 font-serif text-4xl font-light md:text-5xl">
           Una inversión para generaciones
         </h2>
+
+        <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/50">
+          El programa aún no ha comenzado. Lo siguiente describe aquello a lo
+          que la fundación se compromete.
+        </p>
       </div>
 
-      <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {impactStats.map((stat) => (
           <div
             key={stat.label}

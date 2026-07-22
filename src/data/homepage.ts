@@ -79,11 +79,16 @@ export const missionPillars: IconFeature[] = [
 /* Vision                                                                      */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * Planned characteristics of the programme. Presented under an explicit
+ * "compromisos del programa" heading so none of it reads as a result already
+ * achieved. Every value is either a commitment or a verifiable plan.
+ */
 export const visionStats: StatHighlight[] = [
-  { value: "100%", label: "Becas integrales" },
+  { value: "6", label: "Áreas de formación" },
   { value: "1:1", label: "Mentoría personalizada" },
-  { value: "24/7", label: "Acompañamiento" },
-  { value: "∞", label: "Compromiso de largo plazo" },
+  { value: "10-12", label: "Años de edad al ingresar" },
+  { value: "2026", label: "Inicio previsto" },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -109,10 +114,10 @@ export const modelPillars: ModelPillar[] = [
     icon: Cpu,
     text: "La inteligencia artificial será una herramienta permanente para personalizar el aprendizaje, investigar, crear y acceder al conocimiento global.",
     points: [
-      "Programación y pensamiento computacional",
-      "Uso responsable de modelos de inteligencia artificial",
-      "Investigación y análisis de datos",
-      "Creación de soluciones tecnológicas",
+      "Programación y pensamiento lógico",
+      "Uso responsable de la inteligencia artificial",
+      "Investigación y manejo de información",
+      "Creación de proyectos con tecnología",
     ],
   },
   {
@@ -135,8 +140,8 @@ export const modelPillars: ModelPillar[] = [
     points: [
       "Educación financiera",
       "Emprendimiento",
-      "Contabilidad y administración",
-      "Tecnologías financieras y blockchain",
+      "Administración y organización de recursos",
+      "Herramientas financieras digitales",
     ],
   },
   {
@@ -223,11 +228,10 @@ export const campusNodes: CampusNode[] = [
 /* -------------------------------------------------------------------------- */
 
 export const heraCapabilities: string[] = [
-  "Mentoría educativa personalizada",
-  "Memoria institucional y académica",
-  "Investigación asistida",
-  "Seguimiento del aprendizaje",
-  "Apoyo a la gestión del campus",
+  "Apoyo personalizado a cada estudiante",
+  "Ayuda en la investigación escolar",
+  "Seguimiento del progreso académico",
+  "Acceso a recursos educativos",
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -261,26 +265,25 @@ export const sustainabilityPillars: IconFeature[] = [
 /* Impact                                                                      */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * Commitments of the programme, not results. The programme has not started,
+ * so every entry is written as something the foundation undertakes to do.
+ */
 export const impactStats: ImpactStat[] = [
   {
     value: "15",
-    label: "Niñas fundadoras",
-    text: "La primera generación del modelo Alborada.",
+    label: "Niñas en la primera cohorte",
+    text: "Grupo inicial previsto para comenzar el programa.",
   },
   {
     value: "100%",
     label: "Becas integrales",
-    text: "Educación, residencia, alimentación, bienestar y tecnología.",
-  },
-  {
-    value: "24/7",
-    label: "Ecosistema formativo",
-    text: "Aprendizaje y acompañamiento dentro de un entorno residencial.",
+    text: "Compromiso del modelo: educación, residencia, alimentación, bienestar y tecnología, sin costo para las familias.",
   },
   {
     value: "10+",
-    label: "Años de formación",
-    text: "Un proceso de largo plazo hasta la consolidación profesional.",
+    label: "Años de acompañamiento",
+    text: "Un proceso sostenido y continuo hasta la formación profesional.",
   },
 ];
 
@@ -365,33 +368,33 @@ export const transparencyPillars: IconFeature[] = [
 export const donationTiers: DonationTier[] = [
   {
     id: "education",
-    category: "DESARROLLO HUMANO",
-    title: "Sponsor de Educación Élite",
-    text: "Aporte destinado al fondo de becas completas de las niñas, cubriendo mentorías internacionales, licencias especializadas de cómputo y tutorías bilingües de alta exigencia.",
+    category: "Educación",
+    title: "Becas y estudio",
+    text: "Contribuye al fondo de becas: materiales, tutorías y acompañamiento académico de las estudiantes.",
   },
   {
     id: "library",
-    category: "CAMPUS ACADÉMICO",
-    title: "Construir la Biblioteca",
-    text: "Aporte enfocado en la adquisición de textos históricos de filosofía, astrofísica, historia universal y el mobiliario bioclimático óptimo para el puesto de lectura profunda de las líderes.",
+    category: "Campus",
+    title: "Biblioteca",
+    text: "Contribuye a los libros y al espacio de lectura y estudio del campus.",
   },
   {
     id: "ailab",
-    category: "TECNOLOGÍA COGNITIVA",
-    title: "Equipar Laboratorio IA",
-    text: "Sustenta la compra de servidores dedicados de cómputo local de baja radiación y periféricos ergonómicos para la programación de algoritmos neuronales por parte de la cohorte.",
+    category: "Tecnología",
+    title: "Aula de tecnología",
+    text: "Contribuye a los equipos con los que las estudiantes aprenderán programación y uso responsable de la tecnología.",
   },
   {
     id: "residence",
-    category: "PROTECCIÓN VITAL",
-    title: "Sostener la Residencia",
-    text: "Aporte directo a la alimentación de alta densidad nutricional de las niñas, vestimenta institucional y el cuidado psicoterapéutico preventivo diario 24/7.",
+    category: "Bienestar",
+    title: "Residencia y cuidado",
+    text: "Contribuye a la alimentación, el alojamiento y el acompañamiento diario de las estudiantes.",
   },
   {
     id: "sustainability",
-    category: "SOBERANÍA AMBIENTAL",
-    title: "Fomentar Granja Bio",
-    text: "Inversión en colmenas apícolas, optimización de hidropónicos IoT, compra de semillas orgánicas para cacao y moringa, y la expansión fotovoltaica del campus de la fundación.",
+    category: "Sostenibilidad",
+    title: "Huerta y granja",
+    text: "Contribuye a los cultivos, la producción de alimentos y el aprendizaje práctico en sostenibilidad.",
     cardClassName: "col-span-1 md:col-span-2 lg:col-span-1",
   },
 ];

@@ -21,7 +21,7 @@ export const CampusSection: React.FC = () => {
           <SectionEyebrow>Campus Alborada</SectionEyebrow>
 
           <h2 className="mt-7 font-serif text-4xl font-light md:text-5xl">
-            Un ecosistema para vivir, aprender y crear
+            Un lugar para vivir, aprender y crecer
           </h2>
 
           <p className="mt-6 text-sm leading-7 text-white/50">

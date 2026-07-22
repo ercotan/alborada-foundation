@@ -16,16 +16,16 @@ export const HeraSection: React.FC = () => (
         <SectionEyebrow>Inteligencia artificial</SectionEyebrow>
 
         <h2 className="mt-7 font-serif text-4xl font-light leading-tight md:text-5xl">
-          La tecnología como herramienta de conocimiento y libertad
+          La tecnología como apoyo al aprendizaje
         </h2>
 
         <GoldDivider />
 
         <p className="text-sm leading-8 text-white/62 md:text-base">
-          La inteligencia artificial acompañará el proceso educativo para
-          personalizar el aprendizaje, ampliar la capacidad de investigación,
-          fortalecer la gestión institucional y conectar a las estudiantes con
-          conocimiento global.
+          La inteligencia artificial será una herramienta de apoyo dentro del
+          programa educativo: ayudará a adaptar el ritmo de aprendizaje de cada
+          estudiante, acompañar sus trabajos de investigación y acercarles
+          recursos educativos de calidad. Siempre bajo la guía de docentes.
         </p>
       </div>
 

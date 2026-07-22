@@ -43,8 +43,8 @@ export const HeroSection: React.FC = () => (
       </p>
 
       <p className="mt-5 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">
-        Un ecosistema educativo y residencial para formar una nueva generación
-        de mujeres líderes.
+        Una fundación dedicada a la protección, la educación y el desarrollo de
+        niñas, con acompañamiento de largo plazo.
       </p>
 
       <div className="mt-10 flex flex-col gap-4 sm:flex-row">

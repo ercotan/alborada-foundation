@@ -28,20 +28,26 @@ export const VisionSection: React.FC = () => (
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
-        {visionStats.map((stat) => (
-          <div
-            key={stat.label}
-            className="rounded-2xl border border-white/8 bg-white/[0.025] p-6"
-          >
-            <span className="font-serif text-4xl text-[#d4af37]">
-              {stat.value}
-            </span>
-            <p className="mt-3 text-[10px] uppercase tracking-[0.2em] text-white/40">
-              {stat.label}
-            </p>
-          </div>
-        ))}
+      <div className="flex flex-col gap-4">
+        <span className="text-[10px] uppercase tracking-[0.28em] text-[#d4af37]/70">
+          Compromisos del programa
+        </span>
+
+        <div className="grid grid-cols-2 gap-4">
+          {visionStats.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-2xl border border-white/8 bg-white/[0.025] p-6"
+            >
+              <span className="font-serif text-3xl text-[#d4af37] md:text-4xl">
+                {stat.value}
+              </span>
+              <p className="mt-3 text-[10px] uppercase tracking-[0.2em] text-white/40">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
