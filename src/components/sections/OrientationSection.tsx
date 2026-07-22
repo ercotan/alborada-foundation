@@ -1,5 +1,5 @@
 import React from "react";
-import { orientationTopics } from "../../data/homepage";
+import { childProtectionEntry, orientationTopics } from "../../data/homepage";
 
 export const OrientationSection: React.FC = () => (
   <section
@@ -22,6 +22,27 @@ export const OrientationSection: React.FC = () => (
           transformar su realidad mediante conocimiento y acción.
         </p>
       </div>
+
+      <article className="mt-14 rounded-3xl border border-amber-400/35 bg-amber-400/[0.06] p-8 md:p-10">
+        <span className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-400">
+          {childProtectionEntry.eyebrow}
+        </span>
+
+        <h3 className="mt-5 text-2xl font-bold leading-tight md:text-3xl">
+          {childProtectionEntry.title}
+        </h3>
+
+        <p className="mt-5 max-w-3xl leading-8 text-slate-300">
+          {childProtectionEntry.text}
+        </p>
+
+        <a
+          href={childProtectionEntry.href}
+          className="mt-8 inline-flex rounded-full bg-amber-400 px-8 py-4 font-semibold text-slate-950 transition hover:bg-amber-300"
+        >
+          {childProtectionEntry.action}
+        </a>
+      </article>
 
       <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {orientationTopics.map((item) => (

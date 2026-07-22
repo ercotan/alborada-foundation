@@ -481,8 +481,21 @@ export const orientationTopics: TopicCard[] = [
     title: "Educación y tecnología",
     text: "Encontrá herramientas para aprender, capacitarte y crecer.",
   },
-  {
-    title: "Otra situación",
-    text: "Contanos qué estás atravesando y cómo podemos orientarte.",
-  },
 ];
+
+/* -------------------------------------------------------------------------- */
+/* Child protection entry point                                               */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * The foundation's primary mission is the protection and education of
+ * children, so this is not one card among others: it is a distinct entry
+ * point, presented above the guidance topics and linking to its own page.
+ */
+export const childProtectionEntry = {
+  eyebrow: "Protección infantil",
+  title: "¿Un niño o una niña necesita ayuda?",
+  text: "Si un niño, niña o adolescente está atravesando una situación de violencia, abandono, abuso, explotación, negligencia o cualquier otra condición de vulnerabilidad, podés comunicarte con Fundación Alborada para recibir orientación sobre cómo actuar y cómo iniciar el proceso de ayuda.",
+  action: "Necesito ayuda para un niño",
+  href: "/proteccion-infantil.html",
+} as const;
