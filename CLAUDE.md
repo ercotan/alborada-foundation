@@ -87,11 +87,11 @@ Site content language: **Spanish**. Code, comments, commits, docs: **English**.
 
 **3.1 — Maintain strict TypeScript typing.** Explicit interfaces for all props and exported data. No `any` — use `unknown` and narrow. No non-null assertions as a substitute for handling. `import type` for type-only imports.
 
-> ⚠️ **`strict` is NOT enabled in `tsconfig.json`.** `strict`, `noImplicitAny`, and `strictNullChecks` are all absent, so they default to off. **Write as though strict were on — the compiler will not catch these for you.** A passing `tsc --noEmit` proves much less here than it appears to. Be especially careful with values that may be `undefined`.
+> ✅ **`strict` IS enabled** (P0, commit `fff0b45`), together with `noUnusedLocals`, `noUnusedParameters`, `noFallthroughCasesInSwitch` and `noImplicitOverride`. `@types/react` and `@types/react-dom` are installed, so the component tree is genuinely checked — before P0 they were missing and React resolved to `any`, which made a green `tsc` nearly meaningless. `noUncheckedIndexedAccess` remains deliberately deferred.
 
 **3.2 — Maintain accessibility.** Every interactive control has an accessible name. Every form field has a `<label>` — placeholders are not labels. Semantic landmarks. Keyboard operable. Decorative graphics `aria-hidden`. Dynamic changes announced. Animation respects `prefers-reduced-motion`.
 
-> ⚠️ The codebase currently has **zero `aria-*` attributes and zero `<label>` elements.** Do not treat existing code as a model for accessibility. New code meets the standard; touching old code is an opportunity to fix it — but fixing accessibility in a section is a *visual-adjacent change*, so mention it rather than doing it silently.
+> ⚠️ The **homepage sections** still have almost no `aria-*` attributes. Do not treat them as a model. The two form surfaces added since — `src/components/contact/` and `src/components/protection/` — do meet the standard (labels, `aria-invalid`, `aria-describedby`, `role="alert"`, visible focus) and are the reference to copy. Fixing accessibility in an old section is a *visual-adjacent change*: mention it rather than doing it silently.
 
 **3.3 — Optimize performance.** Animate only `opacity` and `transform`. Clean up every effect, listener, and animation frame. Memoize only with evidence. Keep the bundle within budget (current baseline: 117 kB gzip JS).
 
@@ -103,7 +103,9 @@ Site content language: **Spanish**. Code, comments, commits, docs: **English**.
 
 **4.1 — No unapproved stack decisions.** Do not introduce a router, state-management library, backend, authentication provider, payment processor, testing framework, or component library without explicit approval from Ernesto.
 
-**Unused packages already in `package.json` are not prior approval.** `@google/genai`, `express`, `dotenv`, `@types/express`, and `autoprefixer` are leftovers from the Google AI Studio scaffold this repo was generated from. None are imported anywhere in `src/`. Their presence means nothing has been chosen.
+**Unused packages are not prior approval.** The Google AI Studio scaffold left `@google/genai`, `express`, `dotenv`, `@types/express`, `esbuild`, `autoprefixer` and `tsx` in `package.json` with no importer. **All seven were removed in P0** (`26a0cdb`) precisely because their presence implied decisions nobody had made. Runtime dependencies are now exactly `react`, `react-dom`, `lucide-react` and `motion`. If a package reappears without an importer, delete it.
+
+**Approved since:** ESLint, Prettier, Vitest + Testing Library (P0 tooling). **Still unapproved and still absent:** router, state-management library, backend, auth provider, payment processor, component library. Multi-page navigation is done with **real Vite HTML entry points**, not a router — see `engineering/ADR-0003`.
 
 **4.2 — Record assumptions as open questions, not decisions.** When a task requires a choice that has not been made, surface it and ask. Do not resolve it silently by writing code that presumes an answer — code is a decision, and shipping it makes the choice by default.
 
@@ -133,14 +135,15 @@ Site content language: **Spanish**. Code, comments, commits, docs: **English**.
 
 ## 6. Verification protocol
 
-**6.1 — Verify build success after every task.** Non-negotiable:
+**6.1 — Run the full gate after every task.** Non-negotiable:
 
 ```bash
-npx tsc --noEmit     # must exit 0
-npx vite build       # must succeed
+npm run verify   # typecheck → lint → format:check → test → build
 ```
 
-Report actual results. If something fails, say so with the output. Never describe a task as complete without running both.
+CI runs exactly this sequence on every push and pull request, so a local pass and a CI pass mean the same thing. Individual steps exist (`typecheck`, `lint`, `format`, `format:check`, `test`, `test:watch`) but `verify` is the gate.
+
+Report actual results. If something fails, say so with the output. Never describe a task as complete without running it.
 
 **6.2 — Prove visual parity for refactors.** When a change claims not to alter appearance, prove it rather than asserting it. The procedure, validated on the July 2026 homepage refactor:
 
@@ -176,8 +179,7 @@ This catches accidental changes that visual inspection misses. It covers the def
 
 Before reporting a task complete:
 
-- [ ] `npx tsc --noEmit` passes
-- [ ] `npx vite build` succeeds
+- [ ] `npm run verify` passes end to end
 - [ ] Visual changes intentional, or absence of change proven (§6.2)
 - [ ] No unused imports or variables left behind
 - [ ] Copy in `src/data/`, not JSX
@@ -197,13 +199,23 @@ The most consequential, so you do not have to discover them:
 
 | Gap | Consequence for your work |
 |---|---|
-| **~25 files uncommitted**, repo has one commit | Treat the working tree as fragile. Back up before overwriting |
-| **TypeScript `strict` off** | A green type check proves little. Write defensively |
-| **Zero `aria-*`, zero `<label>`** | Existing code is not an accessibility model |
 | **No mobile navigation** (`hidden … lg:flex`) | Known defect — do not replicate the pattern |
-| **`index.html` is scaffold boilerplate** | Title, meta, favicon all still Google AI Studio defaults |
-| **No linter, no tests, no CI** | Nothing catches mistakes automatically. Manual verification is the only gate |
 | **Two parallel colour systems** | Tokens and raw hex coexist. Use tokens in new code |
+| **Homepage sections lack `aria-*`** | They are not an accessibility model; `contact/` and `protection/` are |
+| **No backend exists** | Three surfaces are wired to endpoints that are not there. See below |
+| **CI has never run** | The workflow is committed but unproven — nothing has been pushed yet |
+
+**Resolved in P0 and after — no longer gaps:** TypeScript `strict` (now on, with React types), linter, formatter, test suite (67 tests), CI workflow, scaffold dependencies, `index.html` metadata.
+
+**Three surfaces await a backend, and all three say so honestly rather than faking success:**
+
+| Surface | Seam | Behaviour today |
+|---|---|---|
+| Contact enquiry | `submitInquiry` · `VITE_CONTACT_ENDPOINT` | Reports "no fue enviado", preserves input |
+| Child protection | `prepareReport` in `src/lib/childProtection.ts` | Formats the report, states it has not been transmitted |
+| Homepage contact | `mailto:` only | Works, but depends on a mail client |
+
+**Never make any of these display success without a real server saying so.** Tests enforce it; that is deliberate, and changing those tests is almost never the right response to a failure.
 
 **Do not treat existing code as a standard to imitate.** Match its *architecture* — the section/ui/shared split, data separation, composition layer. Do not match its accessibility, its typing rigor, or its colour handling.
 

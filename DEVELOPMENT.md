@@ -80,16 +80,52 @@ should say what would have gone wrong had it stayed.
 
 | Path | Contents |
 |---|---|
-| `src/components/sections/` | One section of the public site each |
+| `src/pages/` | One component per standalone page |
+| `src/components/sections/` | One section of the homepage each |
+| `src/components/contact/` `src/components/protection/` | Feature components for the standalone pages |
 | `src/components/layout/` | Header, footer |
 | `src/components/ui/` | Small shared presentational pieces |
 | `src/data/` | Editorial copy, kept out of components |
+| `src/lib/` | Domain logic: validation, submission seams, data contracts |
 | `src/utils/` | Framework-independent helpers |
 | `src/test/` | Test setup only |
 | `docs/` | **Institutional corpus. Normative. Not engineering territory** |
 | `engineering/` | ADRs, standards, reference models |
 
 Tests live beside the code they cover, as `*.test.ts` or `*.test.tsx`.
+
+### Pages
+
+The site has **three real HTML entry points**, not client-side routes. There is
+no router — see [`engineering/ADR-0003`](engineering/ADR-0003_MULTI_PAGE_ENTRY_POINTS.md)
+for why, in short: a direct link to the child protection page must resolve on
+any static host with no rewrite rules.
+
+| URL | HTML | Entry module | Page component |
+|---|---|---|---|
+| `/` | `index.html` | `src/main.tsx` | `src/App.tsx` |
+| `/proteccion-infantil.html` | `proteccion-infantil.html` | `src/protection.tsx` | `src/pages/ChildProtectionPage.tsx` |
+| `/contacto.html` | `contacto.html` | `src/contacto.tsx` | `src/pages/ContactPage.tsx` |
+
+Adding a page means three small files plus one line in `vite.config.ts`.
+Cross-page parameters travel in the query string — `/contacto.html?categoria=empresa`.
+
+### Backend seams
+
+No backend exists. Three surfaces are wired for one and **each states plainly
+that nothing was sent**, rather than showing a false confirmation:
+
+| Seam | File | Activates when |
+|---|---|---|
+| `submitInquiry` | `src/lib/contactInquiry.ts` | `VITE_CONTACT_ENDPOINT` is set |
+| `prepareReport` | `src/lib/childProtection.ts` | Replaced with an async call to the intake endpoint |
+
+Both declare the fields the server will attach — timestamp, identifier, source
+IP, user agent, inferred country, audit entry. None is produced in the browser,
+because a client-generated case identifier refers to nothing.
+
+**A surface must never display success unless a server said so.** Tests enforce
+this deliberately.
 
 ### Editorial copy
 

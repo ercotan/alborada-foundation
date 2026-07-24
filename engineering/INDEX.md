@@ -16,6 +16,8 @@
 |---|---|---|---|---|---|
 | `ADR-0001` | Stage 4 direction change: merge consolidation → domain architecture | Record | Accepted | 2026-07-19 | — |
 | `ADR-0002` | Phase P0 engineering foundations | Record | Accepted | 2026-07-22 | — |
+| `ADR-0003` | Multi-page entry points instead of client-side routing | Record | Accepted | 2026-07-22 | — |
+| `ADR-0004` | Secure public contact-intake backend: approved direction and phase gates | Record | Accepted | 2026-07-24 | — |
 | `STD-0001` | Estándar de Auditoría de Referencias Documentales | Instrument | Approved | 2026-07-19 | — |
 | `REF-0001` | Documentary Families Model F1–F4 | Instrument | Approved | 2026-07-19 | — |
 
