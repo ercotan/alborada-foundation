@@ -134,7 +134,7 @@ phase noted. Stable identifiers are used so later work can reference them.
 | OD-4 | Malware scanner product (self-hosted ClamAV vs managed) | Phase 3 |
 | OD-5 | Legal basis and data-controller identity (Colombia Ley 1581, + GDPR if EU reporters) | Phase 4; privacy notice |
 | OD-6 | Retention and deletion periods — Class A records, Class B records, attachments | Phase 4 launch |
-| OD-7 | Consent-notice legal text and versioning cadence | Phase 1/2 |
+| OD-7 | Consent-notice legal text and versioning cadence — **Draft prepared — awaiting institutional and legal approval** (`legal/PTDP-DRAFT-0.1`, `legal/AVPRIV-DRAFT-0.1`, `legal/CONS-A-DRAFT-0.1`); institutional facts and legal approval still pending | Phase 1/2 |
 | OD-8 | Email MX / deliverability verification on or off | Phase 2 (non-blocking) |
 | OD-9 | Idempotency-key retention window | Phase 2 |
 | OD-10 | Named, authorised `protection_officer` personnel | Phase 4 |
@@ -143,6 +143,16 @@ phase noted. Stable identifiers are used so later work can reference them.
 | OD-13 | Mandatory-reporting and breach-notification obligations and procedure | Phase 4 |
 | OD-14 | IP-address retention period for abuse prevention (collection yes; duration TBD) | Phase 2 |
 | OD-15 | Appointment of a DPO / privacy owner | Before any collection |
+
+**Update (2026-07-24) — OD-7 only.** Draft versions of the data-treatment
+policy and the website privacy notice now exist, together with the Class A
+form consent text and its versioning metadata, staged under `legal/`
+(`PTDP-DRAFT-0.1`, `AVPRIV-DRAFT-0.1`, `CONS-A-DRAFT-0.1`,
+`legal/INDEX.md`). The required institutional facts (controller identity, NIT,
+domicile, retention periods, privacy channel, DPO, and others, marked
+`[INSTITUTIONAL DECISION REQUIRED]`) and formal legal approval **remain
+pending**. OD-7 status: **"Draft prepared — awaiting institutional and legal
+approval."** No other Open Decision changes status.
 
 ## Phase gates
 

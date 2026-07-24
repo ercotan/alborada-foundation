@@ -13,6 +13,7 @@ This repository contains the official website of Fundación Alborada and the ins
 | `src/` | Application source — React 19, TypeScript, Tailwind CSS v4 |
 | `docs/` | Institutional documentation corpus — normative. Series `# 1000`–`# 1011` plus the `00`–`100` range |
 | `engineering/` | Engineering artifacts — decision records (`ADR-####`), standards (`STD-####`), reference models (`REF-####`). **Non-normative**, outside the institutional corpus. Start at `engineering/INDEX.md` |
+| `legal/` | **Draft** legal documents in preparation (data-treatment policy, privacy notice, form consent). Not yet approved, not part of the institutional corpus; migrate into `docs/` on approval. Start at `legal/INDEX.md` |
 | `ARCHITECTURE.md` | Software architecture specification |
 | `PROJECT_CONSTITUTION.md` | Engineering philosophy and workflow |
 | `MASTER_DEVELOPMENT_GUIDE.md` | Technical standards and current-state gap ledger |
