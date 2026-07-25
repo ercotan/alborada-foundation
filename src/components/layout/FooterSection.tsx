@@ -1,5 +1,11 @@
 import React from "react";
-import { footerNavLinks } from "../../data/homepage";
+import { DEFAULT_CATEGORY } from "../../data/contact";
+import {
+  footerContact,
+  footerNavLinks,
+  primaryContact,
+} from "../../data/homepage";
+import { contactPageHref } from "../../data/routes";
 import { ScrollButton } from "../shared/ScrollButton";
 
 export const FooterSection: React.FC = () => (
@@ -36,10 +42,31 @@ export const FooterSection: React.FC = () => (
           Contacto
         </span>
 
+        {/*
+          These were three inert paragraphs under a "Contacto" heading. The
+          address and the route into the enquiry form are now real links; the
+          domain and the country stay as text, because they are facts rather
+          than destinations.
+        */}
         <div className="mt-5 space-y-3 text-xs text-white/45">
-          <p>contacto@alboradafoundation.org</p>
-          <p>alboradafoundation.org</p>
-          <p>Colombia</p>
+          <p>
+            <a
+              href={`mailto:${primaryContact.email}`}
+              className="transition hover:text-white"
+            >
+              {primaryContact.email}
+            </a>
+          </p>
+          <p>
+            <a
+              href={contactPageHref(DEFAULT_CATEGORY)}
+              className="transition hover:text-white"
+            >
+              {footerContact.formLabel}
+            </a>
+          </p>
+          <p>{footerContact.site}</p>
+          <p>{footerContact.location}</p>
         </div>
       </div>
     </div>

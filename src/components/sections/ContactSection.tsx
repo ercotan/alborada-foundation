@@ -1,8 +1,9 @@
 import React from "react";
 import { CheckCircle2, Send } from "lucide-react";
 import { motion } from "motion/react";
-import { collaborationPaths, contactPageHref } from "../../data/contact";
+import { collaborationPaths, DEFAULT_CATEGORY } from "../../data/contact";
 import { primaryContact, specializedContacts } from "../../data/homepage";
+import { contactPageHref } from "../../data/routes";
 import { SectionEyebrow } from "../ui/SectionEyebrow";
 
 const CONTACT_EMAIL = primaryContact.email;
@@ -77,8 +78,14 @@ export const ContactSection: React.FC = () => (
         </div>
 
         <div className="mt-8 flex flex-col items-center gap-4">
+          {/*
+            The enquiry form, not a `mailto:`. A `mailto:` does nothing at all
+            on a machine with no mail client registered — the visitor clicks
+            and the page simply does not respond. The address below remains as
+            the direct channel for anyone who prefers it.
+          */}
           <a
-            href={`mailto:${CONTACT_EMAIL}?subject=Contacto%20institucional`}
+            href={contactPageHref(DEFAULT_CATEGORY)}
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#d4af37] px-6 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:scale-[1.01]"
           >
             Escribir a la fundación

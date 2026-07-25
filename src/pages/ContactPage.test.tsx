@@ -66,7 +66,7 @@ describe("category prefill", () => {
     expect(select.value).toBe("prensa");
   });
 
-  it("offers all seven categories", () => {
+  it("offers every intake category", () => {
     render(<ContactPage initialCategory="general" />);
     const select = screen.getByLabelText(/categoría/i) as HTMLSelectElement;
     expect(select.options).toHaveLength(inquiryCategories.length);

@@ -9,6 +9,7 @@ export type InquiryCategoryId =
   | "empresa"
   | "profesional"
   | "persona"
+  | "orientacion"
   | "general"
   | "prensa"
   | "juridico";
@@ -23,6 +24,9 @@ export const inquiryCategories: InquiryCategory[] = [
   { id: "empresa", label: "Empresa o fundación" },
   { id: "profesional", label: "Profesional o voluntariado" },
   { id: "persona", label: "Persona o familia" },
+  // ADR-0004 §D1 lists `orientacion` as a Class A category — orientation
+  // requests are routed by mailbox, not served by a separate page.
+  { id: "orientacion", label: "Centro de Orientación" },
   { id: "general", label: "Consulta general" },
   { id: "prensa", label: "Prensa" },
   { id: "juridico", label: "Asunto jurídico" },
@@ -63,12 +67,7 @@ export const collaborationPaths: CollaborationPath[] = [
   },
 ];
 
-/** Path of the enquiry page. A real HTML entry point, not a client route. */
-export const CONTACT_PAGE_PATH = "/contacto.html";
-
-export function contactPageHref(category: InquiryCategoryId): string {
-  return `${CONTACT_PAGE_PATH}?categoria=${category}`;
-}
+/* Destinations live in `./routes`, which owns every cross-page path. */
 
 /* -------------------------------------------------------------------------- */
 /* Attachments                                                                 */

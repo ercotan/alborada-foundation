@@ -1,5 +1,10 @@
 import React from "react";
-import { childProtectionEntry, orientationTopics } from "../../data/homepage";
+import {
+  childProtectionEntry,
+  orientationRequest,
+  orientationTopics,
+} from "../../data/homepage";
+import { contactPageHref } from "../../data/routes";
 
 export const OrientationSection: React.FC = () => (
   <section
@@ -57,11 +62,17 @@ export const OrientationSection: React.FC = () => (
       </div>
 
       <div className="mt-12">
+        {/*
+          Was a `mailto:` whose query string carried a raw space and an
+          unescaped "ó", so it was not a valid URI even where a mail client
+          existed. Orientation is a category of the general intake, not a
+          separate service — see ADR-0004 §D1.
+        */}
         <a
-          href="mailto:contacto@alboradafoundation.org?subject=Solicitud de orientación"
+          href={contactPageHref(orientationRequest.category)}
           className="inline-flex rounded-full bg-amber-400 px-8 py-4 font-semibold text-slate-950 transition hover:bg-amber-300"
         >
-          Solicitar orientación
+          {orientationRequest.action}
         </a>
       </div>
     </div>

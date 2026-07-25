@@ -21,6 +21,9 @@ import {
   Zap,
 } from "lucide-react";
 
+import type { InquiryCategoryId } from "./contact";
+import { CHILD_PROTECTION_PATH } from "./routes";
+
 import type {
   CampusNode,
   ContactInterest,
@@ -460,6 +463,22 @@ export const specializedContacts: InstitutionalContact[] = [
 /* Guidance centre                                                             */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * The call to action that closes the guidance section.
+ *
+ * It opens the institutional enquiry form with the orientation category
+ * preselected. There is no separate orientation service or page:
+ * `engineering/ADR-0004` §D1 treats orientation as a Class A category of the
+ * general intake, routed by mailbox.
+ */
+export const orientationRequest: {
+  action: string;
+  category: InquiryCategoryId;
+} = {
+  action: "Solicitar orientación",
+  category: "orientacion",
+};
+
 export const orientationTopics: TopicCard[] = [
   {
     title: "Finanzas personales",
@@ -497,5 +516,20 @@ export const childProtectionEntry = {
   title: "¿Un niño o una niña necesita ayuda?",
   text: "Si un niño, niña o adolescente está atravesando una situación de violencia, abandono, abuso, explotación, negligencia o cualquier otra condición de vulnerabilidad, podés comunicarte con Fundación Alborada para recibir orientación sobre cómo actuar y cómo iniciar el proceso de ayuda.",
   action: "Necesito ayuda para un niño",
-  href: "/proteccion-infantil.html",
+  href: CHILD_PROTECTION_PATH,
+} as const;
+
+/* -------------------------------------------------------------------------- */
+/* Footer                                                                      */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * The footer's contact column. The address itself comes from
+ * `primaryContact`, so it is published in one place only.
+ */
+export const footerContact = {
+  /** Opens the enquiry form; the mailbox below is the fallback channel. */
+  formLabel: "Escribir a la fundación",
+  site: "alboradafoundation.org",
+  location: "Colombia",
 } as const;

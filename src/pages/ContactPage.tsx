@@ -5,6 +5,7 @@ import {
   inquiryCategories,
   type InquiryCategoryId,
 } from "../data/contact";
+import { HOME_PATH } from "../data/routes";
 
 export const ContactPage: React.FC<{ initialCategory: InquiryCategoryId }> = ({
   initialCategory,
@@ -15,7 +16,7 @@ export const ContactPage: React.FC<{ initialCategory: InquiryCategoryId }> = ({
     <main className="min-h-screen bg-[#020712] text-white selection:bg-[#d4af37]/30">
       <div className="mx-auto max-w-3xl px-6 py-20 md:px-12 md:py-28">
         <a
-          href="/"
+          href={HOME_PATH}
           className="rounded text-[10px] uppercase tracking-[0.28em] text-white/40 transition hover:text-[#d4af37] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37]"
         >
           ← Fundación Alborada
