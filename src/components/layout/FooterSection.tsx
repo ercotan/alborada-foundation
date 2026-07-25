@@ -52,7 +52,7 @@ export const FooterSection: React.FC = () => (
           <p>
             <a
               href={`mailto:${primaryContact.email}`}
-              className="transition hover:text-white"
+              className="rounded transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37]"
             >
               {primaryContact.email}
             </a>
@@ -60,7 +60,7 @@ export const FooterSection: React.FC = () => (
           <p>
             <a
               href={contactPageHref(DEFAULT_CATEGORY)}
-              className="transition hover:text-white"
+              className="rounded transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37]"
             >
               {footerContact.formLabel}
             </a>

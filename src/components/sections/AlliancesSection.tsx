@@ -36,7 +36,7 @@ export const AlliancesSection: React.FC = () => (
 
       <ScrollButton
         targetId="contact"
-        className="mt-12 rounded-full bg-[#d4af37] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:scale-[1.03]"
+        className="mt-12 rounded-full bg-[#d4af37] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37] motion-reduce:transition-none motion-reduce:hover:scale-100"
       >
         Proponer una alianza
       </ScrollButton>

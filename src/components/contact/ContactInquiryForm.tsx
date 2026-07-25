@@ -187,7 +187,7 @@ export const ContactInquiryForm: React.FC<{
         role="status"
         className="rounded-3xl border border-[#d4af37]/25 bg-[#d4af37]/5 p-8"
       >
-        <h2 className="font-serif text-2xl">Recibimos tu mensaje</h2>
+        <h2 className="font-serif text-2xl">Recibimos su mensaje</h2>
         <p className="mt-4 text-sm leading-7 text-white/70">
           Una persona del equipo de Fundación Alborada revisará la información y
           responderá por el medio de contacto indicado.
@@ -214,17 +214,17 @@ export const ContactInquiryForm: React.FC<{
         >
           {outcome.status === "not-configured" && (
             <>
-              <strong className="text-white">Tu mensaje no fue enviado.</strong>{" "}
+              <strong className="text-white">Su mensaje no fue enviado.</strong>{" "}
               El servicio de recepción de formularios todavía no está conectado,
-              así que preferimos decírtelo en lugar de mostrarte una
-              confirmación falsa. Mientras tanto podés escribirnos a{" "}
+              así que preferimos decírselo en lugar de mostrarle una
+              confirmación falsa. Mientras tanto puede escribirnos a{" "}
               <a
                 href="mailto:contacto@alboradafoundation.org"
                 className="font-mono text-[13px] text-[#d4af37] underline underline-offset-4"
               >
                 contacto@alboradafoundation.org
               </a>
-              . Los datos que completaste siguen aquí.
+              . Los datos que completó siguen aquí.
             </>
           )}
           {outcome.status === "rejected" && (
@@ -245,14 +245,14 @@ export const ContactInquiryForm: React.FC<{
               <strong className="text-white">
                 El servidor no pudo procesar el envío.
               </strong>{" "}
-              No es un problema de tus datos. Intentá de nuevo en unos minutos.
+              No es un problema de sus datos. Intente de nuevo en unos minutos.
             </>
           )}
           {outcome.status === "network-error" && (
             <>
               <strong className="text-white">No hubo conexión.</strong> No
-              pudimos comunicarnos con el servidor. Revisá tu conexión e intentá
-              de nuevo; lo que escribiste no se perdió.
+              pudimos comunicarnos con el servidor. Revise su conexión e intente
+              de nuevo; lo que escribió no se perdió.
             </>
           )}
         </div>
@@ -474,7 +474,7 @@ export const ContactInquiryForm: React.FC<{
           id="attachments-help"
           className="mt-4 text-xs leading-6 text-white/50"
         >
-          Podés adjuntar documentos o imágenes que ayuden a comprender tu
+          Puede adjuntar documentos o imágenes que ayuden a comprender su
           consulta. Formatos admitidos: PDF, DOC, DOCX, JPG y PNG. Hasta{" "}
           {ATTACHMENTS.maxFiles} archivos, {MAX_FILE_MB} MB cada uno y{" "}
           {MAX_TOTAL_MB} MB en total.
@@ -569,7 +569,7 @@ export const ContactInquiryForm: React.FC<{
       <button
         type="submit"
         disabled={sending}
-        className="w-full rounded-xl bg-[#d4af37] px-6 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:scale-[1.005] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-60"
+        className="w-full rounded-xl bg-[#d4af37] px-6 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none disabled:opacity-60"
       >
         {sending ? "Enviando…" : "Enviar mensaje"}
       </button>

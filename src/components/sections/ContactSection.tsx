@@ -28,10 +28,17 @@ export const ContactSection: React.FC = () => (
         </p>
       </div>
 
+      {/*
+        Reveals on arrival, not on page load. This section sits near the foot
+        of the page, so the previous `animate` played while it was still far
+        off-screen and no visitor ever saw it — motion that cost something and
+        communicated nothing.
+      */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
         className="mt-14 rounded-3xl border border-white/8 bg-black/25 p-8 md:p-10"
       >
         <span className="text-[10px] uppercase tracking-[0.28em] text-[#d4af37]/80">
@@ -86,7 +93,7 @@ export const ContactSection: React.FC = () => (
           */}
           <a
             href={contactPageHref(DEFAULT_CATEGORY)}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#d4af37] px-6 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:scale-[1.01]"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#d4af37] px-6 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37] motion-reduce:transition-none"
           >
             Escribir a la fundación
             <Send className="h-4 w-4" />

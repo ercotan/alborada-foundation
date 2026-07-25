@@ -14,7 +14,7 @@ export const DonationSection: React.FC = () => {
   return (
     <section
       id="donations"
-      className="py-24 px-6 md:px-12 bg-[#050a1a] relative"
+      className="py-28 px-6 md:px-12 bg-[#050a1a] relative"
     >
       <div className="max-w-5xl mx-auto flex flex-col gap-12">
         <div className="text-center flex flex-col items-center gap-3 max-w-2xl mx-auto">

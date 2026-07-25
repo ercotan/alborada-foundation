@@ -4,6 +4,9 @@ import { donationNavItem } from "../../data/homepage";
 import { DONATION_SECTION_ID, homeSectionHref } from "../../data/routes";
 import { scrollToSection } from "../../utils/scroll";
 
+const NAV_FOCUS_RING =
+  "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37]";
+
 /**
  * Header shortcut to the donation section.
  *
@@ -37,10 +40,12 @@ export const DonationNavLink: React.FC<{ className?: string }> = ({
     }}
     // Typography, spacing and hover come from the surrounding <nav>, so this
     // matches the other items rather than restating their styling.
+    // The focus ring matches ScrollButton's, so the whole nav row focuses
+    // identically whether an item is a scroll button or this link.
     className={
       className
-        ? `inline-flex items-center gap-2 ${className}`
-        : "inline-flex items-center gap-2"
+        ? `${NAV_FOCUS_RING} inline-flex items-center gap-2 ${className}`
+        : `${NAV_FOCUS_RING} inline-flex items-center gap-2`
     }
   >
     {/* Decorative: the accessible name is on the anchor. */}

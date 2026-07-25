@@ -5,45 +5,42 @@ import {
   orientationTopics,
 } from "../../data/homepage";
 import { contactPageHref } from "../../data/routes";
+import { SectionEyebrow } from "../ui/SectionEyebrow";
 
 export const OrientationSection: React.FC = () => (
   <section
     id="orientation"
-    className="relative overflow-hidden bg-slate-950 px-6 py-24 text-white"
+    className="relative overflow-hidden bg-[#020712] px-6 py-28 text-white md:px-12"
   >
     <div className="mx-auto max-w-6xl">
       <div className="max-w-3xl">
-        <span className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-400">
-          Centro de Orientación Alborada
-        </span>
+        <SectionEyebrow>Centro de Orientación Alborada</SectionEyebrow>
 
-        <h2 className="mt-6 text-4xl font-bold leading-tight md:text-6xl">
-          ¿Qué necesitás cambiar hoy para construir una vida mejor?
+        <h2 className="mt-7 font-serif text-4xl font-light leading-tight md:text-5xl">
+          ¿Qué necesita cambiar hoy para construir una vida mejor?
         </h2>
 
-        <p className="mt-6 text-lg leading-8 text-slate-300">
+        <p className="mt-7 max-w-3xl text-base leading-8 text-white/65 md:text-lg">
           Alborada también existe para acompañar a personas que buscan ordenar
           sus finanzas, cambiar hábitos, emprender, encontrar dirección y
           transformar su realidad mediante conocimiento y acción.
         </p>
       </div>
 
-      <article className="mt-14 rounded-3xl border border-amber-400/35 bg-amber-400/[0.06] p-8 md:p-10">
-        <span className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-400">
-          {childProtectionEntry.eyebrow}
-        </span>
+      <article className="mt-14 rounded-3xl border border-[#d4af37]/30 bg-[#d4af37]/[0.06] p-8 md:p-10">
+        <SectionEyebrow>{childProtectionEntry.eyebrow}</SectionEyebrow>
 
-        <h3 className="mt-5 text-2xl font-bold leading-tight md:text-3xl">
+        <h3 className="mt-5 font-serif text-2xl font-light leading-tight md:text-3xl">
           {childProtectionEntry.title}
         </h3>
 
-        <p className="mt-5 max-w-3xl leading-8 text-slate-300">
+        <p className="mt-5 max-w-3xl text-sm leading-8 text-white/60 md:text-base">
           {childProtectionEntry.text}
         </p>
 
         <a
           href={childProtectionEntry.href}
-          className="mt-8 inline-flex rounded-full bg-amber-400 px-8 py-4 font-semibold text-slate-950 transition hover:bg-amber-300"
+          className="mt-8 inline-flex rounded-full bg-[#d4af37] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37] motion-reduce:transition-none motion-reduce:hover:scale-100"
         >
           {childProtectionEntry.action}
         </a>
@@ -61,10 +58,10 @@ export const OrientationSection: React.FC = () => (
             key={item.topic}
             href={contactPageHref(orientationRequest.category, item.topic)}
             aria-label={`Escribir al Centro de Orientación sobre ${item.title}`}
-            className="block cursor-pointer rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+            className="block cursor-pointer rounded-3xl border border-white/8 bg-white/[0.025] p-8 transition hover:-translate-y-1 hover:border-[#d4af37]/25 hover:bg-white/[0.045] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af37] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
           >
-            <h3 className="text-xl font-semibold">{item.title}</h3>
-            <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
+            <h3 className="font-serif text-xl">{item.title}</h3>
+            <p className="mt-4 text-sm leading-7 text-white/50">{item.text}</p>
           </a>
         ))}
       </div>
@@ -78,7 +75,7 @@ export const OrientationSection: React.FC = () => (
         */}
         <a
           href={contactPageHref(orientationRequest.category)}
-          className="inline-flex rounded-full bg-amber-400 px-8 py-4 font-semibold text-slate-950 transition hover:bg-amber-300"
+          className="inline-flex rounded-full bg-[#d4af37] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37] motion-reduce:transition-none motion-reduce:hover:scale-100"
         >
           {orientationRequest.action}
         </a>

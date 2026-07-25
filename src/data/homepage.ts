@@ -575,27 +575,27 @@ export const orientationTopics: TopicCard[] = [
   {
     title: "Finanzas personales",
     topic: "finanzas-personales",
-    text: "Organizá tus ingresos, deudas, ahorro y decisiones económicas.",
+    text: "Organice sus ingresos, deudas, ahorro y decisiones económicas.",
   },
   {
     title: "Hábitos y disciplina",
     topic: "habitos-y-disciplina",
-    text: "Construí rutinas sostenibles para mejorar tu vida cotidiana.",
+    text: "Construya rutinas sostenibles para mejorar su vida cotidiana.",
   },
   {
     title: "Emprendimiento",
     topic: "emprendimiento",
-    text: "Convertí una idea en un proyecto con dirección y estrategia.",
+    text: "Convierta una idea en un proyecto con dirección y estrategia.",
   },
   {
     title: "Proyecto de vida",
     topic: "proyecto-de-vida",
-    text: "Definí prioridades, objetivos y un camino posible para avanzar.",
+    text: "Defina prioridades, objetivos y un camino posible para avanzar.",
   },
   {
     title: "Educación y tecnología",
     topic: "educacion-y-tecnologia",
-    text: "Encontrá herramientas para aprender, capacitarte y crecer.",
+    text: "Encuentre herramientas para aprender, capacitarse y crecer.",
   },
 ];
 
@@ -611,7 +611,7 @@ export const orientationTopics: TopicCard[] = [
 export const childProtectionEntry = {
   eyebrow: "Protección infantil",
   title: "¿Un niño o una niña necesita ayuda?",
-  text: "Si un niño, niña o adolescente está atravesando una situación de violencia, abandono, abuso, explotación, negligencia o cualquier otra condición de vulnerabilidad, podés comunicarte con Fundación Alborada para recibir orientación sobre cómo actuar y cómo iniciar el proceso de ayuda.",
+  text: "Si un niño, niña o adolescente está atravesando una situación de violencia, abandono, abuso, explotación, negligencia o cualquier otra condición de vulnerabilidad, puede comunicarse con Fundación Alborada para recibir orientación sobre cómo actuar y cómo iniciar el proceso de ayuda.",
   action: "Necesito ayuda para un niño",
   href: CHILD_PROTECTION_PATH,
 } as const;

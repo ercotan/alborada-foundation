@@ -45,7 +45,7 @@ export const PurposeSection: React.FC = () => {
       aria-labelledby="purpose-title"
       // Bridges the hero's near-black to the mission's surface, so the change
       // of section reads as one continuous descent from the sunrise.
-      className="relative overflow-hidden bg-gradient-to-b from-[#020712] via-[#03060f] to-[#050a16] px-6 py-32 md:px-12"
+      className="relative overflow-hidden bg-gradient-to-b from-[#020712] via-[#03060f] to-[#050a16] px-6 py-28 md:px-12"
     >
       {/* Abstract light, echoing the hero. Decorative only. */}
       <div

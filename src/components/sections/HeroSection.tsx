@@ -51,7 +51,7 @@ export const HeroSection: React.FC = () => (
       <div className="mt-10 flex flex-col gap-4 sm:flex-row">
         <ScrollButton
           targetId="mission"
-          className="flex items-center justify-center gap-2 rounded-full bg-[#d4af37] px-7 py-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:scale-[1.03]"
+          className="flex items-center justify-center gap-2 rounded-full bg-[#d4af37] px-7 py-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37] motion-reduce:transition-none motion-reduce:hover:scale-100"
         >
           Descubrir la misión
           <ArrowRight className="h-4 w-4" />

@@ -1,6 +1,18 @@
 import React from "react";
 import { scrollToSection } from "../../utils/scroll";
 
+/**
+ * The site has no global focus styling, so a control without this falls back
+ * to the browser's default ring — which on a near-black surface is close to
+ * invisible. Set here, once, because these are the page's primary navigation
+ * controls and a caller cannot be relied on to remember it.
+ *
+ * Offset by 4 rather than 2: several callers are pill buttons with a filled
+ * gold background, and a closer ring would sit on top of the fill.
+ */
+const FOCUS_RING =
+  "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37]";
+
 interface ScrollButtonProps {
   /** DOM id of the section to scroll to. */
   targetId: string;
@@ -30,7 +42,11 @@ export const ScrollButton: React.FC<ScrollButtonProps> = ({
   <button
     type="button"
     onClick={() => scrollToSection(targetId)}
-    className={className ? `cursor-pointer ${className}` : "cursor-pointer"}
+    className={
+      className
+        ? `${FOCUS_RING} cursor-pointer ${className}`
+        : `${FOCUS_RING} cursor-pointer`
+    }
   >
     {children}
   </button>

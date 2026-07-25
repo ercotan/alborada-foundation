@@ -97,7 +97,7 @@ export const ChildProtectionForm: React.FC = () => {
           <button
             type="button"
             onClick={copy}
-            className="rounded-xl bg-[#d4af37] px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:scale-[1.01]"
+            className="rounded-xl bg-[#d4af37] px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none motion-reduce:hover:scale-100"
           >
             {copied ? "Texto copiado" : "Copiar el reporte"}
           </button>
@@ -108,7 +108,7 @@ export const ChildProtectionForm: React.FC = () => {
               setPrepared(null);
               setCopied(false);
             }}
-            className="text-[10px] uppercase tracking-[0.2em] text-white/50 transition hover:text-[#d4af37]"
+            className="rounded text-[10px] uppercase tracking-[0.2em] text-white/50 transition hover:text-[#d4af37] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37]"
           >
             Volver a editar
           </button>
@@ -341,7 +341,7 @@ export const ChildProtectionForm: React.FC = () => {
 
       <button
         type="submit"
-        className="w-full rounded-xl bg-[#d4af37] px-6 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:scale-[1.005]"
+        className="w-full rounded-xl bg-[#d4af37] px-6 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#07101f] transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none"
       >
         Preparar el reporte
       </button>
