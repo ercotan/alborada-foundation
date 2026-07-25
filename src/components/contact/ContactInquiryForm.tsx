@@ -85,10 +85,16 @@ const Field: React.FC<FieldProps> = ({
 
 export const ContactInquiryForm: React.FC<{
   initialCategory: InquiryCategoryId;
-}> = ({ initialCategory }) => {
+  /**
+   * Subject to open with, when the visitor arrived from a card that names
+   * one. It is an ordinary editable field, not a hidden value.
+   */
+  initialSubject?: string;
+}> = ({ initialCategory, initialSubject = "" }) => {
   const [inquiry, setInquiry] = useState<ContactInquiry>({
     ...emptyInquiry,
     category: initialCategory,
+    subject: initialSubject,
   });
   const [files, setFiles] = useState<File[]>([]);
   const [rejections, setRejections] = useState<AttachmentRejection[]>([]);

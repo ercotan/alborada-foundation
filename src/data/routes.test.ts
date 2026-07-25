@@ -10,8 +10,12 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { inquiryCategories, type InquiryCategoryId } from "./contact";
-import { readCategory } from "../lib/contactInquiry";
+import {
+  inquiryCategories,
+  inquiryTopics,
+  type InquiryCategoryId,
+} from "./contact";
+import { readCategory, readTopic } from "../lib/contactInquiry";
 import {
   CHILD_PROTECTION_PATH,
   CONTACT_PAGE_PATH,
@@ -79,6 +83,7 @@ describe("category round trip", () => {
 
   it("carries the categories ADR-0004 §D1 assigns to Class A intake", () => {
     // Orientation is a category of the general intake, not a separate service.
+    // `donacion` was added by the 2026-07-25 update to the same section.
     const expected: InquiryCategoryId[] = [
       "general",
       "institucion",
@@ -88,7 +93,58 @@ describe("category round trip", () => {
       "prensa",
       "juridico",
       "orientacion",
+      "donacion",
     ];
     expect(inquiryCategories.map((c) => c.id).sort()).toEqual(expected.sort());
+  });
+});
+
+describe("topic round trip", () => {
+  it("every topic survives the URL it is written into", () => {
+    for (const topic of inquiryTopics) {
+      const href = contactPageHref(topic.category, topic.id);
+      const search = href.slice(href.indexOf("?"));
+
+      expect(readCategory(search)).toBe(topic.category);
+      expect(readTopic(search)).toBe(topic.id);
+    }
+  });
+
+  it("every topic slug is URL-safe, so no escaping is required", () => {
+    for (const topic of inquiryTopics) {
+      expect(topic.id).toMatch(/^[a-z0-9-]+$/);
+      expect(encodeURIComponent(topic.id)).toBe(topic.id);
+    }
+  });
+
+  it("every category slug is URL-safe too", () => {
+    for (const category of inquiryCategories) {
+      expect(category.id).toMatch(/^[a-z0-9-]+$/);
+    }
+  });
+
+  it("every topic belongs to a category that exists", () => {
+    const ids = new Set(inquiryCategories.map((c) => c.id));
+    for (const topic of inquiryTopics) {
+      expect(ids.has(topic.category)).toBe(true);
+    }
+  });
+
+  it("keeps topic slugs unique", () => {
+    const ids = inquiryTopics.map((t) => t.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it("ignores a topic that does not belong to the category in the URL", () => {
+    // A hand-edited link must not file an enquiry under a desk that does not
+    // handle its subject.
+    expect(readTopic("?categoria=prensa&tema=biblioteca")).toBeNull();
+    expect(readTopic("?categoria=orientacion&tema=biblioteca")).toBeNull();
+    expect(readTopic("?categoria=orientacion&tema=inexistente")).toBeNull();
+    expect(readTopic("?categoria=orientacion")).toBeNull();
+  });
+
+  it("omits the parameter entirely when no topic is given", () => {
+    expect(contactPageHref("general")).not.toContain("tema");
   });
 });

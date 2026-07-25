@@ -39,8 +39,10 @@ export const CampusSection: React.FC = () => {
               return (
                 <button
                   key={node.id}
+                  type="button"
+                  aria-pressed={active}
                   onClick={() => setActiveId(node.id)}
-                  className={`min-h-36 rounded-2xl border p-5 text-left transition ${
+                  className={`min-h-36 cursor-pointer rounded-2xl border p-5 text-left transition ${
                     active
                       ? "border-[#d4af37]/55 bg-[#d4af37]/10"
                       : "border-white/7 bg-black/20 hover:border-white/16"

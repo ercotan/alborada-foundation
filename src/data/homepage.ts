@@ -372,30 +372,35 @@ export const transparencyPillars: IconFeature[] = [
 export const donationTiers: DonationTier[] = [
   {
     id: "education",
+    topic: "becas-y-estudio",
     category: "Educación",
     title: "Becas y estudio",
     text: "Contribuye al fondo de becas: materiales, tutorías y acompañamiento académico de las estudiantes.",
   },
   {
     id: "library",
+    topic: "biblioteca",
     category: "Campus",
     title: "Biblioteca",
     text: "Contribuye a los libros y al espacio de lectura y estudio del campus.",
   },
   {
     id: "ailab",
+    topic: "aula-de-tecnologia",
     category: "Tecnología",
     title: "Aula de tecnología",
     text: "Contribuye a los equipos con los que las estudiantes aprenderán programación y uso responsable de la tecnología.",
   },
   {
     id: "residence",
+    topic: "residencia-y-cuidado",
     category: "Bienestar",
     title: "Residencia y cuidado",
     text: "Contribuye a la alimentación, el alojamiento y el acompañamiento diario de las estudiantes.",
   },
   {
     id: "sustainability",
+    topic: "huerta-y-granja",
     category: "Sostenibilidad",
     title: "Huerta y granja",
     text: "Contribuye a los cultivos, la producción de alimentos y el aprendizaje práctico en sostenibilidad.",
@@ -482,22 +487,27 @@ export const orientationRequest: {
 export const orientationTopics: TopicCard[] = [
   {
     title: "Finanzas personales",
+    topic: "finanzas-personales",
     text: "Organizá tus ingresos, deudas, ahorro y decisiones económicas.",
   },
   {
     title: "Hábitos y disciplina",
+    topic: "habitos-y-disciplina",
     text: "Construí rutinas sostenibles para mejorar tu vida cotidiana.",
   },
   {
     title: "Emprendimiento",
+    topic: "emprendimiento",
     text: "Convertí una idea en un proyecto con dirección y estrategia.",
   },
   {
     title: "Proyecto de vida",
+    topic: "proyecto-de-vida",
     text: "Definí prioridades, objetivos y un camino posible para avanzar.",
   },
   {
     title: "Educación y tecnología",
+    topic: "educacion-y-tecnologia",
     text: "Encontrá herramientas para aprender, capacitarte y crecer.",
   },
 ];

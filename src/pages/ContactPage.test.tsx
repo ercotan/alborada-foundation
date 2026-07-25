@@ -66,6 +66,36 @@ describe("category prefill", () => {
     expect(select.value).toBe("prensa");
   });
 
+  it("opens with the subject of the card the visitor clicked", () => {
+    render(
+      <ContactPage
+        initialCategory="orientacion"
+        initialTopic="finanzas-personales"
+      />,
+    );
+    expect(screen.getByLabelText(/^asunto/i)).toHaveValue(
+      "Finanzas personales",
+    );
+  });
+
+  it("leaves the subject empty when no card named one", () => {
+    render(<ContactPage initialCategory="general" />);
+    expect(screen.getByLabelText(/^asunto/i)).toHaveValue("");
+  });
+
+  it("keeps the prefilled subject editable", async () => {
+    const user = userEvent.setup();
+    render(
+      <ContactPage initialCategory="donacion" initialTopic="biblioteca" />,
+    );
+    const subject = screen.getByLabelText(/^asunto/i);
+    expect(subject).toHaveValue("Biblioteca");
+
+    await user.clear(subject);
+    await user.type(subject, "Otra cosa");
+    expect(subject).toHaveValue("Otra cosa");
+  });
+
   it("offers every intake category", () => {
     render(<ContactPage initialCategory="general" />);
     const select = screen.getByLabelText(/categoría/i) as HTMLSelectElement;

@@ -14,7 +14,9 @@ import {
   ATTACHMENTS,
   DEFAULT_CATEGORY,
   inquiryCategories,
+  inquiryTopics,
   type InquiryCategoryId,
+  type InquiryTopicId,
 } from "../data/contact";
 
 export interface ContactInquiry {
@@ -256,4 +258,20 @@ export function readCategory(search: string): InquiryCategoryId {
   const requested = new URLSearchParams(search).get("categoria");
   const match = inquiryCategories.find((c) => c.id === requested);
   return match ? match.id : DEFAULT_CATEGORY;
+}
+
+/**
+ * The topic the visitor arrived from, or `null`.
+ *
+ * A topic is honoured only when it belongs to the category in the same URL.
+ * A hand-edited link pairing, say, `categoria=prensa` with a donation topic
+ * is treated as having no topic rather than quietly filing the enquiry under
+ * a subject its desk does not handle.
+ */
+export function readTopic(search: string): InquiryTopicId | null {
+  const params = new URLSearchParams(search);
+  const requested = params.get("tema");
+  const match = inquiryTopics.find((topic) => topic.id === requested);
+  if (!match) return null;
+  return match.category === readCategory(search) ? match.id : null;
 }

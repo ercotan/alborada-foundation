@@ -1,8 +1,9 @@
 import React from "react";
 import { contactInterests, donationTiers } from "../../data/homepage";
+import { contactPageHref } from "../../data/routes";
 
 const CARD_CLASS =
-  "bg-black/40 border border-white/5 hover:border-gold-500/25 p-6 rounded-2xl flex flex-col gap-4 relative overflow-hidden group transition-all duration-300";
+  "bg-black/40 border border-white/5 hover:border-gold-500/25 p-6 rounded-2xl flex flex-col gap-4 relative overflow-hidden group transition-all duration-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500";
 
 export const DonationSection: React.FC = () => {
   return (
@@ -31,9 +32,17 @@ export const DonationSection: React.FC = () => {
           </span>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/*
+              The cards already responded to hover, so they already promised
+              a click. Each now opens the enquiry form under the support
+              category with its own area as the subject. No payment is
+              started here — the site processes none.
+            */}
             {donationTiers.map((area) => (
-              <div
+              <a
                 key={area.id}
+                href={contactPageHref("donacion", area.topic)}
+                aria-label={`Consultar cómo apoyar: ${area.title}`}
                 className={
                   area.cardClassName
                     ? `${CARD_CLASS} ${area.cardClassName}`
@@ -49,7 +58,7 @@ export const DonationSection: React.FC = () => {
                 <p className="text-xs text-white/60 leading-relaxed font-light">
                   {area.text}
                 </p>
-              </div>
+              </a>
             ))}
           </div>
         </div>

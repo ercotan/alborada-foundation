@@ -10,6 +10,7 @@ export type InquiryCategoryId =
   | "profesional"
   | "persona"
   | "orientacion"
+  | "donacion"
   | "general"
   | "prensa"
   | "juridico";
@@ -27,12 +28,96 @@ export const inquiryCategories: InquiryCategory[] = [
   // ADR-0004 §D1 lists `orientacion` as a Class A category — orientation
   // requests are routed by mailbox, not served by a separate page.
   { id: "orientacion", label: "Centro de Orientación" },
+  // An enquiry about how to support an area of the project. It is a contact
+  // category, not a payment: the site processes no transactions.
+  { id: "donacion", label: "Apoyo al proyecto" },
   { id: "general", label: "Consulta general" },
   { id: "prensa", label: "Prensa" },
   { id: "juridico", label: "Asunto jurídico" },
 ];
 
 export const DEFAULT_CATEGORY: InquiryCategoryId = "general";
+
+/* -------------------------------------------------------------------------- */
+/* Topics                                                                      */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * The subject a visitor arrived with, one level below the category.
+ *
+ * A topic exists so a card can say *what* the visitor clicked, not merely
+ * which desk it belongs to: "orientación" is the category, "finanzas
+ * personales" is why they wrote. It travels in the URL as `tema`, so these
+ * slugs are public and must not change casually — an old shared link would
+ * silently lose its subject.
+ *
+ * Every topic declares the category it belongs to, so a link cannot pair a
+ * topic with a desk that does not handle it.
+ */
+export type InquiryTopicId =
+  // Centro de Orientación
+  | "finanzas-personales"
+  | "habitos-y-disciplina"
+  | "emprendimiento"
+  | "proyecto-de-vida"
+  | "educacion-y-tecnologia"
+  // Áreas donde se necesita apoyo
+  | "becas-y-estudio"
+  | "biblioteca"
+  | "aula-de-tecnologia"
+  | "residencia-y-cuidado"
+  | "huerta-y-granja";
+
+export interface InquiryTopic {
+  id: InquiryTopicId;
+  /** Shown to the visitor; prefilled as the subject of the enquiry. */
+  label: string;
+  category: InquiryCategoryId;
+}
+
+export const inquiryTopics: InquiryTopic[] = [
+  {
+    id: "finanzas-personales",
+    label: "Finanzas personales",
+    category: "orientacion",
+  },
+  {
+    id: "habitos-y-disciplina",
+    label: "Hábitos y disciplina",
+    category: "orientacion",
+  },
+  { id: "emprendimiento", label: "Emprendimiento", category: "orientacion" },
+  {
+    id: "proyecto-de-vida",
+    label: "Proyecto de vida",
+    category: "orientacion",
+  },
+  {
+    id: "educacion-y-tecnologia",
+    label: "Educación y tecnología",
+    category: "orientacion",
+  },
+  { id: "becas-y-estudio", label: "Becas y estudio", category: "donacion" },
+  { id: "biblioteca", label: "Biblioteca", category: "donacion" },
+  {
+    id: "aula-de-tecnologia",
+    label: "Aula de tecnología",
+    category: "donacion",
+  },
+  {
+    id: "residencia-y-cuidado",
+    label: "Residencia y cuidado",
+    category: "donacion",
+  },
+  { id: "huerta-y-granja", label: "Huerta y granja", category: "donacion" },
+];
+
+export function topicById(id: InquiryTopicId): InquiryTopic {
+  const found = inquiryTopics.find((topic) => topic.id === id);
+  // The id is a member of the union, so the registry is missing an entry.
+  if (!found) throw new Error(`Unknown inquiry topic: ${id}`);
+  return found;
+}
 
 /**
  * The four collaboration options in the Contact section. Each one is an entry

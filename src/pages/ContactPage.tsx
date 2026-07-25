@@ -3,14 +3,19 @@ import { ContactInquiryForm } from "../components/contact/ContactInquiryForm";
 import {
   dataTreatmentNotice,
   inquiryCategories,
+  topicById,
   type InquiryCategoryId,
+  type InquiryTopicId,
 } from "../data/contact";
 import { HOME_PATH } from "../data/routes";
 
-export const ContactPage: React.FC<{ initialCategory: InquiryCategoryId }> = ({
-  initialCategory,
-}) => {
+export const ContactPage: React.FC<{
+  initialCategory: InquiryCategoryId;
+  /** Set when the visitor arrived from a card that names a subject. */
+  initialTopic?: InquiryTopicId | null;
+}> = ({ initialCategory, initialTopic = null }) => {
   const category = inquiryCategories.find((c) => c.id === initialCategory);
+  const topic = initialTopic ? topicById(initialTopic) : null;
 
   return (
     <main className="min-h-screen bg-[#020712] text-white selection:bg-[#d4af37]/30">
@@ -45,7 +50,10 @@ export const ContactPage: React.FC<{ initialCategory: InquiryCategoryId }> = ({
         </header>
 
         <div className="mt-14">
-          <ContactInquiryForm initialCategory={initialCategory} />
+          <ContactInquiryForm
+            initialCategory={initialCategory}
+            initialSubject={topic?.label}
+          />
         </div>
 
         <section

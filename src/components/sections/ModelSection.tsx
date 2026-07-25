@@ -35,8 +35,10 @@ export const ModelSection: React.FC = () => {
               return (
                 <button
                   key={tab.id}
+                  type="button"
+                  aria-pressed={active}
                   onClick={() => setActiveId(tab.id)}
-                  className={`flex items-center gap-4 rounded-2xl border p-5 text-left transition ${
+                  className={`flex cursor-pointer items-center gap-4 rounded-2xl border p-5 text-left transition ${
                     active
                       ? "border-[#d4af37]/50 bg-[#d4af37]/10 text-[#d4af37]"
                       : "border-white/6 bg-black/15 text-white/50 hover:border-white/15 hover:text-white"

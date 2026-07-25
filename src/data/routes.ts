@@ -19,7 +19,7 @@
  * than client-side routes.
  */
 
-import type { InquiryCategoryId } from "./contact";
+import type { InquiryCategoryId, InquiryTopicId } from "./contact";
 
 export const HOME_PATH = "/";
 
@@ -30,12 +30,21 @@ export const CONTACT_PAGE_PATH = "/contacto.html";
 export const CHILD_PROTECTION_PATH = "/proteccion-infantil.html";
 
 /**
- * The enquiry form with a category preselected.
+ * The enquiry form with a category preselected, and optionally the topic the
+ * visitor arrived from.
  *
- * The parameter name is Spanish because it is visitor-facing and appears in
- * shared URLs. It is read back by `readCategory()`, which falls back to the
- * default category rather than trusting the value.
+ * The parameter names are Spanish because they are visitor-facing and appear
+ * in shared URLs. Both are read back by `readCategory()` and `readTopic()`,
+ * which validate against the known sets rather than trusting the value.
+ *
+ * Values are not escaped here because both unions are constrained to
+ * URL-safe slugs; `routes.test.ts` asserts that, so the constraint fails the
+ * suite rather than production if a slug ever gains a space or an accent.
  */
-export function contactPageHref(category: InquiryCategoryId): string {
-  return `${CONTACT_PAGE_PATH}?categoria=${category}`;
+export function contactPageHref(
+  category: InquiryCategoryId,
+  topic?: InquiryTopicId,
+): string {
+  const base = `${CONTACT_PAGE_PATH}?categoria=${category}`;
+  return topic ? `${base}&tema=${topic}` : base;
 }

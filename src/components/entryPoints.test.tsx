@@ -17,14 +17,19 @@ import { beforeAll, describe, expect, it, vi } from "vitest";
 import { collaborationPaths } from "../data/contact";
 import {
   childProtectionEntry,
+  donationTiers,
   footerContact,
   orientationRequest,
+  orientationTopics,
   primaryContact,
   specializedContacts,
 } from "../data/homepage";
 import { CHILD_PROTECTION_PATH, contactPageHref } from "../data/routes";
 import { FooterSection } from "./layout/FooterSection";
+import { CampusSection } from "./sections/CampusSection";
 import { ContactSection } from "./sections/ContactSection";
+import { DonationSection } from "./sections/DonationSection";
+import { ModelSection } from "./sections/ModelSection";
 import { OrientationSection } from "./sections/OrientationSection";
 
 beforeAll(() => {
@@ -87,7 +92,8 @@ describe("guidance centre", () => {
     render(<OrientationSection />);
     expect(
       screen.getByRole("link", {
-        name: new RegExp(orientationRequest.action, "i"),
+        // Anchored: the topic cards' labels also mention orientation.
+        name: new RegExp(`^${orientationRequest.action}$`, "i"),
       }),
     ).toHaveAttribute("href", contactPageHref("orientacion"));
   });
@@ -101,6 +107,84 @@ describe("guidance centre", () => {
         () => new URL(href, "https://alboradafoundation.org"),
       ).not.toThrow();
     }
+  });
+});
+
+describe("orientation topic cards", () => {
+  for (const card of orientationTopics) {
+    it(`"${card.title}" opens the form with its own subject`, () => {
+      render(<OrientationSection />);
+      const link = screen.getByRole("link", {
+        name: new RegExp(`sobre ${card.title}$`, "i"),
+      });
+      expect(link).toHaveAttribute(
+        "href",
+        contactPageHref("orientacion", card.topic),
+      );
+    });
+  }
+
+  it("makes the whole card the click target", () => {
+    render(<OrientationSection />);
+    for (const card of orientationTopics) {
+      const link = screen.getByRole("link", {
+        name: new RegExp(`sobre ${card.title}$`, "i"),
+      });
+      // Title and description are both inside the anchor, not beside it.
+      expect(link.textContent).toContain(card.title);
+      expect(link.textContent).toContain(card.text);
+    }
+  });
+
+  it("reaches every card by keyboard", async () => {
+    const user = userEvent.setup();
+    render(<OrientationSection />);
+
+    for (const card of orientationTopics) {
+      const link = screen.getByRole("link", {
+        name: new RegExp(`sobre ${card.title}$`, "i"),
+      });
+      link.focus();
+      expect(link).toHaveFocus();
+      // An anchor with an href is activated by Enter natively.
+      await user.keyboard("{Enter}");
+      expect(link).toHaveAttribute("href", expect.stringContaining("tema="));
+    }
+  });
+});
+
+describe("donation area cards", () => {
+  for (const area of donationTiers) {
+    it(`"${area.title}" opens the form under the support category`, () => {
+      render(<DonationSection />);
+      const link = screen.getByRole("link", {
+        name: new RegExp(`apoyar: ${area.title}$`, "i"),
+      });
+      expect(link).toHaveAttribute(
+        "href",
+        contactPageHref("donacion", area.topic),
+      );
+    });
+  }
+
+  it("makes the whole card the click target", () => {
+    render(<DonationSection />);
+    for (const area of donationTiers) {
+      const link = screen.getByRole("link", {
+        name: new RegExp(`apoyar: ${area.title}$`, "i"),
+      });
+      expect(link.textContent).toContain(area.title);
+      expect(link.textContent).toContain(area.text);
+    }
+  });
+
+  it("starts no payment, because the site processes none", () => {
+    render(<DonationSection />);
+    for (const href of linkHrefs()) {
+      expect(href).not.toMatch(/pago|payment|checkout|donar\.|stripe|paypal/i);
+    }
+    // No amount field, no payment control.
+    expect(screen.queryByRole("spinbutton")).toBeNull();
   });
 });
 
@@ -165,6 +249,7 @@ describe("no entry point is inert", () => {
   const surfaces = [
     ["ContactSection", <ContactSection key="c" />],
     ["OrientationSection", <OrientationSection key="o" />],
+    ["DonationSection", <DonationSection key="d" />],
     ["FooterSection", <FooterSection key="f" />],
   ] as const;
 
@@ -215,6 +300,47 @@ describe("no entry point is inert", () => {
     for (const button of screen.getAllByRole("button")) {
       expect(button.className).toContain("cursor-pointer");
       expect(button).toHaveAttribute("type", "button");
+    }
+  });
+
+  it("every card that lifts or highlights on hover is a link", () => {
+    // Hover feedback is a promise of clickability. A card that makes it and
+    // does nothing is the defect this suite exists to prevent.
+    for (const [name, element] of surfaces) {
+      const { container, unmount } = render(element);
+      const hoverStyled = [...container.querySelectorAll("[class]")].filter(
+        (el) =>
+          /hover:(-translate|bg-|border-)/.test(el.className.toString()) &&
+          // `group-hover:` reacts to an ancestor's hover, not its own.
+          !/group-hover:/.test(el.className.toString()),
+      );
+
+      for (const el of hoverStyled) {
+        const interactive = el.closest("a[href], button");
+        expect(
+          interactive,
+          `${name}: an element responds to hover but nothing is clickable`,
+        ).not.toBeNull();
+      }
+      unmount();
+    }
+  });
+
+  it("selector buttons expose their state and show a pointer", () => {
+    for (const element of [
+      <ModelSection key="m" />,
+      <CampusSection key="p" />,
+    ]) {
+      const { unmount } = render(element);
+      const buttons = screen.getAllByRole("button");
+      expect(buttons.length).toBeGreaterThan(0);
+
+      for (const button of buttons) {
+        expect(button.className).toContain("cursor-pointer");
+        expect(button).toHaveAttribute("type", "button");
+        expect(button).toHaveAttribute("aria-pressed");
+      }
+      unmount();
     }
   });
 });

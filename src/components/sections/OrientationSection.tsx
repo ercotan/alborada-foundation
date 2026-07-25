@@ -49,15 +49,23 @@ export const OrientationSection: React.FC = () => (
         </a>
       </article>
 
+      {/*
+        Each card lifts on hover, so each card must go somewhere. They open
+        the enquiry form with the orientation category and their own subject.
+        The anchor wraps the whole card, so the click target is the visible
+        box rather than the heading alone.
+      */}
       <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {orientationTopics.map((item) => (
-          <article
-            key={item.title}
-            className="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/10"
+          <a
+            key={item.topic}
+            href={contactPageHref(orientationRequest.category, item.topic)}
+            aria-label={`Escribir al Centro de Orientación sobre ${item.title}`}
+            className="block cursor-pointer rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
           >
             <h3 className="text-xl font-semibold">{item.title}</h3>
             <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
-          </article>
+          </a>
         ))}
       </div>
 

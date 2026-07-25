@@ -143,6 +143,7 @@ phase noted. Stable identifiers are used so later work can reference them.
 | OD-13 | Mandatory-reporting and breach-notification obligations and procedure | Phase 4 |
 | OD-14 | IP-address retention period for abuse prevention (collection yes; duration TBD) | Phase 2 |
 | OD-15 | Appointment of a DPO / privacy owner | Before any collection |
+| OD-16 | Notification mailbox for the `donacion` category — reuse `contacto@` or provision a dedicated address | Phase 2 routing |
 
 **Update (2026-07-24) — OD-7 only.** Draft versions of the data-treatment
 policy and the website privacy notice now exist, together with the Class A
@@ -153,6 +154,39 @@ domicile, retention periods, privacy channel, DPO, and others, marked
 `[INSTITUTIONAL DECISION REQUIRED]`) and formal legal approval **remain
 pending**. OD-7 status: **"Draft prepared — awaiting institutional and legal
 approval."** No other Open Decision changes status.
+
+**Update (2026-07-25) — D1 category set and a sub-topic parameter.** Does not
+alter any conclusion of this ADR; it records two additions made while
+connecting the homepage cards to their destinations.
+
+*Category.* The Class A set in D1 gains **`donacion`** — an enquiry about how
+to support an area of the project. It was needed because the five support-area
+cards on the homepage responded to hover while linking nowhere, and none of the
+existing categories describes them: the enquiry is neither `general` nor
+`empresa` nor `persona`. It is a **contact** category only. **No payment
+capability is implied, designed or approved by this entry**; the site processes
+no transactions, and a donation card opens the enquiry form exactly as every
+other card does. Its notification mailbox is unresolved and is recorded as
+OD-16; until then it falls to `contacto@`, like any category without a
+dedicated desk.
+
+*Sub-topic.* Class A URLs may now carry an optional **`tema`** parameter naming
+the card the visitor arrived from — `?categoria=orientacion&tema=finanzas-personales`.
+It is a UI convenience that prefills the subject field and carries no new
+personal data; the server contract in D2/D3 is unchanged, and `tema` is
+validated against a closed set and discarded when it does not belong to the
+category in the same URL. Whether the backend should persist it as a distinct
+column or leave it inside `subject` is deferred to Phase 2 and is not decided
+here.
+
+*Not adopted.* A second taxonomy describing **how** a donation is made — one
+off, monthly, sponsorship, materials, equipment — was considered and rejected
+for now. It is orthogonal to the support areas above, and every one of its
+values presumes a payment capability that does not exist; publishing
+"donación mensual" against no recurring-payment facility would be a promise the
+site cannot keep. Sponsorship of an individual child additionally engages
+`CLAUDE.md §5.1` and is not a decision this ADR may make. Revisit when a
+payments decision exists.
 
 ## Phase gates
 

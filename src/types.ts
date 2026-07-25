@@ -3,6 +3,7 @@
  */
 
 import type { LucideIcon } from "lucide-react";
+import type { InquiryTopicId } from "./data/contact";
 
 export type AppView = "cinema" | "homepage";
 
@@ -101,10 +102,16 @@ export interface TimelineMilestone {
   text: string;
 }
 
-/** Plain title + copy card (guidance topics). */
+/**
+ * Title + copy card (guidance topics).
+ *
+ * `topic` makes the card a destination rather than decoration: it is the
+ * subject the enquiry form opens with when the card is clicked.
+ */
 export interface TopicCard {
   title: string;
   text: string;
+  topic: InquiryTopicId;
 }
 
 /** Entry of the header / footer in-page navigation. */
@@ -145,6 +152,11 @@ export interface DonationTier {
   category: string;
   title: string;
   text: string;
+  /**
+   * Subject the enquiry form opens with. The card asks how to help with this
+   * area; it starts no payment, because the site processes none.
+   */
+  topic: InquiryTopicId;
   /** Extra grid-span utilities applied to this card only. */
   cardClassName?: string;
 }
