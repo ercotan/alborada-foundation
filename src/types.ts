@@ -154,7 +154,8 @@ export interface DonationTier {
   text: string;
   /**
    * Subject the enquiry form opens with. The card asks how to help with this
-   * area; it starts no payment, because the site processes none.
+   * area; it starts no payment. Online donation goes through the PayPal
+   * hosted button, which is a general contribution and carries no area.
    */
   topic: InquiryTopicId;
   /** Extra grid-span utilities applied to this card only. */

@@ -408,6 +408,33 @@ export const donationTiers: DonationTier[] = [
   },
 ];
 
+/**
+ * Copy around the PayPal hosted button.
+ *
+ * Every line here is a claim the foundation can stand behind. It states who
+ * receives the money, who processes it, and what the donation is *not*: it is
+ * not earmarked, not recurring, not a sponsorship, and carries no statement
+ * about tax treatment, because none of those exist.
+ */
+export const paypalDonation = {
+  eyebrow: "Donar en línea",
+  title: "Donación a través de PayPal",
+  /** Amount and payment methods are PayPal's to decide, not the site's. */
+  intro:
+    "El monto lo elige usted, en dólares estadounidenses (USD). PayPal muestra los métodos de pago disponibles para su dispositivo y su región.",
+  disclosure:
+    "Las donaciones son procesadas de forma segura por PayPal y recibidas por la Fundación Unidos por un Acuerdo Social — FUNUDOS, entidad que administra el Proyecto Fundación Alborada.",
+  /** Keeps the donate-now control distinct from the thematic enquiry cards. */
+  earmarkNote:
+    "La donación en línea es un aporte general al proyecto y no se asigna automáticamente a un área determinada. Si desea orientar su aporte a un área concreta, escríbanos desde la tarjeta correspondiente.",
+  privacyNote:
+    "Al abrir esta sección, su navegador se comunica con PayPal para mostrar el botón. Fundación Alborada no recibe ni conserva los datos de su medio de pago.",
+  loading: "Cargando el botón de donación de PayPal…",
+  unavailable:
+    "No fue posible cargar el botón de PayPal en esta página. Puede abrir la página segura de donación directamente.",
+  fallbackLabel: "Abrir la página segura de donación en PayPal",
+} as const;
+
 /* -------------------------------------------------------------------------- */
 /* Alliances                                                                   */
 /* -------------------------------------------------------------------------- */

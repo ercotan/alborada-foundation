@@ -188,6 +188,60 @@ site cannot keep. Sponsorship of an individual child additionally engages
 `CLAUDE.md §5.1` and is not a decision this ADR may make. Revisit when a
 payments decision exists.
 
+**Update (2026-07-25b) — an online donation path now exists.** Approved and
+instructed by Ernesto. This **supersedes the "payments decision" caveat in the
+paragraph immediately above**, which stated that no payment capability
+existed. That is no longer true, and the earlier text is retained rather than
+rewritten so the sequence stays legible.
+
+*What was added.* The official **PayPal hosted button** (`FX3C3ZF9BZUNY`),
+rendered by PayPal's own SDK inside the donation section of the homepage, with
+PayPal's hosted payment page (`/ncp/payment/K79TU3UFVP5J2`) as a permanent
+secondary fallback.
+
+*What did not change.* No payment backend, no contact backend, no HERA
+connection, no dependency. **PayPal hosts and processes the payment in full.**
+This site never sees a card number or a PayPal credential, creates no order,
+stores no payment data, and shows **no local success state** — only PayPal may
+tell a donor that a payment completed. The contact-intake design in D1–D8 is
+untouched; the `donacion` *category* remains an enquiry route and is not a
+payment path.
+
+*Scope of the capability.* One-off, donor-defined amount, in USD, with the
+payment methods PayPal chooses to offer for the donor's device and region.
+**No recurring donation, no earmarking by support area, no sponsorship of an
+individual child, and no statement about tax treatment** — none of those
+exist, and the section says so rather than leaving them to be assumed. The
+five thematic cards therefore stay enquiry routes; a test asserts the
+separation, because a card that quietly became a payment button would be the
+easiest version of this to get wrong.
+
+*Credentials.* The client id and hosted-button id are **public frontend
+configuration**, readable by anyone who opens the page, and are centralized in
+`src/data/payments.ts`. No private API secret, access token or webhook key
+exists in this repository, and none may be added to that module — Vite would
+inline it into the public bundle. A test asserts the module reads no
+environment variable and declares no secret-shaped identifier.
+
+*Privacy consequence — new.* Loading the homepage now causes the visitor's
+browser to contact **`https://www.paypal.com`** to fetch the SDK, before any
+donation is started. This is a new third-party contact and is disclosed in the
+donation section itself. It is scoped to the homepage bundle: `contacto.html`
+and `proteccion-infantil.html` contain no PayPal reference and contact PayPal
+never — deliberate, since the child-protection page should reach nothing it
+does not need. `legal/AVISO-PRIVACIDAD-DRAFT-0.1` should gain a third-party
+recipients entry before the privacy notice is published (OD-7).
+
+*Content Security Policy.* **The site serves no CSP today** — no
+`http-equiv` meta tag, and the static build sets no headers — so nothing had
+to be broadened and nothing was. Recorded here so a future CSP is not written
+without it: a policy that blocks PayPal will break the button silently. The
+minimum PayPal needs is `script-src`, `frame-src` and `connect-src` for
+`https://www.paypal.com`, plus `img-src` for `https://www.paypalobjects.com`.
+Whether the SDK's own sub-resources require additional PayPal hosts **has not
+been verified in a browser** and must be confirmed against the network panel
+before a policy is enforced, rather than pre-emptively widened with a wildcard.
+
 ## Phase gates
 
 Implementation proceeds in small, independently shippable phases. Each phase

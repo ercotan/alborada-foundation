@@ -29,7 +29,8 @@ export const inquiryCategories: InquiryCategory[] = [
   // requests are routed by mailbox, not served by a separate page.
   { id: "orientacion", label: "Centro de Orientación" },
   // An enquiry about how to support an area of the project. It is a contact
-  // category, not a payment: the site processes no transactions.
+  // category, not a payment path: an online donation goes through the PayPal
+  // hosted button in the donation section, never through this form.
   { id: "donacion", label: "Apoyo al proyecto" },
   { id: "general", label: "Consulta general" },
   { id: "prensa", label: "Prensa" },

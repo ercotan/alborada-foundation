@@ -127,6 +127,36 @@ because a client-generated case identifier refers to nothing.
 **A surface must never display success unless a server said so.** Tests enforce
 this deliberately.
 
+### Third-party contacts
+
+The site is otherwise self-contained, so every outbound request is listed here.
+Check this table before adding another.
+
+| Origin | Where | When | Introduced |
+|---|---|---|---|
+| `https://fonts.googleapis.com` | `@import` in `src/index.css` | Every page load | Pre-existing |
+| `https://www.paypal.com` | PayPal SDK, injected by `src/hooks/usePayPalSdk.ts` | Homepage load only | Donation button |
+
+The PayPal SDK is injected at runtime rather than placed in an HTML entry
+point, so it loads on the homepage alone. `contacto.html` and
+`proteccion-infantil.html` contain no PayPal reference and never contact it —
+the child-protection page in particular should reach nothing it does not need.
+
+`http://www.w3.org` and `https://react.dev` also appear in the built bundles.
+Neither is a request: the first is the SVG namespace on icon elements, the
+second is React's error-documentation URL inside thrown messages.
+
+**PayPal configuration is centralized in `src/data/payments.ts`.** Those
+identifiers are public by design. **Never add a PayPal secret, access token or
+webhook key to that module** — it is imported by the client bundle, so Vite
+would publish it. A test asserts the module reads no environment variable.
+
+**There is no Content Security Policy today.** If one is ever introduced, it
+must allow `https://www.paypal.com` for `script-src`, `frame-src` and
+`connect-src`, and `https://www.paypalobjects.com` for `img-src`, or the
+donation button breaks silently. Confirm the exact set against a browser
+network panel rather than widening with a wildcard.
+
 ### Editorial copy
 
 Copy belongs in `src/data/homepage.ts`, not inline in components, so wording

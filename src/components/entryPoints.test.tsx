@@ -24,6 +24,7 @@ import {
   primaryContact,
   specializedContacts,
 } from "../data/homepage";
+import { PAYPAL_DONATION_URL } from "../data/payments";
 import { CHILD_PROTECTION_PATH, contactPageHref } from "../data/routes";
 import { FooterSection } from "./layout/FooterSection";
 import { CampusSection } from "./sections/CampusSection";
@@ -178,13 +179,61 @@ describe("donation area cards", () => {
     }
   });
 
-  it("starts no payment, because the site processes none", () => {
+  /*
+   * This block replaces a blanket "no payment exists anywhere" guard, which
+   * became false when the official PayPal hosted button was added. The
+   * distinction that guard protected is unchanged and is now the whole point
+   * of the section's layout: the thematic cards start a conversation, the
+   * PayPal control starts a payment, and neither may drift into the other.
+   */
+  it("stay enquiry routes and never become payment buttons", () => {
     render(<DonationSection />);
-    for (const href of linkHrefs()) {
-      expect(href).not.toMatch(/pago|payment|checkout|donar\.|stripe|paypal/i);
+    for (const area of donationTiers) {
+      const href =
+        screen
+          .getByRole("link", {
+            name: new RegExp(`apoyar: ${area.title}$`, "i"),
+          })
+          .getAttribute("href") ?? "";
+
+      expect(href).toBe(contactPageHref("donacion", area.topic));
+      expect(href).not.toMatch(/paypal|pago|payment|checkout|stripe/i);
     }
-    // No amount field, no payment control.
+  });
+
+  it("leave PayPal as the only payment destination in the section", () => {
+    render(<DonationSection />);
+    const paymentLinks = linkHrefs().filter((href) =>
+      /paypal|payment|checkout|stripe/i.test(href),
+    );
+    expect(paymentLinks).toEqual([PAYPAL_DONATION_URL]);
+  });
+
+  it("build no payment form of their own", () => {
+    const { container } = render(<DonationSection />);
+    // No amount field, no card field, no hand-rolled payment frame.
     expect(screen.queryByRole("spinbutton")).toBeNull();
+    expect(container.querySelector("form")).toBeNull();
+    expect(container.querySelector("input")).toBeNull();
+    expect(container.querySelector("iframe")).toBeNull();
+  });
+
+  it("state who processes the payment and who receives it", () => {
+    const { container } = render(<DonationSection />);
+    const text = container.textContent ?? "";
+    expect(text).toMatch(/procesadas de forma segura por PayPal/i);
+    expect(text).toContain("FUNUDOS");
+  });
+
+  it("promise no earmarking, tax treatment, recurrence or sponsorship", () => {
+    const { container } = render(<DonationSection />);
+    const text = container.textContent ?? "";
+
+    expect(text).not.toMatch(/deducible|deducci[oó]n|certificado tributario/i);
+    expect(text).not.toMatch(/donaci[oó]n mensual|recurrente|suscripci[oó]n/i);
+    expect(text).not.toMatch(/apadrin|patrocinar una ni/i);
+    // The online donation is general; the section must say so.
+    expect(text).toMatch(/no se asigna autom[aá]ticamente a un [aá]rea/i);
   });
 });
 
