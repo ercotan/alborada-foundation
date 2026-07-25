@@ -15,6 +15,8 @@ import {
   DEFAULT_CATEGORY,
   inquiryCategories,
   inquiryTopics,
+  resolveTopicId,
+  topicById,
   type InquiryCategoryId,
   type InquiryTopicId,
 } from "../data/contact";
@@ -32,6 +34,8 @@ export interface ContactInquiry {
   consent: boolean;
 
   // Optional
+  /** Subject within the category. "" when the category offers none. */
+  topic: InquiryTopicId | "";
   phone: string;
   organization: string;
   role: string;
@@ -49,6 +53,7 @@ export const emptyInquiry: ContactInquiry = {
   message: "",
   category: DEFAULT_CATEGORY,
   consent: false,
+  topic: "",
   phone: "",
   organization: "",
   role: "",
@@ -190,8 +195,14 @@ export function buildInquiryPayload(
   for (const [key, value] of Object.entries(inquiry)) {
     payload.append(key, typeof value === "boolean" ? String(value) : value);
   }
+  // Human-readable labels travel with the machine values, so whoever reads
+  // the enquiry does not have to resolve a slug against this codebase.
   const label = inquiryCategories.find((c) => c.id === inquiry.category)?.label;
   if (label) payload.append("categoryLabel", label);
+  if (inquiry.topic) {
+    payload.append("topicLabel", topicById(inquiry.topic).label);
+  }
+
   for (const file of attachments) payload.append("attachments", file);
   return payload;
 }
@@ -269,9 +280,11 @@ export function readCategory(search: string): InquiryCategoryId {
  * a subject its desk does not handle.
  */
 export function readTopic(search: string): InquiryTopicId | null {
-  const params = new URLSearchParams(search);
-  const requested = params.get("tema");
-  const match = inquiryTopics.find((topic) => topic.id === requested);
+  const resolved = resolveTopicId(new URLSearchParams(search).get("tema"));
+  if (!resolved) return null;
+
+  const match = inquiryTopics.find((topic) => topic.id === resolved);
   if (!match) return null;
+
   return match.category === readCategory(search) ? match.id : null;
 }

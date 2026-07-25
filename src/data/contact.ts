@@ -120,6 +120,44 @@ export function topicById(id: InquiryTopicId): InquiryTopic {
   return found;
 }
 
+/** The topics offered under a category. Empty when the category has none. */
+export function topicsForCategory(category: InquiryCategoryId): InquiryTopic[] {
+  return inquiryTopics.filter((topic) => topic.category === category);
+}
+
+export function categoryById(
+  id: InquiryCategoryId,
+): InquiryCategory | undefined {
+  return inquiryCategories.find((category) => category.id === id);
+}
+
+/**
+ * Shorthand spellings accepted in the `tema` parameter.
+ *
+ * The links this site generates always use the canonical slugs above. These
+ * exist for URLs typed, shortened or quoted by hand, so a recognisable
+ * `?tema=finanzas` resolves instead of being dropped in silence. They resolve
+ * *to* canonical values and never widen the set — nothing new becomes
+ * addressable, so routing is unaffected.
+ */
+const TOPIC_ALIASES: Readonly<Record<string, InquiryTopicId>> = {
+  finanzas: "finanzas-personales",
+  habitos: "habitos-y-disciplina",
+  educacion: "educacion-y-tecnologia",
+  becas: "becas-y-estudio",
+  aula: "aula-de-tecnologia",
+  residencia: "residencia-y-cuidado",
+  huerta: "huerta-y-granja",
+};
+
+/** Resolves a raw `tema` value to a known topic, or `null`. */
+export function resolveTopicId(raw: string | null): InquiryTopicId | null {
+  if (!raw) return null;
+  const canonical = inquiryTopics.find((topic) => topic.id === raw);
+  if (canonical) return canonical.id;
+  return TOPIC_ALIASES[raw] ?? null;
+}
+
 /**
  * The four collaboration options in the Contact section. Each one is an entry
  * point to the enquiry form with its category already selected.

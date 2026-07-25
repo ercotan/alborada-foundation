@@ -7,7 +7,10 @@ import {
   MAX_FILE_MB,
   MAX_TOTAL_MB,
   PRIVACY_ANCHOR,
+  topicById,
+  topicsForCategory,
   type InquiryCategoryId,
+  type InquiryTopicId,
 } from "../../data/contact";
 import {
   checkAttachments,
@@ -22,6 +25,20 @@ import {
 
 const inputClass =
   "w-full rounded-xl border border-white/10 bg-white/[0.035] px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-[#d4af37]/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af37]";
+
+/**
+ * `color-scheme: dark` makes the browser paint the native option list on a
+ * dark surface. Without it the list inherits `text-white` from the control but
+ * opens on the system's light surface, so on Windows every option renders
+ * white on white — present in the DOM, invisible on screen.
+ */
+const selectClass = `${inputClass} [color-scheme:dark]`;
+
+/**
+ * Belt and braces for the same problem: `color-scheme` is ignored by some
+ * engines, so the options also carry their own colours explicitly.
+ */
+const optionClass = "bg-navy-950 text-white";
 
 const labelClass = "block text-xs uppercase tracking-[0.18em] text-white/50";
 
@@ -86,15 +103,17 @@ const Field: React.FC<FieldProps> = ({
 export const ContactInquiryForm: React.FC<{
   initialCategory: InquiryCategoryId;
   /**
-   * Subject to open with, when the visitor arrived from a card that names
-   * one. It is an ordinary editable field, not a hidden value.
+   * The topic the visitor arrived with, already validated against the
+   * category. It preselects the topic field and seeds the subject, both of
+   * which stay ordinary editable fields rather than hidden values.
    */
-  initialSubject?: string;
-}> = ({ initialCategory, initialSubject = "" }) => {
+  initialTopic?: InquiryTopicId | null;
+}> = ({ initialCategory, initialTopic = null }) => {
   const [inquiry, setInquiry] = useState<ContactInquiry>({
     ...emptyInquiry,
     category: initialCategory,
-    subject: initialSubject,
+    topic: initialTopic ?? "",
+    subject: initialTopic ? topicById(initialTopic).label : "",
   });
   const [files, setFiles] = useState<File[]>([]);
   const [rejections, setRejections] = useState<AttachmentRejection[]>([]);
@@ -107,6 +126,28 @@ export const ContactInquiryForm: React.FC<{
     key: K,
     value: ContactInquiry[K],
   ) => setInquiry((previous) => ({ ...previous, [key]: value }));
+
+  const topicOptions = topicsForCategory(inquiry.category);
+
+  /**
+   * Changing the category clears a topic that does not belong to the new one.
+   *
+   * Without this the select would hold a value with no matching option, which
+   * React reports as switching between controlled and uncontrolled — and the
+   * enquiry would carry a topic from a category the visitor left behind.
+   */
+  const selectCategory = (value: string) => {
+    const category = value as InquiryCategoryId;
+    const stillValid = topicsForCategory(category).some(
+      (topic) => topic.id === inquiry.topic,
+    );
+
+    setInquiry((previous) => ({
+      ...previous,
+      category,
+      topic: stillValid ? previous.topic : "",
+    }));
+  };
 
   const addFiles = (incoming: FileList | null) => {
     if (!incoming) return;
@@ -318,18 +359,56 @@ export const ContactInquiryForm: React.FC<{
             id="category"
             name="category"
             value={inquiry.category}
-            onChange={(event) =>
-              set("category", event.target.value as InquiryCategoryId)
-            }
-            className={`mt-2 ${inputClass}`}
+            onChange={(event) => selectCategory(event.target.value)}
+            className={`mt-2 ${selectClass}`}
           >
             {inquiryCategories.map((category) => (
-              <option key={category.id} value={category.id}>
+              <option
+                key={category.id}
+                value={category.id}
+                className={optionClass}
+              >
                 {category.label}
               </option>
             ))}
           </select>
         </div>
+
+        {/*
+          Only rendered for categories that actually have topics, rather than
+          shown empty and disabled. Optional throughout: a visitor who does not
+          recognise their case in the list can still send the enquiry.
+        */}
+        {topicOptions.length > 0 && (
+          <div>
+            <label className={labelClass} htmlFor="topic">
+              Tema
+            </label>
+            <select
+              id="topic"
+              name="topic"
+              value={inquiry.topic}
+              aria-describedby="topic-help"
+              onChange={(event) =>
+                set("topic", event.target.value as ContactInquiry["topic"])
+              }
+              className={`mt-2 ${selectClass}`}
+            >
+              <option value="" className={optionClass}>
+                Sin especificar
+              </option>
+              {topicOptions.map((topic) => (
+                <option key={topic.id} value={topic.id} className={optionClass}>
+                  {topic.label}
+                </option>
+              ))}
+            </select>
+            <p id="topic-help" className="mt-2 text-xs leading-5 text-white/40">
+              Opcional. Si llegó desde una tarjeta del sitio, su tema ya está
+              seleccionado.
+            </p>
+          </div>
+        )}
 
         <div className="grid gap-5 md:grid-cols-2">
           <Field

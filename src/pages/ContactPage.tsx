@@ -42,8 +42,17 @@ export const ContactPage: React.FC<{
               <>
                 {" "}
                 La categoría{" "}
-                <strong className="text-white">{category.label}</strong> ya está
-                seleccionada; puede cambiarla si corresponde.
+                <strong className="text-white">{category.label}</strong>
+                {topic && (
+                  <>
+                    {" "}
+                    y el tema{" "}
+                    <strong className="text-white">{topic.label}</strong>
+                  </>
+                )}{" "}
+                ya {topic ? "están" : "está"} seleccionad
+                {topic ? "os" : "a"}; puede cambiarl
+                {topic ? "os" : "a"} si corresponde.
               </>
             )}
           </p>
@@ -52,7 +61,7 @@ export const ContactPage: React.FC<{
         <div className="mt-14">
           <ContactInquiryForm
             initialCategory={initialCategory}
-            initialSubject={topic?.label}
+            initialTopic={initialTopic}
           />
         </div>
 
