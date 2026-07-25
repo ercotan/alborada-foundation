@@ -79,7 +79,12 @@ Site content language: **Spanish**. Code, comments, commits, docs: **English**.
 
 `ui/` versus `shared/` is decided by **behaviour**: `ui/` renders, `shared/` does something.
 
-**Documented exception — do not "fix" this:** `Header` is rendered inside `HeroSection`, not in `Homepage`. It is absolutely positioned against the hero section; moving it to page level changes its positioning context and moves it visually. This is intentional.
+**Superseded (25 July 2026).** `Header` used to be rendered inside `HeroSection`, absolutely positioned against it, and this file recorded that as a deliberate arrangement not to "fix". It was moved to page level in `Homepage` when the header became sticky, because `HeroSection` clips its overflow and a sticky element only sticks within its scrolling ancestor — the bar would have scrolled away with the hero. The hero is now pulled up by `-mt-[var(--header-height)]` so the sunrise still runs behind it and the top of the page looks unchanged.
+
+**Documented constraints — do not "fix" these:**
+
+- **No wrapper may carry `overflow-x-hidden`.** `overflow-x: hidden` on a `div` makes it a scroll container, and the sticky header would stick to *that* container, which never scrolls because the document does. The header would silently stop sticking while still looking correct at the top of the page. Horizontal overflow is guarded on `html` in `index.css` instead, where the property propagates to the viewport rather than creating a second scrollport.
+- **`--header-height` in `index.css` is a single source of truth**, used by the header's own box, the hero's negative offset, and the `scroll-margin-top` that keeps anchor targets from landing under the bar. The header is sized *by* it, so it cannot drift. Changing the header's height means changing that variable, not adding padding.
 
 ---
 

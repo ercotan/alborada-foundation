@@ -2,13 +2,16 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { CinematicCanvas } from "../CinematicCanvas";
-import { Header } from "../layout/Header";
 import { ScrollButton } from "../shared/ScrollButton";
 
 export const HeroSection: React.FC = () => (
+  // Pulled up by exactly the header's height so the sunrise starts at the top
+  // of the page and runs behind the bar, as it did when the header was
+  // absolutely positioned inside this section. The hero still occupies a full
+  // viewport, so its centred content sits where it always did.
   <section
     id="hero"
-    className="relative flex min-h-screen w-full items-center justify-center overflow-hidden"
+    className="relative -mt-[var(--header-height)] flex min-h-screen w-full items-center justify-center overflow-hidden"
   >
     <CinematicCanvas
       progress={0.73}
@@ -19,8 +22,6 @@ export const HeroSection: React.FC = () => (
 
     <div className="absolute inset-0 bg-gradient-to-b from-[#020712]/30 via-transparent to-[#020712]/75" />
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.10),transparent_48%)]" />
-
-    <Header />
 
     <motion.div
       initial={{ opacity: 0, y: 35 }}

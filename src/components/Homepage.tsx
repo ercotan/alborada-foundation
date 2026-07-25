@@ -1,5 +1,6 @@
 import React from "react";
 import { FooterSection } from "./layout/FooterSection";
+import { Header } from "./layout/Header";
 import { HashScrollOnLoad } from "./shared/HashScrollOnLoad";
 import {
   AlliancesSection,
@@ -20,8 +21,11 @@ import {
 } from "./sections";
 
 export const Homepage: React.FC = () => (
-  <div className="min-h-screen overflow-x-hidden bg-[#020712] text-white selection:bg-[#d4af37]/30">
+  // No `overflow-x-hidden` here: it would make this a scroll container and the
+  // sticky header would stop sticking. The guard lives on `html` in index.css.
+  <div className="min-h-screen bg-[#020712] text-white selection:bg-[#d4af37]/30">
     <HashScrollOnLoad />
+    <Header />
     <HeroSection />
     <MissionSection />
     <VisionSection />

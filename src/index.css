@@ -27,6 +27,43 @@
   --color-navy-700: #2c3a70;
   --color-navy-800: #020408;
   --color-navy-950: #050a1a; /* Premium Midnight Navy background from Natural Tones */
+
+  /*
+   * Height of the sticky header.
+   *
+   * Declared once and used in three places that must agree: the header's own
+   * box, the negative offset that lets the hero start behind it, and the
+   * scroll margin that keeps anchor targets from landing underneath it. The
+   * header is sized *by* this value rather than measured against it, so the
+   * variable cannot drift out of date.
+   *
+   * 6.25rem is the height the header already had: 1.75rem of padding top and
+   * bottom around a 2.75rem brand block.
+   */
+  --header-height: 6.25rem;
+}
+
+/*
+ * Horizontal overflow is guarded here rather than on a wrapper element.
+ * `overflow-x: hidden` on a div makes it a scroll container, and a sticky
+ * child of a scroll container sticks to *that* container — which never
+ * scrolls, because the document does. The header would scroll away. On the
+ * root element the property propagates to the viewport instead, so it guards
+ * against horizontal scrolling without creating a second scrollport.
+ */
+html {
+  overflow-x: hidden;
+}
+
+/*
+ * Anchor targets clear the sticky header.
+ *
+ * Applies to every section with an id, so in-page navigation, the `#donations`
+ * shortcut and a pasted fragment URL all land with the heading visible rather
+ * than hidden behind the bar. One rule, and new sections inherit it.
+ */
+section[id] {
+  scroll-margin-top: var(--header-height);
 }
 
 /* Custom styles for luxury glassmorphism and ambient glow */
