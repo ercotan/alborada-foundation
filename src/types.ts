@@ -82,6 +82,19 @@ export interface IconFeature {
   text: string;
 }
 
+/**
+ * One movement of the argument in the "¿Por qué existe Alborada?" section.
+ *
+ * Ordered deliberately — problem, vision, difference, legacy — so the ordinal
+ * is part of the content rather than a decoration applied at render time.
+ */
+export interface PurposePillar {
+  /** Two-digit ordinal shown beside the heading. */
+  ordinal: string;
+  title: string;
+  text: string;
+}
+
 /** Large figure with a caption (impact grid). */
 export interface ImpactStat {
   value: string;

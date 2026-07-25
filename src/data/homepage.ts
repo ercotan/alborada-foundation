@@ -33,6 +33,7 @@ import type {
   ImpactStat,
   ModelPillar,
   NavLink,
+  PurposePillar,
   StatHighlight,
   TimelineMilestone,
   TopicCard,
@@ -68,6 +69,53 @@ export const footerNavLinks: NavLink[] = [
   { targetId: "campus", label: "Campus" },
   { targetId: "contact", label: "Contacto" },
 ];
+
+/* -------------------------------------------------------------------------- */
+/* Purpose                                                                     */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * The argument for the foundation's existence, in four movements.
+ *
+ * Written as reasoning rather than appeal: it states a structural problem, a
+ * method, a distinction and a consequence. Nothing here describes an outcome
+ * the programme has achieved, because it has not started — every claim is
+ * either an observation or an undertaking.
+ */
+export const purposeIntro = {
+  eyebrow: "Propósito",
+  title: "¿Por qué existe Alborada?",
+  /** Two lines, set as one lead paragraph. */
+  lead: "Ninguna niña elige dónde nace. La educación sí puede cambiar a dónde llega.",
+} as const;
+
+export const purposePillars: PurposePillar[] = [
+  {
+    ordinal: "01",
+    title: "El problema",
+    text: "El talento se reparte de forma pareja entre todos los territorios y todas las familias. La oportunidad de desarrollarlo, no. Esa distancia —entre lo que una niña podría llegar a ser y lo que su entorno le permite— no es una cuestión de mérito: es una cuestión de acceso.",
+  },
+  {
+    ordinal: "02",
+    title: "La visión",
+    text: "Alborada se propone acompañar a un grupo reducido de estudiantes durante años, no durante una temporada. El conocimiento riguroso, el carácter, el criterio, el liderazgo y la responsabilidad no se entregan: se construyen con tiempo, continuidad y exigencia sostenida.",
+  },
+  {
+    ordinal: "03",
+    title: "La diferencia",
+    text: "El objetivo no es la ayuda puntual. Entregar un recurso resuelve un día; formar una capacidad ordena una vida. Alborada existe para que cada estudiante llegue a ser una mujer capaz de decidir por sí misma y de transformar su familia, su comunidad y su país con su propio trabajo.",
+  },
+  {
+    ordinal: "04",
+    title: "El legado",
+    text: "Una generación bien educada abre el camino de la siguiente. La educación produce libertad, la libertad exige responsabilidad y la responsabilidad construye prosperidad duradera. Ese encadenamiento, sostenido en el tiempo, es la única herencia que no se agota al usarse.",
+  },
+];
+
+export const purposeQuote = {
+  text: "Una fundación no se mide por lo que entrega, sino por lo que sus estudiantes llegan a construir sin ella.",
+  attribution: "Fundación Alborada",
+} as const;
 
 /* -------------------------------------------------------------------------- */
 /* Mission                                                                     */

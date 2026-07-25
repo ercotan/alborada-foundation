@@ -1,4 +1,5 @@
 export { HeroSection } from "./HeroSection";
+export { PurposeSection } from "./PurposeSection";
 export { MissionSection } from "./MissionSection";
 export { VisionSection } from "./VisionSection";
 export { ModelSection } from "./ModelSection";

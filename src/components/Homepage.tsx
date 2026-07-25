@@ -14,6 +14,7 @@ import {
   MissionSection,
   ModelSection,
   OrientationSection,
+  PurposeSection,
   SustainabilitySection,
   TimelineSection,
   TransparencySection,
@@ -27,6 +28,7 @@ export const Homepage: React.FC = () => (
     <HashScrollOnLoad />
     <Header />
     <HeroSection />
+    <PurposeSection />
     <MissionSection />
     <VisionSection />
     <ModelSection />
