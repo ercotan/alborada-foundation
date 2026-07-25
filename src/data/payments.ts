@@ -43,7 +43,7 @@ export const PAYPAL_HOSTED_BUTTON_ID = "FX3C3ZF9BZUNY";
 
 /** Public client id issued for the hosted-buttons component. Not a secret. */
 export const PAYPAL_CLIENT_ID =
-  "BAAorzASCfDAHufEiN4IevnV_2d2BZEJRV9TztNjcuG-VrINZMjR8ng7l21FHeUU0Dxqzna6RSDcILERSK4";
+  "BAAorzAsCfDAHufEiN4IewvM_2d2BZEJRV9TztNJcuG-VrINZMjR8ng7l2lFh0uUDXqzha6RSDCitER3K4";
 
 /**
  * The only origin this integration is allowed to load a script from.

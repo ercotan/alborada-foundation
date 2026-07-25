@@ -32,8 +32,10 @@ describe("official identifiers", () => {
   });
 
   it("carries the public client id from the button builder", () => {
+    // Verified accepted by PayPal: this value returns the real SDK, where the
+    // first transcription returned 400 "client-id not recognized".
     expect(PAYPAL_CLIENT_ID).toBe(
-      "BAAorzASCfDAHufEiN4IevnV_2d2BZEJRV9TztNjcuG-VrINZMjR8ng7l21FHeUU0Dxqzna6RSDcILERSK4",
+      "BAAorzAsCfDAHufEiN4IewvM_2d2BZEJRV9TztNJcuG-VrINZMjR8ng7l2lFh0uUDXqzha6RSDCitER3K4",
     );
   });
 
