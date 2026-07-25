@@ -1,5 +1,6 @@
 import React from "react";
 import { headerNavLinks } from "../../data/homepage";
+import { DonationNavLink } from "../shared/DonationNavLink";
 import { ScrollButton } from "../shared/ScrollButton";
 
 /**
@@ -27,6 +28,9 @@ export const Header: React.FC = () => (
           {link.label}
         </ScrollButton>
       ))}
+
+      {/* Immediately after "Contacto", the last of the scroll links above. */}
+      <DonationNavLink className="transition hover:text-[#d4af37]" />
     </nav>
 
     <ScrollButton

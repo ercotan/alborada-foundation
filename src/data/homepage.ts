@@ -50,6 +50,18 @@ export const headerNavLinks: NavLink[] = [
   { targetId: "contact", label: "Contacto" },
 ];
 
+/**
+ * The donation shortcut in the header, placed immediately after "Contacto".
+ *
+ * Kept apart from `headerNavLinks` because it is not the same kind of control:
+ * those scroll within the current page, this one is a real link that also
+ * works from another document.
+ */
+export const donationNavItem = {
+  label: "Donar",
+  ariaLabel: "Donar",
+} as const;
+
 export const footerNavLinks: NavLink[] = [
   { targetId: "mission", label: "Misión" },
   { targetId: "model", label: "Modelo" },

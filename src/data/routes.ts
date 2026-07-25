@@ -30,6 +30,26 @@ export const CONTACT_PAGE_PATH = "/contacto.html";
 export const CHILD_PROTECTION_PATH = "/proteccion-infantil.html";
 
 /**
+ * DOM id of the donation section, which holds the PayPal button.
+ *
+ * Declared here because it is a navigation target reached from outside the
+ * component that renders it — including, potentially, from another document.
+ */
+export const DONATION_SECTION_ID = "donations";
+
+/**
+ * A section of the homepage, addressable from anywhere.
+ *
+ * On the homepage the link is intercepted and scrolled smoothly. From another
+ * document the browser simply follows it, and `HashScrollOnLoad` performs the
+ * scroll once the homepage has mounted — so one href covers both cases and no
+ * second route is introduced.
+ */
+export function homeSectionHref(sectionId: string): string {
+  return `${HOME_PATH}#${sectionId}`;
+}
+
+/**
  * The enquiry form with a category preselected, and optionally the topic the
  * visitor arrived from.
  *

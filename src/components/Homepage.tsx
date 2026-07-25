@@ -1,5 +1,6 @@
 import React from "react";
 import { FooterSection } from "./layout/FooterSection";
+import { HashScrollOnLoad } from "./shared/HashScrollOnLoad";
 import {
   AlliancesSection,
   CampusSection,
@@ -20,6 +21,7 @@ import {
 
 export const Homepage: React.FC = () => (
   <div className="min-h-screen overflow-x-hidden bg-[#020712] text-white selection:bg-[#d4af37]/30">
+    <HashScrollOnLoad />
     <HeroSection />
     <MissionSection />
     <VisionSection />
